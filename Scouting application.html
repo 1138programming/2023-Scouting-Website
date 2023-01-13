@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Match Scoring</h1>
+    <!--start with an input area to enter the team number and the match number-->
+   
+    <label for="teamNumber">Team Number:</label>
+
+    <input type="number" id="teamNumber" required
+           minlength="2" maxlength="6" size="8">
+b
+    <label for="matchNumber">Match Number:</label>
+
+    <input type="number" id="matchNumber" required
+           minlength="1" maxlength="2" size="4">
+    <div class="mb-1">
+        <button onclick="saveMatch()" class="btn btn-primary">Save</button>
+     </div>
+      <div class="mb-1">
+        <button onclick="loadMatch()" class="btn btn-danger">Load</button>
+     </div>
+
+       
+    <!--Define tabs-->
+    <ul class="nav nav-pills mb-3" id="pills-tab">
+        <li class="nav-item">
+            <button class="nav-link active" id="pills-autonomous-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-autonomous" type="button">Autonomous</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="pills-drivercontrol-tab" data-bs-toggle="pill"
+                data-bs-target="#pills-drivercontrol" type="button">Driver Control</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="pills-team-tab" data-bs-toggle="pill" data-bs-target="#pills-team"
+                type="button">Team Information</button>
+        </li>
+            <li class="nav-item">
+            <button class="nav-link" id="pills-match-tab" data-bs-toggle="pill" data-bs-target="#pills-match"
+                type="button">Match Results</button>
+        </li>
+
+    </ul>
+
+<!--add content for each of the defined tabs-->
+    <div class="tab-content">
+
+        <!--Autonomous -->
+        <div class="tab-pane fade show active" id="pills-autonomous">
+            <h3>Autonomous Scoring</h3>
+            <p>
+            <div class="text-center">
+                <span id="autonPointsTotal">0</span> Autonomous Points
+                <div class="mb-1">
+                    <button onclick="adjustPoints(1,'autonPointsTotal')" class="btn btn-primary">Add Block</button>
+                    <button onclick="adjustPoints(-1,'autonPointsTotal')" class="btn btn-danger">Remove Block</button>
+                </div>
+                <div class="mb-1">
+                    <button onclick="adjustPoints(2,'autonPointsTotal')" class="btn btn-primary">Add Cone</button>
+                    <button onclick="adjustPoints(-2,'autonPointsTotal')" class="btn btn-danger">Remove Cone</button>
+                </div>
+            </div>
+            </p>
+        </div>
+
+        <!--Driver Control-->
+        <div class="tab-pane fade" id="pills-drivercontrol">
+            <h3>Driver Control Scoring</h3>
+            <p>
+            <div class="text-center">
+                <span id="driverPointsTotal">0</span> Driver Control Points
+                <div class="mb-1">
+                    <button onclick="adjustPoints(1,'driverPointsTotal')" class="btn btn-primary">Add Block</button>
+                    <button onclick="adjustPoints(-1,'driverPointsTotal')" class="btn btn-danger">Remove Block</button>
+                </div>
+                <div class="mb-1">
+                    <button onclick="adjustPoints(2,'driverPointsTotal')" class="btn btn-primary">Add Cone</button>
+                    <button onclick="adjustPoints(-2,'driverPointsTotal')" class="btn btn-danger">Remove Cone</button>
+                </div>
+            </div>
+            </p>
+        </div>
+
+        <!--Teams Information page-->
+        <div class="tab-pane fade" id="pills-team">
+            <h3>Team Information Page</h3>
+            <p>
+            <div class="text-center">
+                <span id="teamInfo">Team Information Page</span>
+            </div>
+            </p>
+        </div>
+
+         <!--Match Results page-->
+         <!-- This shows the final results of the match from Blue Alliance. It includes all the teams in the match, and the official results. It also includes all of the data we have collected on the match-->
+        <div class="tab-pane fade" id="pills-team">
+            <h3>Match Results Page</h3>
+            <p>
+            <div class="text-center">
+                <span id="matchResults">Match Results Page</span>
+            </div>
+            </p>
+        </div>
+
+        <script>
+
+            let team = {
+                nunber: null,
+                competition: null,
+                teamNotes:null,
+                matches:[]
+            }
+
+            // This is a java script comment. We are doing inline javascript
+            // Javascript has 3 levels of variables - var, let and const. Var - global variable. Wonky. let - similar to var, but preserves scope. const is a constant memory location that can be defined once.
+            function save() {
+                team.number=Number(document.getElementById("teamNumber").value);
+                const data = JSON.stringify(team);
+                window.localStorage.setItem("teamInfo", data);
+            }
+
+            function load() {
+                const data = window.localStorage.getItem("teamInfo")
+                team = JSON.parse(data);
+            }
+
+            function adjustPoints(amt,pointTarget) {
+                const pointsTotalField = document.getElementById(pointTarget);
+                const pointsTotal = Number(pointsTotalField.innerText);
+                pointsTotalField.innerText = pointsTotal + amt;
+            }
+
+            function saveMatch()
+            {
+                const matchNumber = Number(document.getElementById("matchNumber").value);
+
+                team.matches.push({
+                match: matchNumber,
+                matchAutonPoints:0,
+                matchDriverPoints:0,
+                matchDefenseRating:0
+                });
+            }
+               function LoadMatch()
+            {
+                const matchNumber = Number(document.getElementById("matchNumber").value);
+
+                team.matches.push({
+                match: matchNumber,
+                matchAutonPoints:0,
+                matchDriverPoints:0,
+                matchDefenseRating:0
+                });
+            }
+        </script>
+</body>
+
+</html>
