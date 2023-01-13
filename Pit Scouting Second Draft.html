@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+  crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <title>Team 1138 Scouting 2023</title>
+  <h1>Pit Scouting</h1>
+    <ul>
+  <label for="teamNumber">Team Number:</label>
+
+    <input type="number" id="teamNumber" required
+           minlength="2" maxlength="6" size="8">
+
+  <label for="competition">Competition ID:</label>
+
+    <input type="number" id="competitionID" required
+          minlength="2" maxlength="1000" size="8">
+    </ul>
+  <h3>Pit Details</h3>
+  <div id="pit">
+    <ul>
+      <p><label for="neatness">Level of Neatness:</label>
+         <input type="range" id="neatness" required
+      minlength="2" maxlength="10" size="10" step="1"></p>
+      
+      <p># of batteries:</p>
+         <input type="number" id="numberOfBatteries" required
+           minlength="2" maxlength="6" size="8">
+    
+      <p># of chargers:</p>
+        <input type="number" id="numberOfChargers" required
+           minlength="2" maxlength="6" size="8">
+    </ul>
+      </div>
+
+    <div id="botAndGameplay">
+    <h3>Bot and Gameplay Details</h3>
+    <ul>
+    <p>Insert bot image:</p>
+      <input type="file" id="botPicture" required
+           minlength="2" maxlength="6" size="8">
+     
+    <p>Drivetrain Motors:</p>
+    <input type="text" id="drivetrainMotors" required
+           minlength="2" maxlength="1000" size="15">
+    </ul>
+
+    <ul>
+    <p>Type of Motors:</p>
+      <!--Make it so at least one needs to be clicked-->  
+            <form method="post" action="/Tests/Post/">      
+                <fieldset>        
+                    <input type="checkbox" name="motorType" value="falcon">Falcon<br>
+                    <input type="checkbox" name="motorType" value="neo">Neo<br>      
+                    <input type="checkbox" name="motorType" value="cims">Cims<br>      
+                    <input type="checkbox" name="motorType" value="other"><label id="other">Other:</label><input type="text" id="other" minlength="2" maxlength="1000" size="8"><br>
+                    <br>      
+                </fieldset>      
+            </form>
+      </ul>
+
+    <ul>  
+    <p># of Motors on Drivetrain:</p>
+      <input type="text" id="motorsDrivetrain" required
+          minlength="2" maxlength="1000" size="15">
+    </ul>
+    <ul>
+    <p>What nodes can they reach/do?</p>
+        <!--Make these options multiple choice-->
+        <!--Make it so at least one needs to be clicked-->
+        <form method="post" action="/Tests/Post/">      
+            <fieldset>          
+                <input type="radio" name="nodeReached" value="hybrid/floor">Hybrid/Floor<br>
+                <input type="radio" name="nodeReached" value="middle">Middle<br>      
+                <input type="radio" name="nodeReached" value="high">High<br>      
+                <input type="radio" name="nodeReached" value="none">None<br>      
+                <br>      
+            </fieldset>      
+        </form>
+      </ul>
+
+      <ul>
+    <p>What game pieces can they grab/use?</p>
+      <!--Make these options radio buttons choice, and only when other is chosen is the text box editable.-->
+        <!--Cones, Cubes, Both, None-->
+        <form method="post" action="/Tests/Post/">      
+            <fieldset>          
+                <input type="radio" name="gamepieceUsed" value="cone">Cone<br>
+                <input type="radio" name="gamepieceUsed" value="cube">Cube<br>      
+                <input type="radio" name="gamepieceUsed" value="both">Both<br>      
+                <input type="radio" name="gamepieceUsed" value="none">None<br>      
+                <br>      
+            </fieldset>      
+        </form>
+      </ul>
+
+    <ul>
+    <p>How long does it take to get to their highest possible node?</p>
+    <input type="number" id="highestPossibleNode" required
+        minlength="2" maxlength="100" size="8">
+        </ul>
+    
+    <ul>
+    <p>Average Cycle Time:</p>
+    <!--Add a text box that is editable to audience or interactive slider-->
+
+    </ul>
+    <p>General describtion of Autonomous:</p>
+      <ul>
+        <li>What's scored?</li>
+        <li>Where is it scored?</li>
+        <li>Do you go onto the charging station?</li>
+        <li>Is it balanced?</li>
+        <li>Do you leave the community?</li>
+        <li>What starting line up of the pieces works best with your auton?</li>
+        <!--Add a text box that is editable to audience for everything-->
+      </ul>
+
+  </div>
+</body>
+
+</html>
