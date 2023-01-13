@@ -1,1 +1,1 @@
-# 2023-Scouting-Website-
+# 2023-Scouting-Website
