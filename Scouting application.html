@@ -17,7 +17,7 @@
 
     <input type="number" id="teamNumber" required
            minlength="2" maxlength="6" size="8">
-b
+
     <label for="matchNumber">Match Number:</label>
 
     <input type="number" id="matchNumber" required
@@ -114,7 +114,7 @@ b
         <script>
 
             let team = {
-                nunber: null,
+                number: null,
                 competition: null,
                 teamNotes:null,
                 matches:[]
@@ -150,11 +150,12 @@ b
                 matchDefenseRating:0
                 });
             }
+
                function LoadMatch()
             {
                 const matchNumber = Number(document.getElementById("matchNumber").value);
 
-                team.matches.push({
+                team.matches.pull({
                 match: matchNumber,
                 matchAutonPoints:0,
                 matchDriverPoints:0,
