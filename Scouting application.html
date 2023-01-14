@@ -58,6 +58,14 @@
         <div class="tab-pane fade show active" id="pills-autonomous">
             <h3>Autonomous Scoring</h3>
             <div class="text-center">
+
+                <p>0</p>
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <button type="button" class="btn btn-secondary">-</button>
+                    <button type="button" class="btn btn-secondary">+</button>
+                    </div>
+                  </div>
+
                 <span id="autonPointsTotal">0</span> Autonomous Points
                 <div class="d-flex justify-content-center">
                 <div class="mb-1">
@@ -158,10 +166,15 @@
                 team = JSON.parse(data);
             }
 
-            function adjustPoints(amt,pointTarget) {
+            function adjustDisplay(amt,pointTarget) {
                 const pointsTotalField = document.getElementById(pointTarget);
                 const pointsTotal = Number(pointsTotalField.innerText);
-                pointsTotalField.innerText = pointsTotal + amt;
+                if (pointsTotal + amt < 0) [
+                    pointsTotalField.innerText = 0,
+                ]
+                else[
+                    pointsTotalField.innerText = pointsTotal + amt,
+                ]
             }
 
             function saveMatch()
