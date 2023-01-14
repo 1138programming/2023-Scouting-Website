@@ -61,12 +61,12 @@
             <div class="text-center">
                 <span id="autonPointsTotal">0</span> Autonomous Points
                 <div class="mb-1">
-                    <button onclick="adjustPoints(1,'autonPointsTotal')" class="btn btn-primary">Add Block</button>
-                    <button onclick="adjustPoints(-1,'autonPointsTotal')" class="btn btn-danger">Remove Block</button>
+                    <button onclick="adjustDisplay(1,'autonPointsTotal')" class="btn btn-primary">Add Block</button>
+                    <button onclick="adjustDisplay(-1,'autonPointsTotal')" class="btn btn-danger">Remove Block</button>
                 </div>
                 <div class="mb-1">
-                    <button onclick="adjustPoints(2,'autonPointsTotal')" class="btn btn-primary">Add Cone</button>
-                    <button onclick="adjustPoints(-2,'autonPointsTotal')" class="btn btn-danger">Remove Cone</button>
+                    <button onclick="adjustDisplay(2,'autonPointsTotal')" class="btn btn-primary">Add Cone</button>
+                    <button onclick="adjustDisplay(-2,'autonPointsTotal')" class="btn btn-danger">Remove Cone</button>
                 </div>
             </div>
             </p>
@@ -80,48 +80,81 @@
                 <span id="driverPointsTotal">0</span> Driver Control Points 
                 <div class="d-flex justify-content-center">
                     <div class="mb-1">
-                        <div> <div id="driverCubeHighTotal">0 <label for="driverCubeHighTotal">Cube High</label></div></div>
                         <Type></text>
-                        <button onclick="adjustPoints(1,'driverCubeHighTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustPoints(-1,'driverCubeHighTotal')" class="btn btn-danger">-</button>
-                    </div>
-                    <div style="width: 2rem;"></div>
-                    <div class="mb-1">
-                        <div> <div id="driverConeHighTotal">0 <label for="driverConeHighTotal">Cone High</label></div></div>
-                        <Type></text>
-                        <button onclick="adjustPoints(1,'driverConeHighTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustPoints(-1,'driverConeHighTotal')" class="btn btn-danger">-</button>
+                        <span>                       Cube      Cone</span>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
+                    <div>High                    </div>
                     <div class="mb-1">
-                        <div> <div id="driverCubeMidTotal">0 <label for="driverCubeMidTotal">Cube Mid</label></div></div>
+                        <div> <div id="driverCubeHighTotal">0 </div></div>
                         <Type></text>
-                        <button onclick="adjustPoints(1,'driverCubeMidTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustPoints(-1,'driverCubeMidTotal')" class="btn btn-danger">-</button>
+                        <button onclick="adjustDisplay(1,'driverCubeHighTotal')" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1,'driverCubeHighTotal')" class="btn btn-danger btn-lg">-</button>
                     </div>
                     <div style="width: 2rem;"></div>
                     <div class="mb-1">
-                        <div> <div id="driverConeMidTotal">0 <label for="driverConeMidTotal">Cone Mid</label></div></div>
+                        <div> <div id="driverConeHighTotal">0 </div></div>
                         <Type></text>
-                        <button onclick="adjustPoints(1,'driverConeMidTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustPoints(-1,'driverConeMidTotal')" class="btn btn-danger">-</button>
+                        <button onclick="adjustDisplay(1,'driverConeHighTotal')" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1,'driverConeHighTotal')" class="btn btn-danger btn-lg">-</button>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
+                    <div>Mid                    </div>
                     <div class="mb-1">
-                        <div> <div id="driverCubeLowTotal">0<label for="driverCubeLowTotal">Cube Low</label></div></div>
+                        <div> <div id="driverCubeMidTotal">0 </div></div>
                         <Type></text>
-                        <button onclick="adjustPoints(1,'driverCubeLowTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustPoints(-1,'driverCubeLowTotal')" class="btn btn-danger">-</button>
+                        <button onclick="adjustDisplay(1,'driverCubeMidTotal')" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1,'driverCubeMidTotal')" class="btn btn-danger btn-lg">-</button>
                     </div>
                     <div style="width: 2rem;"></div>
                     <div class="mb-1">
-                        <div> <div id="driverConeLowTotal">0<label for="driverConeLowTotal">Cone Low</label></div></div>
+                        <div> <div id="driverConeMidTotal">0</div></div>
                         <Type></text>
-                        <button onclick="adjustPoints(1,'driverConeLowTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustPoints(-1,'driverConeLowTotal')" class="btn btn-danger">-</button>
+                        <button onclick="adjustDisplay(1,'driverConeMidTotal')" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1,'driverConeMidTotal')" class="btn btn-danger btn-lg">-</button>
                     </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div>Low                    </div>
+                    <div class="mb-1">
+                        <div> <div id="driverCubeLowTotal">0</div></div>
+                        <Type></text>
+                        <button onclick="adjustDisplay(1,'driverCubeLowTotal')" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1,'driverCubeLowTotal')" class="btn btn-danger btn-lg">-</button>
+                    </div>
+                    <div style="width: 2rem;"></div>
+                    <div class="mb-1">
+                        <div> <div id="driverConeLowTotal">0</div></div>
+                        <Type></text>
+                        <button onclick="adjustDisplay(1,'driverConeLowTotal')" class="btn btn-primary btn-lg btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1,'driverConeLowTotal')" class="btn btn-danger btn-lg">-</button>
+                    </div>
+                </div>
+            
+                <div>
+                    <div style="width: 20rem;">
+                        <label for="Offense" class="form-label">Offense</label>
+                        <input type="range" class="form-range" min="0" max="30" id="Offense">
+                    </div> 
+                    <div class="d-flex-content-end">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Docked?
+                        </label>
+                        
+                    </div>
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Engaged?
+                    </label>
+                </div>
+                <div>
+                    <div style="width: 20rem;">
+                        <label for="Defense" class="form-label">Defense</label>
+                        <input type="range" class="form-range" min="0" max="30" id="Defense">
+                    </div>  
                 </div>
             </div>
         </div>
@@ -176,13 +209,30 @@
 
             function adjustDisplay(amt,pointTarget) {
                 const pointsTotalField = document.getElementById(pointTarget);
-                const pointsTotal = Number(pointsTotalField.innerText);
-                if (pointsTotal + amt < 0) [
-                    pointsTotalField.innerText = 0,
-                ]
-                else[
-                    pointsTotalField.innerText = pointsTotal + amt,
-                ]
+                let pointsTotalArr = String(pointsTotalField.innerText);
+                let pointsTotalArr2 = pointsTotalArr.split(" ");
+                const pointsTotal = Number(pointsTotalArr2[0]);
+                if (pointsTotal + amt < 0) {
+                    pointsTotalField.innerText = 0; 
+                }
+                else {
+                    pointsTotalField.innerText = pointsTotal + amt;
+                    
+                }
+                driverTotalPointscalc();
+            }
+            function driverTotalPointscalc() {
+                let driverPointsTotalField = document.getElementById("driverPointsTotal");
+                let cubeHighTotal = document.getElementById('driverCubeHighTotal');
+                let cubeMidTotal = document.getElementById('driverCubeMidTotal');
+                let cubeLOWTotal = document.getElementById('driverCubeLowTotal');
+                let coneHighTotal = document.getElementById('driverConeHighTotal');
+                let coneMidTotal = document.getElementById('driverConeMidTotal');
+                let coneLOWTotal = document.getElementById('driverConeLowTotal');
+                let driverHighTotal = Number(cubeHighTotal.innerText) + Number(coneHighTotal.innerText);
+                let driverMidTotal = Number(cubeMidTotal.innerText) + Number(coneMidTotal.innerText);
+                let driverLowTotal = Number(cubeLOWTotal.innerText) + Number(coneLOWTotal.innerText);
+                driverPointsTotalField.innerText = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
             }
             function saveMatch()
             {
