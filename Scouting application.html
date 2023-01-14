@@ -166,7 +166,7 @@
                 team = JSON.parse(data);
             }
 
-            function adjustDisplay(amt,pointTarget) {
+            function adjustPoints(amt,pointTarget) {
                 const pointsTotalField = document.getElementById(pointTarget);
                 const pointsTotal = Number(pointsTotalField.innerText);
                 if (pointsTotal + amt < 0) [
