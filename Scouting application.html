@@ -10,6 +10,7 @@
 </head>
 
 <body>              <title>Team 1138 FRC 2023</title>
+    <div class="container-fluid">
     <h1>Match Scoring</h1>
     <!--start with an input area to enter the team number and the match number-->
    
@@ -43,6 +44,10 @@
         <li class="nav-item">
             <button class="nav-link" id="pills-team-tab" data-bs-toggle="pill" data-bs-target="#pills-team"
                 type="button">Pit Scouting</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="pills-teamscouting-tab" data-bs-toggle="pill" 
+            data-bs-target="#pills-teamscouting" type="button">Team Scouting</button>
         </li>
         <li class="nav-item">
             <button class="nav-link" id="pills-match-tab" data-bs-toggle="pill" data-bs-target="#pills-match"
@@ -118,6 +123,13 @@
                   <p>How many chargers do you have?</p>
                     <input type="number" id="numberOfChargers" required
                        minlength="2" maxlength="6" size="8">
+
+                    
+                    <div class="w-50">
+                    <p><label for="neatness">Level of Neatness:</label>
+                       <input oninput="adjustRangeDisplay('neatness','neatnessLevel')"type="range" class="form-range" min="0" max="10" step="1" id="neatness" value="0">
+                        <label for="neatness" id="neatnessLevel">Level 0</label></p></div>
+                
                 </ul>
                   </div>
             
@@ -391,10 +403,24 @@
                         return false;  
                     }  
                 }  
-            
+                function adjustRangeDisplay(rangeinput,target) {
+                rangeFeild = document.getElementById(rangeinput);
+                rangeTotal = document.getElementById(target);
+                rangeTotalArr = String(rangeTotal.innerText);
+                rangeTotalArr2 = rangeTotalArr.split(" ");
+                rangeTotalArr2[1] = rangeFeild.value
+                rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
+                
+            }
                 </script>
         
-        </div>
+                </div>
+
+        <!--Team Scouting-->
+            <div class="tab-pane fade" id="pills-teamscouting">
+                    <h1>Team Scouting</h1>
+                </div>
+
 
 <!--Match Results page-->
          <!-- This shows the final results of the match from Blue Alliance. It includes all the teams in the match, and the official results. It also includes all of the data we have collected on the match-->
@@ -460,6 +486,7 @@
                 });
             }
         </script>
+        </div>
 </body>
 
 </html>
