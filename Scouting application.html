@@ -9,7 +9,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body>              <title>Team 1138 2023</title>
     <h1>Match Scoring</h1>
     <!--start with an input area to enter the team number and the match number-->
    
@@ -42,9 +42,9 @@
         </li>
         <li class="nav-item">
             <button class="nav-link" id="pills-team-tab" data-bs-toggle="pill" data-bs-target="#pills-team"
-                type="button">Team Information</button>
+                type="button">Pit Scouting</button>
         </li>
-            <li class="nav-item">
+        <li class="nav-item">
             <button class="nav-link" id="pills-match-tab" data-bs-toggle="pill" data-bs-target="#pills-match"
                 type="button">Match Results</button>
         </li>
@@ -90,19 +90,316 @@
             </p>
         </div>
 
-        <!--Teams Information page-->
+        <!--Pit Scouting page-->
         <div class="tab-pane fade" id="pills-team">
-            <h3>Team Information Page</h3>
-            <p>
-            <div class="text-center">
-                <span id="teamInfo">Team Information Page</span>
-            </div>
-            </p>
+                <h1>Pit Scouting</h1>
+                <ul>
+              <p><label for="teamNumber">Team Number:</label>
+            
+                <input type="number" id="teamNumber" required
+                       minlength="2" maxlength="6" size="8"></p>
+            
+              <p><label for="competition">Competition ID:</label>
+            
+                <input type="number" id="competitionID" required
+                      minlength="2" maxlength="1000" size="8"></p>
+                      
+                </ul>
+               
+              
+            </ul>  
+            
+              <h3>Pit Details</h3>
+              <div id="pit">
+                <ul>
+                  <p>How many batteries do you have?</p>
+                     <input type="number" id="numberOfBatteries" required
+                       minlength="2" maxlength="6" size="8">
+                
+                  <p>How many chargers do you have?</p>
+                    <input type="number" id="numberOfChargers" required
+                       minlength="2" maxlength="6" size="8">
+                </ul>
+                  </div>
+            
+                <div id="botAndGameplay">
+                <h3>Bot and Gameplay Details</h3>
+                <ul>
+                <p>Insert bot image:</p>
+                  <input type="file" id="botPicture" required
+                       minlength="2" maxlength="6" size="8">
+                 
+                <p>Type of Drivetrain:</p>
+                <input type="text" id="typeofDrivetrain" required
+                       minlength="2" maxlength="1000" size="15">
+                </ul>
+            
+                <ul>
+                <p>Type of Motors:</p>  
+                        <form method="post" action="/Motor/Type" id="motorType">      
+                            <fieldset>        
+                                <input type="checkbox" name="motorType" value="falcon">Falcon<br>
+                                <input type="checkbox" name="motorType" value="neo">Neo<br>      
+                                <input type="checkbox" name="motorType" value="cims">Cims<br>      
+                                <input type="checkbox" name="motorType" value="other"><label id="other">Other:</label><textarea id="other" name="other" rows="1" cols="10"></textarea><br>
+                                      
+                            </fieldset>      
+                        </form>
+                  </ul>
+            
+                <ul>  
+                <p># of Motors on Drivetrain:</p>
+                  <input type="number" id="motorsDrivetrain" required
+                      minlength="2" maxlength="1000" size="15">
+                </ul>
+                <ul>
+                <p>What nodes can they reach/do?</p>
+            
+                    <form method="post" action="/Node/Reached" id="nodeReached">      
+                        <fieldset>          
+                            <input type="checkbox" name="nodeReached" value="hybrid/floor">Hybrid/Floor<br>
+                            <input type="checkbox" name="nodeReached" value="middle">Middle<br>      
+                            <input type="checkbox" name="nodeReached" value="high">High<br>      
+                            <input type="checkbox" name="nodeReached" value="none">None<br>      
+                         
+                        </fieldset>      
+                    </form>
+                  </ul>
+            
+                  <ul>
+                <p>What game pieces can they grab/use?</p>
+            
+                    <form method="post" action="/Piece/Grabed" id="pieceGrabed">      
+                        <fieldset>          
+                            <input type="radio" name="gamepieceUsed" value="cone">Cone<br>
+                            <input type="radio" name="gamepieceUsed" value="cube">Cube<br>      
+                            <input type="radio" name="gamepieceUsed" value="both">Both<br>      
+                            <input type="radio" name="gamepieceUsed" value="none">None<br>      
+                                
+                        </fieldset>      
+                    </form>
+                  </ul>
+            
+                <ul>
+                <p>How long does it take to get to their highest possible node?</p>
+                <input type="number" id="highestPossibleNode" required
+                    minlength="2" maxlength="100" size="8">
+                    </ul>
+                
+                <ul>
+                <p>Average Cycle Time:</p>
+                <input type="number" id="averageCycleTime" required 
+                    minlength="2" maxlength="1000" size="8">
+            
+                </ul>
+            
+                <h3>General describtion of Autonomous:</h3>
+                  <ul>
+                    <p>Do you gain mobility points?</p>
+                    <form method="post" action="/Mobility/Yes/No" id="mobilityYesNo">      
+                      <fieldset>          
+                          <input type="radio" name="mobilityYesNo" value="yes">Yes<br>
+                          <input type="radio" name="mobilityYesNo" value="no">No<br>         
+                            
+                      </fieldset>      
+                  </form>
+            
+                    <p>What's scored?</p>
+                    <form method="post" action="/Piece/Scored" id="gamepieceScored">      
+                      <fieldset>          
+                          <input type="radio" name="gamepieceScored" value="cone">Cone<br>
+                          <input type="radio" name="gamepieceScored" value="cube">Cube<br>      
+                          <input type="radio" name="gamepieceScored" value="both">Both<br>      
+                          <input type="radio" name="gamepieceScored" value="none">None<br>      
+                           
+                      </fieldset>      
+                  </form>
+            
+                    <p>How many are scored in each node?</p>
+                    <table class="table" id="locationScored">
+                      <thead>
+                        <tr>
+                          <th scope="col">Node Scored On</th>
+                          <th scope="col">Cones</th>
+                          <th scope="col">Cubes</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">Co-op High Node</th>
+                          <td><input type="number" id="co-opHighNodeCones" required 
+                            minlength="2" maxlength="1000" size="1"></td>
+                            <td><input type="number" id="co-opHighNodeCubes" required 
+                              minlength="2" maxlength="1000" size="1"></td>
+                        </tr>
+            
+                        <tr>
+                          <th scope="row">Co-op Middle Node</th>
+                          <td><input type="number" id="co-opMiddleNodeCones" required 
+                            minlength="2" maxlength="1000" size="1"></td>
+                            <td><input type="number" id="co-opMiddleNodeCubes" required 
+                              minlength="2" maxlength="1000" size="1"></td>
+                        </tr>
+            
+                        <tr>
+                          <th scope="row">Co-op Hybrid Node</th>
+                          <td><input type="number" id="co-opHybridNodeCones" required 
+                            minlength="2" maxlength="1000" size="1"></td>
+                            <td><input type="number" id="co-opHybridNodeCubes" required 
+                              minlength="2" maxlength="1000" size="1"></td>
+                        </tr>
+            
+                        <tr>
+                          <th scope="row">High Node</th>
+                          <td><input type="number" id="highNodeCones" required 
+                            minlength="2" maxlength="1000" size="1"></td>
+                            <td><input type="number" id="highNodeCubes" required 
+                              minlength="2" maxlength="1000" size="1"></td>
+                        </tr>
+            
+                        <tr>
+                          <th scope="row">Middle Node</th>
+                          <td><input type="number" id="middleNodeCones" required 
+                            minlength="2" maxlength="1000" size="1"></td>
+                            <td><input type="number" id="middleNodeCubes" required 
+                              minlength="2" maxlength="1000" size="1"></td>
+                        </tr>
+            
+                        <tr>
+                          <th scope="row">Hybrid Node</th>
+                          <td><input type="number" id="hybridNodeCones" required 
+                            minlength="2" maxlength="1000" size="1"></td>
+                            <td><input type="number" id="hybridNodeCubes" required 
+                              minlength="2" maxlength="1000" size="1"></td>
+                        </tr>
+            
+                      </tbody>
+                    </table>
+            
+                    <p>Do you go onto the charging station?</p>
+                    <form method="post" action="Charging/Station/Yes/No" id="chargingStationStatus">      
+                      <fieldset>          
+                          <input type="radio" name="chargingStationStatus" value="engaged">Engaged<br>
+                          <input type="radio" name="chargingStationStatus" value="docked">Docked<br> 
+                          <input type="radio" name="chargingStationStatus" value="docked">No<br>         
+                            
+                      </fieldset>      
+                  </form>
+            
+                    <p>Where on the charging station?</p>
+                    <form method="post" action="Charging/Station/Location" id="chargingStationLocation">      
+                      <fieldset>          
+                          <input type="radio" name="chargingStationLocation" value="left">Left<br>
+                          <input type="radio" name="chargingStationLocation" value="middle">Middle<br> 
+                          <input type="radio" name="chargingStationLocation" value="right">Right<br>  
+                          <input type="radio" name="chargingStationLocation" value="no">No<br>
+                            
+                      </fieldset>      
+                  </form>
+            
+                    <p>What starting line up of the pieces works best with your auton?</p>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Position #</th>
+                          <th scope="col">Piece</th>
+                        </tr>
+                      </thead>
+                      
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>
+                            <select name="piecePrefered" id="piecePreferedPosition1">
+                            <option value="select">Select</option>
+                            <option value="cones">Cones</option>
+                            <option value="cubes">Cubes</option>
+                            <option value="nothing">Nothing</option>
+                            </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>
+                            <select name="piecePrefered" id="piecePreferedPosition2">
+                            <option value="select">Select</option>
+                            <option value="cones">Cones</option>
+                            <option value="cubes">Cubes</option>
+                            <option value="nothing">Nothing</option>
+                            </select>
+                          </td>
+                        </tr>
+            
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>
+                            <select name="piecePrefered" id="piecePreferedPosition3">
+                            <option value="select">Select</option>
+                            <option value="cones">Cones</option>
+                            <option value="cubes">Cubes</option>
+                            <option value="nothing">Nothing</option>
+                            </select>
+                          </td>
+                        </tr>
+            
+                        <tr>
+                          <th scope="row">4</th>
+                          <td>
+                            <select name="piecePrefered" id="piecePreferedPosition4">
+                            <option value="select">Select</option>
+                            <option value="cones">Cones</option>
+                            <option value="cubes">Cubes</option>
+                            <option value="nothing">Nothing</option>
+                            </select>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!--Add a text box that is editable to audience for everything-->
+                  </ul>
+                  <div class="mb-1">
+                    <button onclick="saveMatch()" class="btn btn-primary">Save</button>
+                 </div>
+            
+              <script type="text/javascript">  
+                function ValidateMotorType()  
+                {  
+                    var checkboxes = document.getElementsByName("motorType");  
+                    var numberOfCheckedItems = 0;  
+                    for(var i = 0; i < checkboxes.length; i++)  
+                    {  
+                        if(checkboxes[i].checked)  
+                            numberOfCheckedItems++;  
+                    }  
+                    if(numberOfCheckedItems < 1)  
+                    {  
+                        alert("They must have motors, right?");  
+                        return false;  
+                    }  
+                }  
+                function ValidateNodeReached()  
+                {  
+                    var checkboxes = document.getElementsByName("nodeReached");  
+                    var numberOfCheckedItems = 0;  
+                    for(var i = 0; i < checkboxes.length; i++)  
+                    {  
+                        if(checkboxes[i].checked)  
+                            numberOfCheckedItems++;  
+                    }  
+                    if(numberOfCheckedItems < 1)  
+                    {  
+                        alert("Answer it, I know you can!");  
+                        return false;  
+                    }  
+                }  
+            
+                </script>
+        
         </div>
 
-         <!--Match Results page-->
+<!--Match Results page-->
          <!-- This shows the final results of the match from Blue Alliance. It includes all the teams in the match, and the official results. It also includes all of the data we have collected on the match-->
-        <div class="tab-pane fade" id="pills-team">
+         <div class="tab-pane fade" id="pills-match">
             <h3>Match Results Page</h3>
             <p>
             <div class="text-center">
@@ -110,6 +407,7 @@
             </div>
             </p>
         </div>
+            
 
         <script>
 
