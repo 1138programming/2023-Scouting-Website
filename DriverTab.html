@@ -74,7 +74,11 @@
             <h3>Driver Control Scoring</h3>
             
             <div class="text-center">
-                <span id="driverPointsTotal">0</span> Driver Control Points 
+                <div style="width: 118rem;">
+                    <span id="driverPointsTotal">0</span> Driver Control Points 
+                
+                </div>
+                
                 <div>
                     
                     
@@ -89,7 +93,7 @@
                     
                     </div>    
                     </div>
-                    </div>
+                </div>
                 
                 <!--High-->
                 <div class="d-flex justify-content-center">
@@ -199,12 +203,20 @@
                         Engaged?
                         </label>
                     </div>
-                    <span id="driverDefenseTotal">0</span>
-                    <span id="driverOffenseTotal">0</span>
+                    <div class>
+                        <label for="driverDefense"id="driverDefenseTotal">0</label>
+                        <label for="driverOffense" id="driverOffenseTotal">0</label>
+                    </div>
                     <div style="width: 40rem;">
                         <label for="driverDefense" class="form-label">Defense</label>
                         <input oninput="driverRangeLevel('driverDefense','driverDefenseTotal')" type="range" class="form-range" min="0" max="10" id="driverDefense" value="0">
                     </div>  
+                    <div class="mt-5">
+                        <div class="input-group">
+                            <span class="input-group-text">Any Notes?</span>
+                            <textarea id="driverNotes" class="form-control" aria-label="With textarea"></textarea>
+                          </div>
+                    </div>
                 </div>
             </div>
         </div>
