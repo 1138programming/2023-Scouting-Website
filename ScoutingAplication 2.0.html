@@ -189,8 +189,8 @@
                 <div>
                     
                     <div style="width: 40rem;">
-                        <label for="driverOffense" class="form-label">Offense</label>
-                        <input oninput="driverRangeLevel('driverOffense','driverOffenseTotal')" type="range" class="form-range" min="0" max="10" id="driverOffense" value="0">
+                        <label for="driverOffense" id="driverOffenseTotal">Offense 0</label>
+                        <input oninput="adjustRangeDisplay('driverOffense','driverOffenseTotal')" type="range" class="form-range" min="0" max="10" id="driverOffense" value="0">
                     </div> 
                     <div class="d-flex justify-content-center">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -205,12 +205,12 @@
                         </label>
                     </div>
                     <div class>
-                        <label for="driverDefense"id="driverDefenseTotal">0</label>
-                        <label for="driverOffense" id="driverOffenseTotal">0</label>
+                        
+                        
                     </div>
                     <div style="width: 40rem;">
-                        <label for="driverDefense" class="form-label">Defense</label>
-                        <input oninput="driverRangeLevel('driverDefense','driverDefenseTotal')" type="range" class="form-range" min="0" max="10" id="driverDefense" value="0">
+                        <label for="driverDefense"id="driverDefenseTotal">Defense 0</label>  
+                        <input oninput="adjustRangeDisplay('driverDefense','driverDefenseTotal')" type="range" class="form-range" min="0" max="10" id="driverDefense" value="0">
                     </div>  
                     <div class="mt-5">
                         <div class="input-group">
@@ -297,12 +297,13 @@
                 let driverLowTotal = Number(cubeLOWTotal.innerText) + Number(coneLOWTotal.innerText);
                 driverPointsTotalField.innerText = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
             }
-            function driverRangeLevel(rangeinput,target) {
-                driverRangeFeild = document.getElementById(rangeinput);
-                driverRangeTotal = document.getElementById(target);
-                driverRangeTotal.innerText = driverRangeFeild.value;  
-                
-
+            function adjustRangeDisplay(rangeinput,target) {
+                rangeFeild = document.getElementById(rangeinput);
+                rangeTotal = document.getElementById(target);
+                rangeTotalArr = String(rangeTotal.innerText);
+                rangeTotalArr2 = rangeTotalArr.split(" ");
+                rangeTotalArr2[1] = rangeFeild.value
+                rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
                 
             }
             function saveMatch()
