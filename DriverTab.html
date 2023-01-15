@@ -103,10 +103,10 @@
                 
                 
                 <div class="d-flex justify-content-center">
-                        <div style="width: 3rem;">
+                        <div style="width: 2rem;">
                             <p>High</p>
                         </div>
-                        <div style="width: 6rem;"></div>
+                        <div style="width: 5rem;"></div>
                         <div>
                             <button onclick="adjustDisplay(1,'driverCubeHighTotal')" class="btn btn-primary btn-lg">+</button>
                             <button onclick="adjustDisplay(-1,'driverCubeHighTotal')" class="btn btn-danger btn-lg">-</button>
@@ -133,10 +133,10 @@
 
                 <div class="d-flex justify-content-center">
                     
-                    <div style="width: 3rem;">
+                    <div style="width: 2rem;">
                         <p>Mid</p>
                     </div>
-                    <div style="width: 6rem;"></div>
+                    <div style="width: 5rem;"></div>
                     <div>
                         
                         <button onclick="adjustDisplay(1,'driverCubeMidTotal')" class="btn btn-primary btn-lg">+</button>
@@ -161,10 +161,10 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
-                    <div style="width: 3rem;">
+                    <div style="width: 2rem;">
                         <p>Low</p>
                     </div>
-                    <div style="width: 6rem;"></div>
+                    <div style="width: 5rem;"></div>
                     <div>
                         
                         
@@ -184,7 +184,7 @@
                 <div>
                     <div style="width: 40rem;">
                         <label for="Offense" class="form-label">Offense</label>
-                        <input type="range" class="form-range" min="0" max="30" id="Offense">
+                        <input type="range" class="form-range" min="0" max="30" id="driverOffense">
                     </div> 
                     <div class="d-flex justify-content-center">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -198,9 +198,10 @@
                         Engaged?
                         </label>
                     </div>
+                    <span id="driverDefenseTotal">0</span>
                     <div style="width: 40rem;">
-                        <label for="Defense" class="form-label">Defense</label>
-                        <input type="range" class="form-range" min="0" max="30" id="Defense">
+                        <label for="driverDefense" class="form-label">Defense</label>
+                        <input oninput="driverRangeLevel('driverDefense','driverDefenseTotal')" type="range" class="form-range" min="0" max="30" id="driverDefense">
                     </div>  
                 </div>
             </div>
@@ -217,7 +218,7 @@
             </div>
             </p>
         </div>
-
+        
          <!--Match Results page-->
          <!-- This shows the final results of the match from Blue Alliance. It includes all the teams in the match, and the official results. It also includes all of the data we have collected on the match-->
         <div class="tab-pane fade" id="pills-team">
@@ -280,6 +281,14 @@
                 let driverMidTotal = Number(cubeMidTotal.innerText) + Number(coneMidTotal.innerText);
                 let driverLowTotal = Number(cubeLOWTotal.innerText) + Number(coneLOWTotal.innerText);
                 driverPointsTotalField.innerText = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
+            }
+            function driverRangeLevel(rangeinput,target) {
+                driverRangeFeild = document.getElementById(rangeinput);
+                driverRangeTotal = document.getElementById(target);
+                driverRangeTotal.innerText = driverRangeFeild.value;  
+                
+
+                
             }
             function saveMatch()
             {
