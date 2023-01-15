@@ -27,9 +27,35 @@
   <h3>Pit Details</h3>
   <div id="pit">
    <ul>
+    <div class="w-50">
       <p><label for="neatness">Level of Neatness:</label>
-         <input type="range" id="neatness" required
-      minlength="2" maxlength="10" size="10" step="1"></p>
+        <input oninput="adjustRangeDisplay('neatness','neatnessLevel')"type="range" class="form-range" min="0" max="10" step="1" id="neatness" value="0">
+        <label for="neatness" id="neatnessLevel">Level 0</label>
+
+        <script>
+          function adjustRangeDisplay(rangeinput,target) {
+                rangeFeild = document.getElementById(rangeinput);
+                rangeTotal = document.getElementById(target);
+                rangeTotalArr = String(rangeTotal.innerText);
+                rangeTotalArr2 = rangeTotalArr.split(" ");
+                rangeTotalArr2[1] = rangeFeild.value
+                rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
+                
+            }
+        </script>
+</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
       <!--There's a slider now, but there is no way to see the amount it is-->
       <p># of batteries:</p>
          <input type="number" id="numberOfBatteries" required
