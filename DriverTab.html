@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id= "background">
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -10,7 +10,14 @@
 </head>
 
 <body>
-    <h1>Match Scoring</h1>
+        <div onclick ="toggleDarkMode()" class="d-inline form-check form-switch d-flex justify-content-end">
+            <input class="d-inline form-check-input" type="checkbox" role="switch" id="darkModeSwitch">
+            <label class="d-inline form-check-label" for="darkModeSwitch">Dark mode (rough)</label>
+        </div>
+        <h1>Match Scoring</h1> 
+
+    
+
     <!--start with an input area to enter the team number and the match number-->
    
     <label for="teamNumber">Team Number:</label>
@@ -24,9 +31,6 @@
            minlength="1" maxlength="2" size="4">
     <div class="mb-1">
         <button onclick="saveMatch()" class="btn btn-primary">Save</button>
-     </div>
-      <div class="mb-1">
-        <button onclick="loadMatch()" class="btn btn-danger">Load</button>
      </div>
 
        
@@ -57,74 +61,206 @@
         <!--Autonomous -->
         <div class="tab-pane fade show active" id="pills-autonomous">
             <h3>Autonomous Scoring</h3>
-            <p>
             <div class="text-center">
-                <span id="autonPointsTotal">0</span> Autonomous Points
-                <div class="mb-1">
-                    <button onclick="adjustDisplay(1,'autonPointsTotal')" class="btn btn-primary">Add Block</button>
-                    <button onclick="adjustDisplay(-1,'autonPointsTotal')" class="btn btn-danger">Remove Block</button>
+
+
+                <div class="d-flex justify-content-center">
+                    <div class="w-50">
+                        <span id="autonPointsTotal">0</span><span> Autonomous Control Points</span>
+                    </div>
                 </div>
-                <div class="mb-1">
-                    <button onclick="adjustDisplay(2,'autonPointsTotal')" class="btn btn-primary">Add Cone</button>
-                    <button onclick="adjustDisplay(-2,'autonPointsTotal')" class="btn btn-danger">Remove Cone</button>
+
+                <div class="d-flex justify-content-center">
+                    <div style="width: 5rem;">
+                        <p></p>
+                    </div>
+                    <div style="width: 1rem;">
+                        <p>Cube</p>
+                    </div>
+                    <div style="width: 10rem;"></div>
+                        <p>Cone</p>
+                </div>
+
+
+                <div class="d-flex justify-content-center">
+                    <div style="width:6rem">
+                        <p></p>
+                    </div>
+                    <p id="autonCubeHighTotal">0</p>
+                    <div style="width: 10rem;"></div>
+                    <p id="autonConeHighTotal">0</p>
+                </div>
+    
+                <div class="d-flex justify-content-center">
+                    <div style="width: 2rem;">
+                        <p>High</p>
+                    </div>
+                    <div style="width: 5rem;"></div>
+                    <div>
+                        <button onclick="adjustDisplay(1,'autonCubeHighTotal')" type="button" class="btn btn-primary">+</button>
+                        <button onclick="adjustDisplay(-1, 'autonCubeHighTotal')" type="button" class="btn btn-danger">-</button>
+                    </div>
+                    <div style="width: 6rem;"></div>
+                    <div>
+                        <button onclick="adjustDisplay(1, 'autonConeHighTotal')" type="button" class="btn btn-primary">+</button>
+                        <button onclick="adjustDisplay(-1, 'autonConeHighTotal')" type="button" class="btn btn-danger">-</button>
+                    </div>
+                </div>
+
+
+
+
+
+            <div class="d-flex justify-content-center">
+                <div style="width:6rem">
+                    <p></p>
+                </div>
+                <p id="autonCubeMidTotal">0</p>
+                <div style="width: 10rem;"></div>
+                <p id="autonConeMidTotal">0</p>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div style="width: 2rem;">
+                    <p>Medium</p>
+                </div> 
+                <div style="width: 5rem;"></div>
+                <div>
+                    <button onclick="adjustDisplay(1,'autonCubeMidTotal')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonCubeMidTotal')" type="button" class="btn btn-danger">-</button>
+                </div>
+                <div style="width: 6rem;"></div>
+                <div>
+                    <button onclick="adjustDisplay(1,'autonConeMidTotal')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonConeMidTotal')" type="button" class="btn btn-danger">-</button>
                 </div>
             </div>
-            </p>
-        </div>
+
+            
+            <div class="d-flex justify-content-center">
+                <div style="width:6rem">
+                    <p></p>
+                </div>
+                <p id="autonCubeLowTotal">0</p>
+                <div style="width: 10rem;"></div>
+                <p id="autonConeLowTotal">0</p>
+            </div>
+
+
+            <div class="d-flex justify-content-center">
+                <div style="width: 2rem;">
+                    <p>Low</p>
+                </div>
+                <div style="width: 5rem;"></div>
+                <div>
+                    <button onclick="adjustDisplay(1,'autonCubeLowTotal')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonCubeLowTotal')" type="button" class="btn btn-danger">-</button>
+                </div>
+                <div style="width: 6rem;"></div>
+                <div>
+                    <button onclick="adjustDisplay(1,'autonConeLowTotal')" type="button" class="btn btn-primary">+</button>
+                    <button onclick="adjustDisplay(-1,'autonConeLowTotal')" type="button" class="btn btn-danger">-</button>
+                </div>
+            </div>
+            
+
+            
+
+            <div class="d-flex justify-content-around mt-5">
+
+                <div class="form-check" onclick="autonEnableEngagedClickable()">
+                    <label for="flexRadioDefault1">Docked?</label>
+                        <div class="form-check">
+
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedNo" checked>
+                            <label class="form-check-label" for="autonRadioDockedNo">
+                              No
+                            </label>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedInside">
+                            <label class="form-check-label" for="autonRadioDockedInside">
+                              Inside
+                            </label>
+                          </div>
+                          
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedMiddle">
+                            <label class="form-check-label" for="autonRadioDockedMiddle">
+                              Middle
+                            </label>
+                          </div>
+                          
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedOutside">
+                            <label class="form-check-label" for="autonRadioDockedOutside">
+                              Outside
+                            </label>
+                          </div>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="autonEngagedCheckbox" disabled>
+                    <label class="form-check-label" for="autonEngagedCheckbox">
+                    Engaged?
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="autonMobilityBonusCheckbox">
+                    <label class="form-check-label" for="autonMobilityBonusCheckbox">
+                    Mobility Bonus?
+                    </label>
+                </div>
+            </div>
+
+            <div class="mt-5 d-flex justify-content-center">
+                <label for="autonWinnerRadio">Who won Auton?</label>
+            </div>
+            <div class="btn-group" role="group" aria-label="autonWinnerRadio">
+                <input type="radio" class="btn-check" name="btnradio" id="autonRadioBlueWin" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="autonRadioBlueWin">Blue</label>
+                
+                <input type="radio" class="btn-check" name="btnradio" id="autonTieRadio" autocomplete="off">
+                <label id="autonTieRadioButton" class="btn btn-outline-dark" for="autonTieRadio">Tie</label>
+                
+                <input type="radio" class="btn-check" name="btnradio" id="autonRadioRedWin" autocomplete="off">
+                <label class="btn btn-outline-danger" for="autonRadioRedWin">Red</label>
+            </div>
+
+
+            <div class = "d-flex justify-content-center mt-5">
+                <label for="autonNotesInput" class="form-label">Any notes?</label>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="input-group w-75">
+                    <textarea onkeydown="textAreaAdjust(this)" class="form-control overflow-hidden"  id="autonNotesInput"></textarea>
+                </div>
+            </div>
+
+
+
+
+            
 
         <!--Driver Control-->
         <div class="tab-pane fade" id="pills-drivercontrol">
             <h3>Driver Control Scoring</h3>
             <p>
             <div class="text-center">
-                <span id="driverPointsTotal">0</span> Driver Control Points 
-                <div class="d-flex justify-content-center">
-                    <div class="mb-1">
-                        <div> <div id="driverCubeHighTotal">0 Cube High</div></div>
-                        <Type></text>
-                        <button onclick="adjustDisplay(1,'driverCubeHighTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustDisplay(-1,'driverCubeHighTotal')" class="btn btn-danger">-</button>
-                    </div>
-                    <div style="width: 2rem;"></div>
-                    <div class="mb-1">
-                        <div> <div id="driverConeHighTotal">0 Cone High</div></div>
-                        <Type></text>
-                        <button onclick="adjustDisplay(1,'driverConeHighTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustDisplay(-1,'driverConeHighTotal')" class="btn btn-danger">-</button>
-                    </div>
+                <span id="driverPointsTotal">0</span> Driver Control Points
+                <div class="mb-1">
+                    <button onclick="adjustDislpay(1,'driverPointsTotal')" class="btn btn-primary">Add Block</button>
+                    <button onclick="adjustDislpay(-1,'driverPointsTotal')" class="btn btn-danger">Remove Block</button>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <div class="mb-1">
-                        <div> <div id="driverCubeMidTotal">0 Cube Mid</div></div>
-                        <Type></text>
-                        <button onclick="adjustDisplay(1,'driverCubeMidTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustDisplay(-1,'driverCubeMidTotal')" class="btn btn-danger">-</button>
-                    </div>
-                    <div style="width: 2rem;"></div>
-                    <div class="mb-1">
-                        <div> <div id="driverConeMidTotal">0 Cone Mid</div></div>
-                        <Type></text>
-                        <button onclick="adjustDisplay(1,'driverConeMidTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustDisplay(-1,'driverConeMidTotal')" class="btn btn-danger">-</button>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <div class="mb-1">
-                        <div> <div id="driverCubeLowTotal">0 Cube Low</div></div>
-                        <Type></text>
-                        <button onclick="adjustDisplay(1,'driverCubeLowTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustDisplay(-1,'driverCubeLowTotal')" class="btn btn-danger">-</button>
-                    </div>
-                    <div style="width: 2rem;"></div>
-                    <div class="mb-1">
-                        <div> <div id="driverConeLowTotal">0 Cone Low</div></div>
-                        <Type></text>
-                        <button onclick="adjustDisplay(1,'driverConeLowTotal')" class="btn btn-primary">+</button>
-                        <button onclick="adjustDisplay(-1,'driverConeLowTotal')" class="btn btn-danger">-</button>
-                    </div>
+                <div class="mb-1">
+                    <button onclick="adjustDislpay(2,'driverPointsTotal')" class="btn btn-primary">Add Cone</button>
+                    <button onclick="adjustDislpay(-2,'driverPointsTotal')" class="btn btn-danger">Remove Cone</button>
                 </div>
             </div>
-        </div>
             </p>
         </div>
 
@@ -140,25 +276,22 @@
 
          <!--Match Results page-->
          <!-- This shows the final results of the match from Blue Alliance. It includes all the teams in the match, and the official results. It also includes all of the data we have collected on the match-->
-        <div class="tab-pane fade" id="pills-team">
+        <div class="tab-pane fade" id="pills-match-tab">
             <h3>Match Results Page</h3>
-            <p>
+
             <div class="text-center">
                 <span id="matchResults">Match Results Page</span>
             </div>
-            </p>
+
         </div>
 
         <script>
 
             let team = {
-                nunber: null,
+                number: null,
                 competition: null,
                 teamNotes:null,
                 matches:[]
-            }
-            let totalPoints = {
-
             }
 
             // This is a java script comment. We are doing inline javascript
@@ -175,29 +308,104 @@
             }
 
             function adjustDisplay(amt,pointTarget) {
-                let pointsTotalField = document.getElementById(pointTarget);
-                const pointsTotalArr = pointsTotalField.split(' ');
-                pointsTotalField = pointsTotalArr[0];
-                const pointsTotal = Number(pointsTotalField.innerText);
+                const pointsTotalField = document.getElementById(pointTarget);
+                let pointsTotalArr = String(pointsTotalField.innerText);
+                let pointsTotalArr2 = pointsTotalArr.split(" ");
+                const pointsTotal = Number(pointsTotalArr2[0]);
                 if (pointsTotal + amt < 0) {
-                    return pointsTotalField.innerText = 0;
+                    pointsTotalField.innerText = 0; 
                 }
                 else {
                     pointsTotalField.innerText = pointsTotal + amt;
                 }
+                //driverTotalPointsCalc();
+                autonTotalPointsCalc();
             }
-            function saveMatch()
-            {
-                const matchNumber = Number(document.getElementById("matchNumber").value);
 
-                team.matches.push({
-                match: matchNumber,
-                matchAutonPoints:0,
-                matchDriverPoints:0,
-                matchDefenseRating:0
-                });
+            function driverTotalPointsCalc() {
+                let driverPointsTotalField = document.getElementById("driverPointsTotal");
+                let cubeHighTotal = document.getElementById('driverCubeHighTotal');
+                let cubeMidTotal = document.getElementById('driverCubeMidTotal');
+                let cubeLOWTotal = document.getElementById('driverCubeLowTotal');
+                let coneHighTotal = document.getElementById('driverConeHighTotal');
+                let coneMidTotal = document.getElementById('driverConeMidTotal');
+                let coneLOWTotal = document.getElementById('driverConeLowTotal');
+                let driverHighTotal = Number(cubeHighTotal.innerText) + Number(coneHighTotal.innerText);
+                let driverMidTotal = Number(cubeMidTotal.innerText) + Number(coneMidTotal.innerText);
+                let driverLowTotal = Number(cubeLOWTotal.innerText) + Number(coneLOWTotal.innerText);
+                driverPointsTotalField.innerText = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
             }
-               function LoadMatch()
+
+            function autonTotalPointsCalc() {
+                let autonPointsTotalField = document.getElementById("autonPointsTotal");
+                let cubeHighTotal = document.getElementById('autonCubeHighTotal');
+                let coneHighTotal = document.getElementById('autonConeHighTotal');
+                let cubeMidTotal = document.getElementById('autonCubeMidTotal');
+                let coneMidTotal = document.getElementById('autonConeMidTotal');
+                let cubeLowTotal = document.getElementById('autonCubeLowTotal');
+                let coneLowTotal = document.getElementById('autonConeLowTotal');
+                let autonHighTotal = Number(cubeHighTotal.innerText) + Number(coneHighTotal.innerText);
+                let autonMidTotal = Number(cubeMidTotal.innerText) + Number(coneMidTotal.innerText);
+                let autonLowTotal = Number(cubeLowTotal.innerText) + Number(coneLowTotal.innerText);
+                autonPointsTotalField.innerText = (autonHighTotal * 5) + (autonMidTotal * 3) + (autonLowTotal * 2);
+            }
+
+            function autonEnableEngagedClickable() {
+                let autonDockedNo = document.getElementById("autonRadioDockedNo");
+                let engagedCheckbox = document.getElementById("autonEngagedCheckbox");
+                if (autonDockedNo.checked)
+                {
+                    engagedCheckbox.setAttribute("disabled", "");
+                }
+                else {
+                    engagedCheckbox.removeAttribute("disabled");
+                    if (engagedCheckbox.checked)
+                    {
+                        engagedCheckbox.checked = false;
+                    }
+                }
+            }
+
+
+            let lastKeysPressed = [0,0,0,0];
+            document.getElementById("autonRadioBlueWin").addEventListener("keydown", () => {
+                lastKeysPressed[3] = lastKeysPressed[2];
+                lastKeysPressed[2] = lastKeysPressed[1];
+                lastKeysPressed[1] = lastKeysPressed[0];
+                lastKeysPressed[0] = event.key;
+                if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 8)
+                {
+                    window.location.href = "https://youtu.be/dQw4w9WgXcQ";
+                }
+                if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 9)
+                {
+                    window.location.href = "https://i.kym-cdn.com/photos/images/newsfeed/001/996/641/bc2.jpg";
+                }
+            })
+            
+            function toggleDarkMode() {
+                const autonRadioToChange = document.getElementById("autonTieRadioButton");
+                const darkModeSwitch = document.getElementById("darkModeSwitch");
+                let htmlElement = document.getElementById("background");
+                if (darkModeSwitch.checked)
+                {
+                    htmlElement.setAttribute("data-bs-theme", "dark");
+                    autonRadioToChange.setAttribute("class", "btn btn-outline-light");
+                    
+                }
+                else
+                {
+                    htmlElement.removeAttribute("data-bs-theme");
+                    autonRadioToChange.setAttribute("class", "btn btn-outline-dark");
+                }
+            }
+
+            function textAreaAdjust(element) {
+            element.style.minHeight = "1px";
+            element.style.minHeight = (element.scrollHeight)+"px";
+            }
+
+            function saveMatch()
             {
                 const matchNumber = Number(document.getElementById("matchNumber").value);
 
