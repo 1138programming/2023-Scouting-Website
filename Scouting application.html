@@ -232,7 +232,7 @@
             
 
         <!--Driver Control-->
-        <div class="tab-pane fade" id="pills-drivercontrol">
+        <!-- <div class="tab-pane fade" id="pills-drivercontrol">
             <h3>Driver Control Scoring</h3>
             <p>
             <div class="text-center">
@@ -247,7 +247,181 @@
                 </div>
             </div>
             </p>
-        </div>
+        </div> -->
+
+                <!--Driver Control-->
+                <div class="tab-pane fade" id="pills-drivercontrol">
+                    <h3>Driver Control Scoring</h3>
+                    
+                    <div class="text-center">
+                        <div class="justify-content-center">
+                            <div class = "w-95">
+                                <div style="width: 22rem;"> </div>
+                                <span id="driverPointsTotal">0</span> Driver Control Points 
+                            </div>
+                        </div> 
+                        <div>
+                            
+                            
+                            <div>
+                            <div class="d-flex justify-content-center">
+                                
+                                <div style="width: 22rem;">
+                                    <p>Cube</p>
+                                </div>
+                                   <p>Cone</p>
+                             
+                            
+                            </div>    
+                            </div>
+                        </div>
+                        
+                        <!--High-->
+                        <div class="d-flex justify-content-center">
+                            <div style="width: 9rem;">
+                                <p> </p>
+                            </div>
+                            <p id="driverCubeHighTotal">0</p>
+                            <div style="width: 12rem;"></div>
+                            <p id="driverConeHighTotal">0 </p>
+                        </div>
+                        
+                        
+                        <div class="d-flex justify-content-center">
+                                <div style="width: 2rem;">
+                                    <p>High</p>
+                                </div>
+                                <div style="width: 5rem;"></div>
+                                <div>
+                                    <button onclick="adjustDisplay(1,'driverCubeHighTotal')" class="btn btn-primary btn-lg">+</button>
+                                    <button onclick="adjustDisplay(-1,'driverCubeHighTotal')" class="btn btn-danger btn-lg">-</button>
+                                </div>
+                                <div style="width: 6rem;"></div>
+                                <div>
+                                    
+                                    <button onclick="adjustDisplay(1,'driverConeHighTotal')" class="btn btn-primary btn-lg">+</button>
+                                    <button onclick="adjustDisplay(-1,'driverConeHighTotal')" class="btn btn-danger btn-lg">-</button>
+                                </div>
+                        </div>
+                   
+                        <!--Mid-->
+                      
+                        
+                        <div class="d-flex justify-content-center">
+                            <div style="width: 9rem;">
+                                <p> </p>
+                            </div>
+                            <p id="driverCubeMidTotal">0</p>
+                            <div style="width: 12rem;"></div>
+                            <p id="driverConeMidTotal">0 </p>
+                        </div>
+        
+                        <div class="d-flex justify-content-center">
+                            
+                            <div style="width: 2rem;">
+                                <p>Mid</p>
+                            </div>
+                            <div style="width: 5rem;"></div>
+                            <div>
+                                
+                                <button onclick="adjustDisplay(1,'driverCubeMidTotal')" class="btn btn-primary btn-lg">+</button>
+                                <button onclick="adjustDisplay(-1,'driverCubeMidTotal')" class="btn btn-danger btn-lg">-</button>
+                            </div>
+                            <div style="width: 6rem;"></div>
+                            <div >
+                                
+                                <button onclick="adjustDisplay(1,'driverConeMidTotal')" class="btn btn-primary btn-lg">+</button>
+                                <button onclick="adjustDisplay(-1,'driverConeMidTotal')" class="btn btn-danger btn-lg">-</button>
+                            </div>
+                        </div>
+                        <!--Low-->
+                        
+                        <div class="d-flex justify-content-center">
+                            <div style="width: 9rem;">
+                                <p> </p>
+                            </div>
+                            <p id="driverCubeLowTotal">0</p>
+                            <div style="width: 12rem;"></div>
+                            <p id="driverConeLowTotal">0 </p>
+                        </div>
+        
+                        <div class="d-flex justify-content-center">
+                            <div style="width: 2rem;">
+                                <p>Low</p>
+                            </div>
+                            <div style="width: 5rem;"></div>
+                            <div>
+                                
+                                
+                                <button onclick="adjustDisplay(1,'driverCubeLowTotal')" class="btn btn-primary btn-lg">+</button>
+                                <button onclick="adjustDisplay(-1,'driverCubeLowTotal')" class="btn btn-danger btn-lg">-</button>
+                            </div>
+                            <div style="width: 6rem;"></div>
+                            <div >
+              
+                                
+                                <button onclick="adjustDisplay(1,'driverConeLowTotal')" class="btn btn-primary btn-lg btn-lg">+</button>
+                                <button onclick="adjustDisplay(-1,'driverConeLowTotal')" class="btn btn-danger btn-lg">-</button>
+                            </div>
+                        </div>
+        
+                        <!--Other stuff-->
+                        <div>
+                            <div class="d-flex justify-content-center">
+                                <div style="width: 40rem;">
+                                    <label for="driverOffense" id="driverOffenseTotal">Offense 0</label>
+                                    <input oninput="adjustRangeDisplay('driverOffense','driverOffenseTotal')" type="range" class="form-range" min="0" max="10" id="driverOffense" value="0">
+                                </div> 
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <input class="form-check-input" type="checkbox" value="" id="Docked?">
+                                <label class="form-check-label" for="Docked?">
+                                Docked? 
+                                </label>
+                                <input class="form-check-input" type="checkbox" value="" id="Engaged?">
+                                <label class="form-check-label" for="Engaged?">
+                                Engaged? 
+                                </label>
+                            </div>
+                           
+                            <div class="d-flex justify-content-center">
+                                
+                                <input class="form-check-input" type="checkbox" value="" id="SustainabiltyBonus?">
+                                <label class="form-check-label" for="SustainabiltyBonus?">
+                                Sustainabilty Bonus?  
+                                </label>
+                                
+                               
+                                <input class="form-check-input" type="checkbox" value="" id="ActivationBonus?">
+                                <label class="form-check-label" for="ActivationBonus?">
+                                Activation Bonus? 
+                                </label>
+                                
+                                <input class="form-check-input" type="checkbox" value="" id="CoopertitionBonus?">
+                                <label class="form-check-label" for="CoopertitionBonus?">
+                                Coopertition Bonus? 
+                                </label>
+                                
+                            
+                                
+                            </div>
+                            <div class="d-flex justify-content-center">
+                            <div style="width: 40rem;">
+                                <label for="driverDefense"id="driverDefenseTotal">Defense 0</label>  
+                                <input oninput="adjustRangeDisplay('driverDefense','driverDefenseTotal')" type="range" class="form-range" min="0" max="10" id="driverDefense" value="0">
+                            </div> 
+                            </div> 
+                            <div class="mt-5">
+                                <div class="input-group">
+                                    <span class="input-group-text">Any Notes?</span>
+                                    <textarea id="driverNotes" class="form-control" aria-label="With textarea"></textarea>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </p>
+                </div>
 
         <!--Teams Information page-->
         <div class="tab-pane fade" id="pills-team">
@@ -304,7 +478,7 @@
                 else {
                     pointsTotalField.innerText = pointsTotal + amt;
                 }
-                //driverTotalPointsCalc();
+                driverTotalPointsCalc();
                 autonTotalPointsCalc();
             }
 
@@ -352,22 +526,31 @@
                 }
             }
 
-
-            let lastKeysPressed = [0,0,0,0];
-            document.getElementById("autonRadioBlueWin").addEventListener("keydown", () => {
-                lastKeysPressed[3] = lastKeysPressed[2];
-                lastKeysPressed[2] = lastKeysPressed[1];
-                lastKeysPressed[1] = lastKeysPressed[0];
-                lastKeysPressed[0] = event.key;
-                if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 8)
-                {
-                    window.location.href = "https://youtu.be/dQw4w9WgXcQ";
-                }
-                if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 9)
-                {
-                    window.location.href = "https://i.kym-cdn.com/photos/images/newsfeed/001/996/641/bc2.jpg";
-                }
-            })
+            function adjustRangeDisplay(rangeinput,target) {
+                rangeFeild = document.getElementById(rangeinput);
+                rangeTotal = document.getElementById(target);
+                rangeTotalArr = String(rangeTotal.innerText);
+                rangeTotalArr2 = rangeTotalArr.split(" ");
+                rangeTotalArr2[1] = rangeFeild.value
+                rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
+                
+            }
+            
+            // let lastKeysPressed = [0,0,0,0];
+            // document.getElementById("autonRadioBlueWin").addEventListener("keydown", () => {
+            //     lastKeysPressed[3] = lastKeysPressed[2];
+            //     lastKeysPressed[2] = lastKeysPressed[1];
+            //     lastKeysPressed[1] = lastKeysPressed[0];
+            //     lastKeysPressed[0] = event.key;
+            //     if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 8)
+            //     {
+            //         window.location.href = "https://youtu.be/dQw4w9WgXcQ";
+            //     }
+            //     if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 9)
+            //     {
+            //         window.location.href = "https://i.kym-cdn.com/photos/images/newsfeed/001/996/641/bc2.jpg";
+            //     }
+            // })
             
             function toggleDarkMode() {
                 const autonRadioToChange = document.getElementById("autonTieRadioButton");
