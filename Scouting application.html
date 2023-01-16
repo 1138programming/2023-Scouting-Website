@@ -77,29 +77,22 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-center">
-                        <div style="width: 7rem;">
-                            <p></p>
-                        </div>
-                        <div style="width: 0.5rem;">
-                            <p>Cube</p>
-                        </div>
-                        <div style="width: 10rem;"></div>
-                            <p>Cone</p>
-                    </div>
-        
+     
                     <div class="d-flex justify-content-center">
                         <div style="width: 2rem;" class="mt-5">
+                            <div class="mt-5"></div>
                             <p>High</p>
                         </div>
                         <div style="width: 5rem;"></div>
                         <div>
+                            <p>Cube</p>
                             <p id="autonCubeHighTotal">0</p>
                             <button onclick="adjustDisplay(1,'autonCubeHighTotal')" type="button" class="btn btn-primary btn-lg">+</button>
                             <button onclick="adjustDisplay(-1, 'autonCubeHighTotal')" type="button" class="btn btn-danger btn-lg">-</button>
                         </div>
                         <div style="width: 6rem;"></div>
                         <div>
+                            <p>Cone</p>
                             <p id="autonConeHighTotal">0</p>
                             <button onclick="adjustDisplay(1, 'autonConeHighTotal')" type="button" class="btn btn-primary btn-lg">+</button>
                             <button onclick="adjustDisplay(-1, 'autonConeHighTotal')" type="button" class="btn btn-danger btn-lg">-</button>
@@ -231,24 +224,6 @@
 
             
 
-        <!--Driver Control-->
-        <!-- <div class="tab-pane fade" id="pills-drivercontrol">
-            <h3>Driver Control Scoring</h3>
-            <p>
-            <div class="text-center">
-                <span id="driverPointsTotal">0</span> Driver Control Points
-                <div class="mb-1">
-                    <button onclick="adjustDislpay(1,'driverPointsTotal')" class="btn btn-primary">Add Block</button>
-                    <button onclick="adjustDislpay(-1,'driverPointsTotal')" class="btn btn-danger">Remove Block</button>
-                </div>
-                <div class="mb-1">
-                    <button onclick="adjustDislpay(2,'driverPointsTotal')" class="btn btn-primary">Add Cone</button>
-                    <button onclick="adjustDislpay(-2,'driverPointsTotal')" class="btn btn-danger">Remove Cone</button>
-                </div>
-            </div>
-            </p>
-        </div> -->
-
                 <!--Driver Control-->
                 <div class="tab-pane fade" id="pills-drivercontrol">
                     <h3>Driver Control Scoring</h3>
@@ -262,104 +237,68 @@
                         </div> 
                         <div>
                             
-                            
-                            <div>
-                            <div class="d-flex justify-content-center">
-                                
-                                <div style="width: 22rem;">
-                                    <p>Cube</p>
-                                </div>
-                                   <p>Cone</p>
-                             
-                            
-                            </div>    
-                            </div>
                         </div>
                         
                         <!--High-->
-                        <div class="d-flex justify-content-center">
-                            <div style="width: 9rem;">
-                                <p> </p>
-                            </div>
-                            <p id="driverCubeHighTotal">0</p>
-                            <div style="width: 12rem;"></div>
-                            <p id="driverConeHighTotal">0 </p>
-                        </div>
-                        
+                       
                         
                         <div class="d-flex justify-content-center">
-                                <div style="width: 2rem;">
+                                <div style="width: 2rem;" class="mt-5">
+                                    <div class="mt-5"></div>
                                     <p>High</p>
                                 </div>
                                 <div style="width: 5rem;"></div>
                                 <div>
+                                    <p>Cube</p>
+                                    <p id="driverCubeHighTotal">0</p>
                                     <button onclick="adjustDisplay(1,'driverCubeHighTotal')" class="btn btn-primary btn-lg">+</button>
                                     <button onclick="adjustDisplay(-1,'driverCubeHighTotal')" class="btn btn-danger btn-lg">-</button>
                                 </div>
                                 <div style="width: 6rem;"></div>
                                 <div>
-                                    
+                                    <p>Cone</p>
+                                    <p id="driverConeHighTotal">0</p>
                                     <button onclick="adjustDisplay(1,'driverConeHighTotal')" class="btn btn-primary btn-lg">+</button>
                                     <button onclick="adjustDisplay(-1,'driverConeHighTotal')" class="btn btn-danger btn-lg">-</button>
                                 </div>
                         </div>
                    
                         <!--Mid-->
-                      
-                        
-                        <div class="d-flex justify-content-center">
-                            <div style="width: 9rem;">
-                                <p> </p>
-                            </div>
-                            <p id="driverCubeMidTotal">0</p>
-                            <div style="width: 12rem;"></div>
-                            <p id="driverConeMidTotal">0 </p>
-                        </div>
-        
+                              
                         <div class="d-flex justify-content-center">
                             
-                            <div style="width: 2rem;">
+                            <div style="width: 2rem;" class="mt-5">
                                 <p>Mid</p>
                             </div>
                             <div style="width: 5rem;"></div>
                             <div>
-                                
+                                <p id="driverCubeMidTotal">0</p>
                                 <button onclick="adjustDisplay(1,'driverCubeMidTotal')" class="btn btn-primary btn-lg">+</button>
                                 <button onclick="adjustDisplay(-1,'driverCubeMidTotal')" class="btn btn-danger btn-lg">-</button>
                             </div>
                             <div style="width: 6rem;"></div>
-                            <div >
-                                
+                            <div>
+                                <p id="driverConeMidTotal">0</p>
                                 <button onclick="adjustDisplay(1,'driverConeMidTotal')" class="btn btn-primary btn-lg">+</button>
                                 <button onclick="adjustDisplay(-1,'driverConeMidTotal')" class="btn btn-danger btn-lg">-</button>
                             </div>
                         </div>
                         <!--Low-->
                         
-                        <div class="d-flex justify-content-center">
-                            <div style="width: 9rem;">
-                                <p> </p>
-                            </div>
-                            <p id="driverCubeLowTotal">0</p>
-                            <div style="width: 12rem;"></div>
-                            <p id="driverConeLowTotal">0 </p>
-                        </div>
         
                         <div class="d-flex justify-content-center">
-                            <div style="width: 2rem;">
+                            <div style="width: 2rem;" class="mt-5">
                                 <p>Low</p>
                             </div>
                             <div style="width: 5rem;"></div>
                             <div>
-                                
-                                
+                                <p id="driverCubeLowTotal">0</p>
                                 <button onclick="adjustDisplay(1,'driverCubeLowTotal')" class="btn btn-primary btn-lg">+</button>
                                 <button onclick="adjustDisplay(-1,'driverCubeLowTotal')" class="btn btn-danger btn-lg">-</button>
                             </div>
                             <div style="width: 6rem;"></div>
-                            <div >
-              
-                                
+                            <div>
+                                <p id="driverConeLowTotal">0</p>
                                 <button onclick="adjustDisplay(1,'driverConeLowTotal')" class="btn btn-primary btn-lg btn-lg">+</button>
                                 <button onclick="adjustDisplay(-1,'driverConeLowTotal')" class="btn btn-danger btn-lg">-</button>
                             </div>
@@ -373,54 +312,65 @@
                                     <input oninput="adjustRangeDisplay('driverOffense','driverOffenseTotal')" type="range" class="form-range" min="0" max="10" id="driverOffense" value="0">
                                 </div> 
                             </div>
-                            <div class="d-flex justify-content-center">
-                                <input class="form-check-input" type="checkbox" value="" id="Docked?">
-                                <label class="form-check-label" for="Docked?">
-                                Docked? 
-                                </label>
-                                <input class="form-check-input" type="checkbox" value="" id="Engaged?">
-                                <label class="form-check-label" for="Engaged?">
-                                Engaged? 
-                                </label>
+                            
+                            <div class="d-flex justify-content-around">
+                                <div>
+                                    <input class="form-check-input" type="checkbox" value="" id="Docked?">
+                                    <label class="form-check-label" for="Docked?">
+                                    Docked? 
+                                    </label>
+                                </div>
+                                <div>
+                                    <input class="form-check-input" type="checkbox" value="" id="Engaged?">
+                                    <label class="form-check-label" for="Engaged?">
+                                    Engaged? 
+                                    </label>
+                                </div>
                             </div>
                            
-                            <div class="d-flex justify-content-center">
-                                
-                                <input class="form-check-input" type="checkbox" value="" id="SustainabiltyBonus?">
-                                <label class="form-check-label" for="SustainabiltyBonus?">
-                                Sustainabilty Bonus?  
-                                </label>
-                                
-                               
-                                <input class="form-check-input" type="checkbox" value="" id="ActivationBonus?">
-                                <label class="form-check-label" for="ActivationBonus?">
-                                Activation Bonus? 
-                                </label>
-                                
-                                <input class="form-check-input" type="checkbox" value="" id="CoopertitionBonus?">
-                                <label class="form-check-label" for="CoopertitionBonus?">
-                                Coopertition Bonus? 
-                                </label>
-                                
-                            
-                                
+                            <div class="d-flex justify-content-around mt-3">
+                                <div>
+                                    <input class="form-check-input" type="checkbox" value="" id="SustainabiltyBonus?">
+                                    <label class="form-check-label" for="SustainabiltyBonus?">
+                                    Sustainabilty Bonus?  
+                                    </label>
+                                </div>
+                                <div>
+                                    <input class="form-check-input" type="checkbox" value="" id="ActivationBonus?">
+                                    <label class="form-check-label" for="ActivationBonus?">
+                                    Activation Bonus? 
+                                    </label>
+                                </div>
+                                <div>
+                                    <input class="form-check-input" type="checkbox" value="" id="CoopertitionBonus?">
+                                    <label class="form-check-label" for="CoopertitionBonus?">
+                                    Coopertition Bonus? 
+                                    </label>
+                                </div>                
                             </div>
+
                             <div class="d-flex justify-content-center">
                             <div style="width: 40rem;">
                                 <label for="driverDefense"id="driverDefenseTotal">Defense 0</label>  
                                 <input oninput="adjustRangeDisplay('driverDefense','driverDefenseTotal')" type="range" class="form-range" min="0" max="10" id="driverDefense" value="0">
                             </div> 
                             </div> 
-                            <div class="mt-5">
-                                <div class="input-group">
-                                    <span class="input-group-text">Any Notes?</span>
-                                    <textarea id="driverNotes" class="form-control" aria-label="With textarea"></textarea>
-                                  </div>
+
+
+                            <div class = "d-flex justify-content-center mt-5">
+                                <label for="driverNotesInput" class="form-label">Any notes?</label>
                             </div>
+            
+                            <div class="d-flex justify-content-center">
+                                <div class="input-group w-75">
+                                    <textarea onkeydown="textAreaAdjust(this)" class="form-control overflow-hidden"  id="driverNotesInput"></textarea>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
-                    </p>
                 </div>
 
         <!--Teams Information page-->
@@ -486,13 +436,13 @@
                 let driverPointsTotalField = document.getElementById("driverPointsTotal");
                 let cubeHighTotal = document.getElementById('driverCubeHighTotal');
                 let cubeMidTotal = document.getElementById('driverCubeMidTotal');
-                let cubeLOWTotal = document.getElementById('driverCubeLowTotal');
+                let cubeLowTotal = document.getElementById('driverCubeLowTotal');
                 let coneHighTotal = document.getElementById('driverConeHighTotal');
                 let coneMidTotal = document.getElementById('driverConeMidTotal');
-                let coneLOWTotal = document.getElementById('driverConeLowTotal');
+                let coneLowTotal = document.getElementById('driverConeLowTotal');
                 let driverHighTotal = Number(cubeHighTotal.innerText) + Number(coneHighTotal.innerText);
                 let driverMidTotal = Number(cubeMidTotal.innerText) + Number(coneMidTotal.innerText);
-                let driverLowTotal = Number(cubeLOWTotal.innerText) + Number(coneLOWTotal.innerText);
+                let driverLowTotal = Number(cubeLowTotal.innerText) + Number(coneLowTotal.innerText);
                 driverPointsTotalField.innerText = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
             }
 
@@ -527,11 +477,11 @@
             }
 
             function adjustRangeDisplay(rangeinput,target) {
-                rangeFeild = document.getElementById(rangeinput);
+                rangeField = document.getElementById(rangeinput);
                 rangeTotal = document.getElementById(target);
                 rangeTotalArr = String(rangeTotal.innerText);
                 rangeTotalArr2 = rangeTotalArr.split(" ");
-                rangeTotalArr2[1] = rangeFeild.value
+                rangeTotalArr2[1] = rangeField.value
                 rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
                 
             }
