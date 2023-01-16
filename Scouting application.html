@@ -61,6 +61,8 @@
     </ul>
 
 <!--add content for each of the defined tabs-->
+
+        <!--Autonomous -->
     <div class="tab-content">
 
         <!--Autonomous -->
@@ -69,161 +71,162 @@
             <div class="text-center">
 
 
-                <div class="d-flex justify-content-center">
-                    <div class="w-50">
-                        <span id="autonPointsTotal">0</span><span> Autonomous Control Points</span>
+                    <div class="d-flex justify-content-center">
+                        <div class="w-50">
+                            <span id="autonPointsTotal">0</span><span> Autonomous Control Points</span>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="d-flex justify-content-center">
+                        <div style="width: 7rem;">
+                            <p></p>
+                        </div>
+                        <div style="width: 0.5rem;">
+                            <p>Cube</p>
+                        </div>
+                        <div style="width: 10rem;"></div>
+                            <p>Cone</p>
+                    </div>
+        
+                    <div class="d-flex justify-content-center">
+                        <div style="width: 2rem;" class="mt-5">
+                            <p>High</p>
+                        </div>
+                        <div style="width: 5rem;"></div>
+                        <div>
+                            <p id="autonCubeHighTotal">0</p>
+                            <button onclick="adjustDisplay(1,'autonCubeHighTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                            <button onclick="adjustDisplay(-1, 'autonCubeHighTotal')" type="button" class="btn btn-danger btn-lg">-</button>
+                        </div>
+                        <div style="width: 6rem;"></div>
+                        <div>
+                            <p id="autonConeHighTotal">0</p>
+                            <button onclick="adjustDisplay(1, 'autonConeHighTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                            <button onclick="adjustDisplay(-1, 'autonConeHighTotal')" type="button" class="btn btn-danger btn-lg">-</button>
+                        </div>
+                    </div>
+
+
+
+
 
                 <div class="d-flex justify-content-center">
-                    <div style="width: 7rem;">
-                        <p></p>
-                    </div>
-                    <div style="width: 0.5rem;">
-                        <p>Cube</p>
-                    </div>
-                    <div style="width: 10rem;"></div>
-                        <p>Cone</p>
-                </div>
-    
-                <div class="d-flex justify-content-center">
                     <div style="width: 2rem;" class="mt-5">
-                        <p>High</p>
-                    </div>
+                        <p>Medium</p>
+                    </div> 
                     <div style="width: 5rem;"></div>
                     <div>
-                        <p id="autonCubeHighTotal">0</p>
-                        <button onclick="adjustDisplay(1,'autonCubeHighTotal')" type="button" class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1, 'autonCubeHighTotal')" type="button" class="btn btn-danger btn-lg">-</button>
+                        <p id="autonCubeMidTotal">0</p>
+                        <button onclick="adjustDisplay(1,'autonCubeMidTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1,'autonCubeMidTotal')" type="button" class="btn btn-danger btn-lg">-</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
-                        <p id="autonConeHighTotal">0</p>
-                        <button onclick="adjustDisplay(1, 'autonConeHighTotal')" type="button" class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1, 'autonConeHighTotal')" type="button" class="btn btn-danger btn-lg">-</button>
+                        <p id = "autonConeMidTotal">0</p>
+                        <button onclick="adjustDisplay(1,'autonConeMidTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1,'autonConeMidTotal')" type="button" class="btn btn-danger btn-lg">-</button>
                     </div>
                 </div>
 
 
-
-
-
-            <div class="d-flex justify-content-center">
-                <div style="width: 2rem;" class="mt-5">
-                    <p>Medium</p>
-                </div> 
-                <div style="width: 5rem;"></div>
-                <div>
-                    <p id="autonCubeMidTotal">0</p>
-                    <button onclick="adjustDisplay(1,'autonCubeMidTotal')" type="button" class="btn btn-primary btn-lg">+</button>
-                    <button onclick="adjustDisplay(-1,'autonCubeMidTotal')" type="button" class="btn btn-danger btn-lg">-</button>
+                <div class="d-flex justify-content-center">
+                    <div style="width: 2rem;" class="mt-5">
+                        <p>Low</p>
+                    </div>
+                    <div style="width: 5rem;"></div>
+                    <div>
+                        <p id="autonCubeLowTotal">0</p>
+                        <button onclick="adjustDisplay(1,'autonCubeLowTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1,'autonCubeLowTotal')" type="button" class="btn btn-danger btn-lg">-</button>
+                    </div>
+                    <div style="width: 6rem;"></div>
+                    <div>
+                        <p id="autonConeLowTotal">0</p>
+                        <button onclick="adjustDisplay(1,'autonConeLowTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1,'autonConeLowTotal')" type="button" class="btn btn-danger btn-lg">-</button>
+                    </div>
                 </div>
-                <div style="width: 6rem;"></div>
-                <div>
-                    <p id = "autonConeMidTotal">0</p>
-                    <button onclick="adjustDisplay(1,'autonConeMidTotal')" type="button" class="btn btn-primary btn-lg">+</button>
-                    <button onclick="adjustDisplay(-1,'autonConeMidTotal')" type="button" class="btn btn-danger btn-lg">-</button>
-                </div>
-            </div>
-
-
-            <div class="d-flex justify-content-center">
-                <div style="width: 2rem;" class="mt-5">
-                    <p>Low</p>
-                </div>
-                <div style="width: 5rem;"></div>
-                <div>
-                    <p id="autonCubeLowTotal">0</p>
-                    <button onclick="adjustDisplay(1,'autonCubeLowTotal')" type="button" class="btn btn-primary btn-lg">+</button>
-                    <button onclick="adjustDisplay(-1,'autonCubeLowTotal')" type="button" class="btn btn-danger btn-lg">-</button>
-                </div>
-                <div style="width: 6rem;"></div>
-                <div>
-                    <p id="autonConeLowTotal">0</p>
-                    <button onclick="adjustDisplay(1,'autonConeLowTotal')" type="button" class="btn btn-primary btn-lg">+</button>
-                    <button onclick="adjustDisplay(-1,'autonConeLowTotal')" type="button" class="btn btn-danger btn-lg">-</button>
-                </div>
-            </div>
-            
-
-            
-
-            <div class="d-flex justify-content-around mt-5">
-
-                <div class="form-check" onclick="autonEnableEngagedClickable()">
-                    <label for="flexRadioDefault1">Docked?</label>
-                        <div class="form-check">
-
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedNo" checked>
-                            <label class="form-check-label" for="autonRadioDockedNo">
-                              No
-                            </label>
-                          </div>
-
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedInside">
-                            <label class="form-check-label" for="autonRadioDockedInside">
-                              Inside
-                            </label>
-                          </div>
-                          
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedMiddle">
-                            <label class="form-check-label" for="autonRadioDockedMiddle">
-                              Middle
-                            </label>
-                          </div>
-                          
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedOutside">
-                            <label class="form-check-label" for="autonRadioDockedOutside">
-                              Outside
-                            </label>
-                          </div>
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="autonEngagedCheckbox" disabled>
-                    <label class="form-check-label" for="autonEngagedCheckbox">
-                    Engaged?
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="autonMobilityBonusCheckbox">
-                    <label class="form-check-label" for="autonMobilityBonusCheckbox">
-                    Mobility Bonus?
-                    </label>
-                </div>
-            </div>
-
-            <div class="mt-5 d-flex justify-content-center">
-                <label for="autonWinnerRadio">Who won Auton?</label>
-            </div>
-            <div class="btn-group" role="group" aria-label="autonWinnerRadio">
-                <input type="radio" class="btn-check" name="btnradio" id="autonRadioBlueWin" autocomplete="off" checked>
-                <label class="btn btn-outline-primary btn-lg" for="autonRadioBlueWin">Blue</label>
                 
-                <input type="radio" class="btn-check" name="btnradio" id="autonTieRadio" autocomplete="off">
-                <label id="autonTieRadioButton" class="btn btn-outline-dark btn-lg" for="autonTieRadio">Tie</label>
+
                 
-                <input type="radio" class="btn-check" name="btnradio" id="autonRadioRedWin" autocomplete="off">
-                <label class="btn btn-outline-danger btn-lg" for="autonRadioRedWin">Red</label>
-            </div>
+
+                <div class="d-flex justify-content-around mt-5">
+
+                    <div class="form-check" onclick="autonEnableEngagedClickable()">
+                        <label for="flexRadioDefault1">Docked?</label>
+                            <div class="form-check">
+
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedNo" checked>
+                                <label class="form-check-label" for="autonRadioDockedNo">
+                                No
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedInside">
+                                <label class="form-check-label" for="autonRadioDockedInside">
+                                Inside
+                                </label>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedMiddle">
+                                <label class="form-check-label" for="autonRadioDockedMiddle">
+                                Middle
+                                </label>
+                            </div>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedOutside">
+                                <label class="form-check-label" for="autonRadioDockedOutside">
+                                Outside
+                                </label>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="autonEngagedCheckbox" disabled>
+                        <label class="form-check-label" for="autonEngagedCheckbox">
+                        Engaged?
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="autonMobilityBonusCheckbox">
+                        <label class="form-check-label" for="autonMobilityBonusCheckbox">
+                        Mobility Bonus?
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-5 d-flex justify-content-center">
+                    <label for="autonWinnerRadio">Who won Auton?</label>
+                </div>
+                <div class="btn-group" role="group" aria-label="autonWinnerRadio">
+                    <input type="radio" class="btn-check" name="btnradio" id="autonRadioBlueWin" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary btn-lg" for="autonRadioBlueWin">Blue</label>
+                    
+                    <input type="radio" class="btn-check" name="btnradio" id="autonTieRadio" autocomplete="off">
+                    <label id="autonTieRadioButton" class="btn btn-outline-dark btn-lg" for="autonTieRadio">Tie</label>
+                    
+                    <input type="radio" class="btn-check" name="btnradio" id="autonRadioRedWin" autocomplete="off">
+                    <label class="btn btn-outline-danger btn-lg" for="autonRadioRedWin">Red</label>
+                </div>
 
 
-            <div class = "d-flex justify-content-center mt-5">
-                <label for="autonNotesInput" class="form-label">Any notes?</label>
-            </div>
+                <div class = "d-flex justify-content-center mt-5">
+                    <label for="autonNotesInput" class="form-label">Any notes?</label>
+                </div>
 
-            <div class="d-flex justify-content-center">
-                <div class="input-group w-75">
-                    <textarea onkeydown="textAreaAdjust(this)" class="form-control overflow-hidden"  id="autonNotesInput"></textarea>
+                <div class="d-flex justify-content-center">
+                    <div class="input-group w-75">
+                        <textarea onkeydown="textAreaAdjust(this)" class="form-control overflow-hidden"  id="autonNotesInput"></textarea>
+                    </div>
                 </div>
             </div>
-
-
+        </div>
+    </div>
 
 
             
