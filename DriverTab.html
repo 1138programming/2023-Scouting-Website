@@ -19,16 +19,21 @@
     
 
     <!--start with an input area to enter the team number and the match number-->
-   
-    <label for="teamNumber">Team Number:</label>
-
-    <input type="number" id="teamNumber" required
-           minlength="2" maxlength="6" size="8">
-
-    <label for="matchNumber">Match Number:</label>
-
-    <input type="number" id="matchNumber" required
-           minlength="1" maxlength="2" size="4">
+   <div class="row align-items-center">
+        
+        <div class="col-auto">
+            <label for="teamNumber">Team Number:</label>
+            <input type="number" id="teamNumber" required minlength="2" maxlength="6" size="8" class="form-control form-inline"></input>
+        </div>
+        
+        
+        <div class="col-auto">
+            <label for="matchNumber">Match Number:</label>
+            <input type="number" id="matchNumber" required minlength="1" maxlength="2" size="4" class="form-control form-inline"></input>
+        </div>
+   </div>
+    
+    
     <div class="mb-1">
         <button onclick="saveMatch()" class="btn btn-primary">Save</button>
      </div>
