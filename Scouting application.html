@@ -11,7 +11,7 @@
 
 <body>
         <div onclick ="toggleDarkMode()" class="d-inline form-check form-switch d-flex justify-content-end">
-            <input class="d-inline form-check-input" type="checkbox" role="switch" id="darkModeSwitch">
+            <input class="d-inline form-check-input" type="checkbox" role="switch" id="darkModeSwitch" checked>
             <label class="d-inline form-check-label" for="darkModeSwitch">Dark mode (rough)</label>
         </div>
         <h1>Match Scoring</h1> 
@@ -93,14 +93,14 @@
                     <div style="width: 5rem;"></div>
                     <div>
                         <p id="autonCubeHighTotal">0</p>
-                        <button onclick="adjustDisplay(1,'autonCubeHighTotal')" type="button" class="btn btn-primary">+</button>
-                        <button onclick="adjustDisplay(-1, 'autonCubeHighTotal')" type="button" class="btn btn-danger">-</button>
+                        <button onclick="adjustDisplay(1,'autonCubeHighTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1, 'autonCubeHighTotal')" type="button" class="btn btn-danger btn-lg">-</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p id="autonConeHighTotal">0</p>
-                        <button onclick="adjustDisplay(1, 'autonConeHighTotal')" type="button" class="btn btn-primary">+</button>
-                        <button onclick="adjustDisplay(-1, 'autonConeHighTotal')" type="button" class="btn btn-danger">-</button>
+                        <button onclick="adjustDisplay(1, 'autonConeHighTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                        <button onclick="adjustDisplay(-1, 'autonConeHighTotal')" type="button" class="btn btn-danger btn-lg">-</button>
                     </div>
                 </div>
 
@@ -115,14 +115,14 @@
                 <div style="width: 5rem;"></div>
                 <div>
                     <p id="autonCubeMidTotal">0</p>
-                    <button onclick="adjustDisplay(1,'autonCubeMidTotal')" type="button" class="btn btn-primary">+</button>
-                    <button onclick="adjustDisplay(-1,'autonCubeMidTotal')" type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonCubeMidTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                    <button onclick="adjustDisplay(-1,'autonCubeMidTotal')" type="button" class="btn btn-danger btn-lg">-</button>
                 </div>
                 <div style="width: 6rem;"></div>
                 <div>
                     <p id = "autonConeMidTotal">0</p>
-                    <button onclick="adjustDisplay(1,'autonConeMidTotal')" type="button" class="btn btn-primary">+</button>
-                    <button onclick="adjustDisplay(-1,'autonConeMidTotal')" type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonConeMidTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                    <button onclick="adjustDisplay(-1,'autonConeMidTotal')" type="button" class="btn btn-danger btn-lg">-</button>
                 </div>
             </div>
 
@@ -134,14 +134,14 @@
                 <div style="width: 5rem;"></div>
                 <div>
                     <p id="autonCubeLowTotal">0</p>
-                    <button onclick="adjustDisplay(1,'autonCubeLowTotal')" type="button" class="btn btn-primary">+</button>
-                    <button onclick="adjustDisplay(-1,'autonCubeLowTotal')" type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonCubeLowTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                    <button onclick="adjustDisplay(-1,'autonCubeLowTotal')" type="button" class="btn btn-danger btn-lg">-</button>
                 </div>
                 <div style="width: 6rem;"></div>
                 <div>
                     <p id="autonConeLowTotal">0</p>
-                    <button onclick="adjustDisplay(1,'autonConeLowTotal')" type="button" class="btn btn-primary">+</button>
-                    <button onclick="adjustDisplay(-1,'autonConeLowTotal')" type="button" class="btn btn-danger">-</button>
+                    <button onclick="adjustDisplay(1,'autonConeLowTotal')" type="button" class="btn btn-primary btn-lg">+</button>
+                    <button onclick="adjustDisplay(-1,'autonConeLowTotal')" type="button" class="btn btn-danger btn-lg">-</button>
                 </div>
             </div>
             
@@ -203,13 +203,13 @@
             </div>
             <div class="btn-group" role="group" aria-label="autonWinnerRadio">
                 <input type="radio" class="btn-check" name="btnradio" id="autonRadioBlueWin" autocomplete="off" checked>
-                <label class="btn btn-outline-primary" for="autonRadioBlueWin">Blue</label>
+                <label class="btn btn-outline-primary btn-lg" for="autonRadioBlueWin">Blue</label>
                 
                 <input type="radio" class="btn-check" name="btnradio" id="autonTieRadio" autocomplete="off">
-                <label id="autonTieRadioButton" class="btn btn-outline-dark" for="autonTieRadio">Tie</label>
+                <label id="autonTieRadioButton" class="btn btn-outline-dark btn-lg" for="autonTieRadio">Tie</label>
                 
                 <input type="radio" class="btn-check" name="btnradio" id="autonRadioRedWin" autocomplete="off">
-                <label class="btn btn-outline-danger" for="autonRadioRedWin">Red</label>
+                <label class="btn btn-outline-danger btn-lg" for="autonRadioRedWin">Red</label>
             </div>
 
 
@@ -268,6 +268,7 @@
         </div>
 
         <script>
+            toggleDarkMode();
 
             let team = {
                 number: null,
@@ -372,13 +373,13 @@
                 if (darkModeSwitch.checked)
                 {
                     htmlElement.setAttribute("data-bs-theme", "dark");
-                    autonRadioToChange.setAttribute("class", "btn btn-outline-light");
+                    autonRadioToChange.setAttribute("class", "btn btn-outline-light btn-lg");
                     
                 }
                 else
                 {
                     htmlElement.removeAttribute("data-bs-theme");
-                    autonRadioToChange.setAttribute("class", "btn btn-outline-dark");
+                    autonRadioToChange.setAttribute("class", "btn btn-outline-dark btn-lg");
                 }
             }
 
