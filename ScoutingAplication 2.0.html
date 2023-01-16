@@ -41,8 +41,8 @@
                 type="button">Team Information</button>
         </li>
             <li class="nav-item">
-            <button class="nav-link" id="pills-match-tab" data-bs-toggle="pill" data-bs-target="#pills-match"
-                type="button">Match Results</button>
+            <button class="nav-link" id="pills-match-tab" data-bs-toggle="pill" data-bs-target="#pills-team-scout"
+                type="button">Team Scouting Page</button>
         </li>
 
     </ul>
@@ -195,11 +195,11 @@
                     <div class="d-flex justify-content-center">
                         <input class="form-check-input" type="checkbox" value="" id="Docked?">
                         <label class="form-check-label" for="Docked?">
-                            Docked?
+                        Docked? 
                         </label>
                         <input class="form-check-input" type="checkbox" value="" id="Engaged?">
                         <label class="form-check-label" for="Engaged?">
-                        Engaged?
+                        Engaged? 
                         </label>
                     </div>
                    
@@ -207,18 +207,18 @@
                         
                         <input class="form-check-input" type="checkbox" value="" id="SustainabiltyBonus?">
                         <label class="form-check-label" for="SustainabiltyBonus?">
-                            Sustainabilty Bonus?
+                        Sustainabilty Bonus?  
                         </label>
                         
                        
                         <input class="form-check-input" type="checkbox" value="" id="ActivationBonus?">
                         <label class="form-check-label" for="ActivationBonus?">
-                            Activation Bonus?
+                        Activation Bonus? 
                         </label>
                         
                         <input class="form-check-input" type="checkbox" value="" id="CoopertitionBonus?">
                         <label class="form-check-label" for="CoopertitionBonus?">
-                            Coopertition Bonus?
+                        Coopertition Bonus? 
                         </label>
                         
                     
@@ -255,15 +255,44 @@
         
          <!--Match Results page-->
          <!-- This shows the final results of the match from Blue Alliance. It includes all the teams in the match, and the official results. It also includes all of the data we have collected on the match-->
-        <div class="tab-pane fade" id="pills-match">
-            <h3>Match Results Page</h3>
+        <div class="tab-pane fade" id="pills-team-scout">
+            
            
-            <div class="text-center">
-                <span id="matchResults">Match Results Page</span>
-                
+            
+            <h1>Team Scouting Form</h1>
+    
+            <div class="input-group mb-3">
+                <span class="input-group-text">First and Last Name</span>
+                <input type="text" class="form-control" placeholder="Name" aria-label="FirstandLastName">
+                <span class="input-group-text">Date and Time</span>
+                <input type="text" class="form-control" placeholder="Date and Time" aria-label="dateandtime">
             </div>
             
-        </div>
+            <div class="input-group">
+                <span class="input-group-text">Opinions and Comments Here:</span>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+            </div>
+
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">
+                        <h5 class="card-title">What to include:</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Should be based on when you pit scouted them.</h6>
+                        <ul>
+                            <li>How neat were they?</li>
+                            <li>How friendly and helpful were they?</li>
+                            <li>Were they able to work together well as a team?</li>
+                            <li>Add anything that you think is important!</li>
+                        </ul>
+                        
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <button onclick="saveMatch()" class="btn btn-primary">Save</button>
+                    </div>
+                        
+                    </div>
+                    
+                </div>
 
         <script>
 
