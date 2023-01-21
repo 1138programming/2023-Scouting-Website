@@ -164,7 +164,7 @@
 
                 <div class="d-flex justify-content-around mt-5">
 
-                    <div class="form-check" onclick="autonEnableEngagedClickable()">
+                    <div class="form-check" onclick="enableUsable('autonRadioDockedNo','autonEngagedCheckbox')">
                         <label for="flexRadioDefault1">Docked?</label>
                         <div class="form-check">
 
@@ -444,7 +444,7 @@
                         class="form-control form-inline w-25"></input>
                 </ul>
 
-                <div class="dropdown">
+                <!-- <div class="dropdown">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="text" data-bs-toggle="dropdown" aria-expanded="false">
                       Dropdown link
                     </a>
@@ -454,9 +454,35 @@
                       <li><a class="dropdown-item" href="#">Another action</a></li>
                       <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
-                  </div>
-                
+                  </div> -->
 
+
+                <!--this ul is for grouping the checkboxes -->
+                <ul>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingFalconBox">
+                        <label class="form-check-label" for="pitScoutingFalconBox">
+                            Falcon
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNeoBox">
+                        <label class="form-check-label" for="pitScoutingNeoBox">
+                            Neo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingCimsBox">
+                        <label class="form-check-label" for="pitScoutingCimsBox">
+                            Cims
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label for="pitScoutingOtherBox">Other:</label>
+                        <input type="text" id="pitScoutingOutherBox" required minlength="2" maxlength="6" size="8"
+                            class="form-control form-inline w-25"></input>
+                    </div>
+                </ul>
 
                 <ul>
                     <p>Type of Motors:</p>
@@ -465,8 +491,8 @@
                             <input type="checkbox" name="motorType" value="falcon">Falcon<br>
                             <input type="checkbox" name="motorType" value="neo">Neo<br>
                             <input type="checkbox" name="motorType" value="cims">Cims<br>
-                            <input type="checkbox" name="motorType" value="other"><label
-                                id="other">Other:</label><textarea id="other" name="other" rows="1"
+                            <input type="checkbox" name="motorType" value="other">
+                            <label id="other">Other:</label><textarea id="other" name="other" rows="1"
                                 cols="10"></textarea><br>
 
                         </fieldset>
@@ -550,50 +576,93 @@
                         <tbody>
                             <tr>
                                 <th scope="row">Co-op High Node</th>
-                                <td><input type="number" id="co-opHighNodeCones" required minlength="2" maxlength="1000"
-                                        size="1"></td>
-                                <td><input type="number" id="co-opHighNodeCubes" required minlength="2" maxlength="1000"
-                                        size="1"></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opHighNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opHighNodeCubes">
+                                    </div>
+                                </td>
+
                             </tr>
 
                             <tr>
                                 <th scope="row">Co-op Middle Node</th>
-                                <td><input type="number" id="co-opMiddleNodeCones" required minlength="2"
-                                        maxlength="1000" size="1"></td>
-                                <td><input type="number" id="co-opMiddleNodeCubes" required minlength="2"
-                                        maxlength="1000" size="1"></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opMiddleNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opMiddleNodeCubes">
+                                    </div>
+                                </td>
                             </tr>
 
                             <tr>
                                 <th scope="row">Co-op Hybrid Node</th>
-                                <td><input type="number" id="co-opHybridNodeCones" required minlength="2"
-                                        maxlength="1000" size="1"></td>
-                                <td><input type="number" id="co-opHybridNodeCubes" required minlength="2"
-                                        maxlength="1000" size="1"></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opHybridNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opHybridNodeCubes">
+                                    </div>
+                                </td>
                             </tr>
 
                             <tr>
                                 <th scope="row">High Node</th>
-                                <td><input type="number" id="highNodeCones" required minlength="2" maxlength="1000"
-                                        size="1"></td>
-                                <td><input type="number" id="highNodeCubes" required minlength="2" maxlength="1000"
-                                        size="1"></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="highNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="highNodeCubes">
+                                    </div>
+                                </td>
                             </tr>
 
                             <tr>
                                 <th scope="row">Middle Node</th>
-                                <td><input type="number" id="middleNodeCones" required minlength="2" maxlength="1000"
-                                        size="1"></td>
-                                <td><input type="number" id="middleNodeCubes" required minlength="2" maxlength="1000"
-                                        size="1"></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="middleNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="middleNodeCones">
+                                    </div>
+                                </td>
                             </tr>
 
                             <tr>
                                 <th scope="row">Hybrid Node</th>
-                                <td><input type="number" id="hybridNodeCones" required minlength="2" maxlength="1000"
-                                        size="1"></td>
-                                <td><input type="number" id="hybridNodeCubes" required minlength="2" maxlength="1000"
-                                        size="1"></td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="hybridNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="hybridNodeCubes">
+                                    </div>
+                                </td>
                             </tr>
 
                         </tbody>
@@ -788,17 +857,19 @@
         autonPointsTotalField.innerText = (autonHighTotal * 5) + (autonMidTotal * 3) + (autonLowTotal * 2);
     }
 
-    function autonEnableEngagedClickable() {
-        let autonDockedNo = document.getElementById("autonRadioDockedNo");
-        let engagedCheckbox = document.getElementById("autonEngagedCheckbox");
-        if (autonDockedNo.checked) {
-            engagedCheckbox.setAttribute("disabled", "");
-            if (engagedCheckbox.checked) {
-                engagedCheckbox.checked = false;
+
+
+    function enableUsable(button, target) {
+        let buttonCollected = document.getElementById(button);
+        let targetCollected = document.getElementById(target);
+        if (buttonCollected.checked) {
+            targetCollected.setAttribute("disabled", "");
+            if (targetCollected.checked) {
+                targetCollected.checked = false;
             }
         }
         else {
-            engagedCheckbox.removeAttribute("disabled");
+            targetCollected.removeAttribute("disabled");
         }
     }
 
