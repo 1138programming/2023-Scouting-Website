@@ -36,12 +36,13 @@
             <input type="number" id="matchNumber" required minlength="1" maxlength="2" size="4"
                 class="form-control form-inline"></input>
         </div>
-    </div>
 
+    </div>
 
     <div class="mb-1">
         <button onclick="saveMatch()" class="btn btn-primary">Save</button>
     </div>
+
 
 
     <!--Define tabs-->
@@ -164,7 +165,7 @@
 
                 <div class="d-flex justify-content-around mt-5">
 
-                    <div class="form-check" onclick="enableUsable('autonRadioDockedNo','autonEngagedCheckbox')">
+                    <div class="form-check" onclick="enableUsable(false,'autonRadioDockedNo','autonEngagedCheckbox')">
                         <label for="flexRadioDefault1">Docked?</label>
                         <div class="form-check">
 
@@ -238,7 +239,7 @@
 
                 <div class="d-flex justify-content-center">
                     <div class="input-group w-75">
-                        <textarea onkeydown="textAreaAdjust(this)" class="form-control overflow-hidden"
+                        <textarea onkeydown="textAreaAdjust(this)" class="form-control overflow-hidden mb-5"
                             id="autonNotesInput"></textarea>
                     </div>
                 </div>
@@ -339,11 +340,19 @@
 
                 <!--Other stuff-->
                 <div>
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center mt-3">
                         <div style="width: 40rem;">
                             <label for="driverOffense" id="driverOffenseTotal">Offense 0</label>
                             <input oninput="adjustRangeDisplay('driverOffense','driverOffenseTotal')" type="range"
                                 class="form-range" min="0" max="10" id="driverOffense" value="0">
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center mb-3">
+                        <div style="width: 40rem;">
+                            <label for="driverDefense" id="driverDefenseTotal">Defense 0</label>
+                            <input oninput="adjustRangeDisplay('driverDefense','driverDefenseTotal')" type="range"
+                                class="form-range" min="0" max="10" id="driverDefense" value="0">
                         </div>
                     </div>
 
@@ -383,21 +392,13 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-center">
-                        <div style="width: 40rem;">
-                            <label for="driverDefense" id="driverDefenseTotal">Defense 0</label>
-                            <input oninput="adjustRangeDisplay('driverDefense','driverDefenseTotal')" type="range"
-                                class="form-range" min="0" max="10" id="driverDefense" value="0">
-                        </div>
-                    </div>
-
 
                     <div class="d-flex justify-content-center mt-5">
                         <label for="driverNotesInput" class="form-label">Any notes?</label>
                     </div>
 
                     <div class="d-flex justify-content-center">
-                        <div class="input-group w-75">
+                        <div class="input-group w-75 mb-5">
                             <textarea onkeydown="textAreaAdjust(this)" class="form-control overflow-hidden"
                                 id="driverNotesInput"></textarea>
                         </div>
@@ -410,6 +411,16 @@
 
         <!--Pit Scouting page-->
         <div class="tab-pane fade" id="pills-pit-scout">
+            <h3>Team Information</h3>
+            <ul>
+                <p>Team Number:</p>
+                <input type="number" id="pitScoutingTeamNumber" required minlength="2" maxlength="6" size="8"
+                    class="form-control form-inline w-25"></input>
+                <p>Competition ID:</p>
+                <input type="number" id="pitScoutingCompetitionID" required minlength="2" maxlength="6" size="8"
+                    class="form-control form-inline w-25"></input>
+            </ul>
+
             <h3>Pit Details</h3>
             <div id="pit">
                 <ul>
@@ -479,10 +490,10 @@
                     </div>
                     <div>
                         <input class="form-check-input" type="checkbox" id="pitScoutingOtherCheck"
-                            onclick="enableUsable('pitScoutingOtherCheck', 'pitScoutingOtherBox')">
-                            <label for="pitScoutingOtherBox">Other:</label>
-                            <input type="text" id="pitScoutingOutherBox" required minlength="2" maxlength="6" size="8"
-                                class="form-control form-inline w-25"></input>
+                            onclick="enableUsable(true,'pitScoutingOtherCheck','pitScoutingOtherBox')">
+                        <label for="pitScoutingOtherBox">Other:</label>
+                        <input type="text" id="pitScoutingOutherBox" required minlength="2" maxlength="6" size="8"
+                            class="form-control form-inline w-25" disabled></input>
                     </div>
                 </ul>
 
@@ -493,7 +504,6 @@
                 </ul>
                 <ul>
                     <p>What nodes can they reach/do?</p>
-
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="pitScoutingNodeHybrid">
                         <label class="form-check-label" for="pitScoutingNodeHybrid">
@@ -749,7 +759,7 @@
                         <input class="form-check-input" type="radio" name="flexRadioDefault"
                             id="pitScoutingChargingStationStatusUndecided">
                         <label class="form-check-label" for="pitScoutingChargingStationStatusUndecided">
-                            Undecided
+                            Unable
                         </label>
 
                 </ul>
@@ -806,47 +816,51 @@
                             <tr class="w-25">
                                 <th scope="row">1</th>
                                 <td>
-                                    <select class="form-select" aria-label="Default select example" id="pitScoutingPiecePreferedPosition1">
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="pitScoutingPiecePreferedPosition1">
                                         <option value="select">Select</option>
                                         <option value="cones">Cones</option>
                                         <option value="cubes">Cubes</option>
-                                        <option value="nothing">Nothing</option>
-                                      </select>
+                                        <option value="Undecided">Undecided</option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr class="w-25">
                                 <th scope="row">2</th>
                                 <td>
-                                    <select class="form-select" aria-label="Default select example" id="pitScoutingPiecePreferedPosition2">
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="pitScoutingPiecePreferedPosition2">
                                         <option value="select">Select</option>
                                         <option value="cones">Cones</option>
                                         <option value="cubes">Cubes</option>
-                                        <option value="nothing">Nothing</option>
-                                      </select>
+                                        <option value="Undecided">Undecided</option>
+                                    </select>
                                 </td>
                             </tr>
 
                             <tr class="w-25">
                                 <th scope="row">3</th>
                                 <td>
-                                    <select class="form-select" aria-label="Default select example" id="pitScoutingPiecePreferedPosition3">
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="pitScoutingPiecePreferedPosition3">
                                         <option value="select">Select</option>
                                         <option value="cones">Cones</option>
                                         <option value="cubes">Cubes</option>
-                                        <option value="nothing">Nothing</option>
-                                      </select>
+                                        <option value="Undecided">Undecided</option>
+                                    </select>
                                 </td>
                             </tr>
 
                             <tr>
                                 <th scope="row">4</th>
                                 <td class="w-25">
-                                    <select class="form-select" aria-label="Default select example" id="pitScoutingPiecePreferedPosition4">
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="pitScoutingPiecePreferedPosition4">
                                         <option value="select">Select</option>
                                         <option value="cones">Cones</option>
                                         <option value="cubes">Cubes</option>
                                         <option value="nothing">Nothing</option>
-                                      </select>
+                                    </select>
                                 </td>
                             </tr>
                         </tbody>
@@ -966,18 +980,36 @@
 
 
 
-    function enableUsable(button, target) {
+    function enableUsable(onTrueOrFalse, button, target) {
         let buttonCollected = document.getElementById(button);
         let targetCollected = document.getElementById(target);
-        if (buttonCollected.checked) {
-            targetCollected.setAttribute("disabled", "");
-            if (targetCollected.checked) {
-                targetCollected.checked = false;
+        if (onTrueOrFalse) {
+            if (buttonCollected.checked || buttonCollected.value == null) {
+                targetCollected.setAttribute("disabled", "");
+                if (targetCollected.checked || targetCollected.value != null) {
+                    targetCollected.checked = false;
+                }
+            }
+            else {
+                targetCollected.removeAttribute("disabled");
             }
         }
         else {
-            targetCollected.removeAttribute("disabled");
+            if (!buttonCollected.checked || button.value != null) {
+                targetCollected.setAttribute("disabled", "");
+                if (targetCollected.checked || targetCollected.value != null) {
+                    targetCollected.checked = false;
+                }
+            }
+            else {
+                targetCollected.removeAttribute("disabled");
+            }
         }
+    }
+    function enableUsable(onTrueOrFalse, button, target)
+    {
+        buttonCollect = document.getElementById(button);
+        targetCollected = document.getElementById();
     }
 
     function adjustRangeDisplay(rangeinput, target) {
@@ -1028,7 +1060,6 @@
 
     function saveMatch() {
         const matchNumber = Number(document.getElementById("matchNumber").value);
-
         team.matches.push({
             match: matchNumber,
             matchAutonPoints: 0,
