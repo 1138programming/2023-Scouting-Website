@@ -477,94 +477,151 @@
                             Cims
                         </label>
                     </div>
-                    <div class="form-check">
-                        <label for="pitScoutingOtherBox">Other:</label>
-                        <input type="text" id="pitScoutingOutherBox" required minlength="2" maxlength="6" size="8"
-                            class="form-control form-inline w-25"></input>
+                    <div>
+                        <input class="form-check-input" type="checkbox" id="pitScoutingOtherCheck"
+                            onclick="enableUsable('pitScoutingOtherCheck', 'pitScoutingOtherBox')">
+                            <label for="pitScoutingOtherBox">Other:</label>
+                            <input type="text" id="pitScoutingOutherBox" required minlength="2" maxlength="6" size="8"
+                                class="form-control form-inline w-25"></input>
                     </div>
                 </ul>
 
                 <ul>
-                    <p>Type of Motors:</p>
-                    <form method="post" action="/Motor/Type" id="motorType">
-                        <fieldset>
-                            <input type="checkbox" name="motorType" value="falcon">Falcon<br>
-                            <input type="checkbox" name="motorType" value="neo">Neo<br>
-                            <input type="checkbox" name="motorType" value="cims">Cims<br>
-                            <input type="checkbox" name="motorType" value="other">
-                            <label id="other">Other:</label><textarea id="other" name="other" rows="1"
-                                cols="10"></textarea><br>
-
-                        </fieldset>
-                    </form>
-                </ul>
-
-                <ul>
-                    <p># of Motors on Drivetrain:</p>
-                    <input type="number" id="motorsDrivetrain" required minlength="2" maxlength="1000" size="15">
+                    <label for="pitScotutingMotorsDrivetrain"># of Motors on Drivetrain:</label>
+                    <input type="text" id="pitScotutingMotorsDrivetrain" required minlength="2" maxlength="6" size="8"
+                        class="form-control form-inline w-25"></input>
                 </ul>
                 <ul>
                     <p>What nodes can they reach/do?</p>
 
-                    <form method="post" action="/Node/Reached" id="nodeReached">
-                        <fieldset>
-                            <input type="checkbox" name="nodeReached" value="hybrid/floor">Hybrid/Floor<br>
-                            <input type="checkbox" name="nodeReached" value="middle">Middle<br>
-                            <input type="checkbox" name="nodeReached" value="high">High<br>
-                            <input type="checkbox" name="nodeReached" value="none">None<br>
-
-                        </fieldset>
-                    </form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNodeHybrid">
+                        <label class="form-check-label" for="pitScoutingNodeHybrid">
+                            Hybrid/Floor
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNodeMiddle">
+                        <label class="form-check-label" for="pitScoutingNodeMiddle">
+                            Middle
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNodeHigh">
+                        <label class="form-check-label" for="pitScoutingNodeHigh">
+                            High
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNodeNone">
+                        <label class="form-check-label" for="pitScoutingNodeNone">
+                            None
+                        </label>
+                    </div>
                 </ul>
 
                 <ul>
                     <p>What game pieces can they grab/use?</p>
 
-                    <form method="post" action="/Piece/Grabed" id="pieceGrabed">
-                        <fieldset>
-                            <input type="radio" name="gamepieceUsed" value="cone">Cone<br>
-                            <input type="radio" name="gamepieceUsed" value="cube">Cube<br>
-                            <input type="radio" name="gamepieceUsed" value="both">Both<br>
-                            <input type="radio" name="gamepieceUsed" value="none">None<br>
-
-                        </fieldset>
-                    </form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingGrabbableCone">
+                        <label class="form-check-label" for="pitScoutingGrabbableCone">
+                            Hybrid/Floor
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingGrabbableCube">
+                        <label class="form-check-label" for="pitScoutingGrabbableCube">
+                            Middle
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingGrabbableBoth">
+                        <label class="form-check-label" for="pitScoutingGrabbableBoth">
+                            High
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingGrabbableNone">
+                        <label class="form-check-label" for="pitScoutingGrabbableNone">
+                            None
+                        </label>
+                    </div>
                 </ul>
 
                 <ul>
                     <p>How long does it take to get to their highest possible node?</p>
-                    <input type="number" id="highestPossibleNode" required minlength="2" maxlength="100" size="8">
+                    <input type="text" id="pitScoutingHighestPossibleNode" required minlength="2" maxlength="6" size="8"
+                        class="form-control form-inline w-25"></input>
                 </ul>
 
                 <ul>
                     <p>Average Cycle Time:</p>
-                    <input type="number" id="averageCycleTime" required minlength="2" maxlength="1000" size="8">
-
+                    <input type="number" id="pitScoutingAverageCycletime" required minlength="2" maxlength="6" size="8"
+                        class="form-control form-inline w-25"></input>
                 </ul>
 
                 <h3>General describtion of Autonomous:</h3>
                 <ul>
                     <p>Do you gain mobility points?</p>
-                    <form method="post" action="/Mobility/Yes/No" id="mobilityYesNo">
-                        <fieldset>
-                            <input type="radio" name="mobilityYesNo" value="yes">Yes<br>
-                            <input type="radio" name="mobilityYesNo" value="no">No<br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingMobilityYes">
+                        <label class="form-check-label" for="pitScoutingMobilityYes">
+                            Hybrid/Floor
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="pitScoutingMobilityNo">
+                        <label class="form-check-label" for="pitScoutingMobilityNo">
+                            Middle
+                        </label>
+                    </div>
+                </ul>
 
-                        </fieldset>
-                    </form>
-
+                <ul>
                     <p>What's scored?</p>
-                    <form method="post" action="/Piece/Scored" id="gamepieceScored">
-                        <fieldset>
-                            <input type="radio" name="gamepieceScored" value="cone">Cone<br>
-                            <input type="radio" name="gamepieceScored" value="cube">Cube<br>
-                            <input type="radio" name="gamepieceScored" value="both">Both<br>
-                            <input type="radio" name="gamepieceScored" value="none">None<br>
 
-                        </fieldset>
-                    </form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingGamePieceScoredCone">
+                        <label class="form-check-label" for="pitScoutingGamePieceScoredCone">
+                            Cone
+                        </label>
+                    </div>
 
-                    <p>How many are scored in each node?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingGamePieceScoredCube">
+                        <label class="form-check-label" for="pitScoutingGamePieceScoredCube">
+                            Cube
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingGamePieceScoredBoth">
+                        <label class="form-check-label" for="pitScoutingGamePieceScoredBoth">
+                            Both
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingGamePieceScoredNone">
+                        <label class="form-check-label" for="pitScoutingGamePieceScoredNone">
+                            None
+                        </label>
+                    </div>
+
+                </ul>
+
+                <p>How many are scored in each node?</p>
+                <ul>
                     <table class="table" id="locationScored">
                         <thead>
                             <tr>
@@ -667,29 +724,76 @@
 
                         </tbody>
                     </table>
+                </ul>
 
+                <ul>
                     <p>Do you go onto the charging station?</p>
-                    <form method="post" action="Charging/Station/Yes/No" id="chargingStationStatus">
-                        <fieldset>
-                            <input type="radio" name="chargingStationStatus" value="engaged">Engaged<br>
-                            <input type="radio" name="chargingStationStatus" value="docked">Docked<br>
-                            <input type="radio" name="chargingStationStatus" value="docked">No<br>
 
-                        </fieldset>
-                    </form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingChargingStationStatusEngaged">
+                        <label class="form-check-label" for="pitScoutingChargingStationStatusEngaged">
+                            Engaged
+                        </label>
+                    </div>
 
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingChargingStationStatusDocked">
+                        <label class="form-check-label" for="pitScoutingChargingStationStatusDocked">
+                            Docked
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingChargingStationStatusUndecided">
+                        <label class="form-check-label" for="pitScoutingChargingStationStatusUndecided">
+                            Undecided
+                        </label>
+
+                </ul>
+
+                <ul>
                     <p>Where on the charging station?</p>
-                    <form method="post" action="Charging/Station/Location" id="chargingStationLocation">
-                        <fieldset>
-                            <input type="radio" name="chargingStationLocation" value="left">Left<br>
-                            <input type="radio" name="chargingStationLocation" value="middle">Middle<br>
-                            <input type="radio" name="chargingStationLocation" value="right">Right<br>
-                            <input type="radio" name="chargingStationLocation" value="no">No<br>
 
-                        </fieldset>
-                    </form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingChargingStatusLocationLeft">
+                        <label class="form-check-label" for="pitScoutingChargingStatusLocationLeft">
+                            Left
+                        </label>
+                    </div>
 
-                    <p>What starting line up of the pieces works best with your auton?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingChargingStatusLocationMiddle">
+                        <label class="form-check-label" for="pitScoutingChargingStatusLocationMiddle">
+                            Middle
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingChargingStatusLocationRight">
+                        <label class="form-check-label" for="pitScoutingChargingStatusLocationRight">
+                            Right
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            id="pitScoutingChargingStatusLocationUndecided">
+                        <label class="form-check-label" for="pitScoutingChargingStatusLocationUndecided">
+                            Undecided
+                        </label>
+                    </div>
+
+                </ul>
+
+
+                <p>What starting line up of the pieces works best with your auton?</p>
+                <ul>
                     <table class="table">
                         <thead>
                             <tr>
@@ -699,55 +803,58 @@
                         </thead>
 
                         <tbody>
-                            <tr>
+                            <tr class="w-25">
                                 <th scope="row">1</th>
                                 <td>
-                                    <select name="piecePrefered" id="piecePreferedPosition1">
+                                    <select class="form-select" aria-label="Default select example" id="pitScoutingPiecePreferedPosition1">
                                         <option value="select">Select</option>
                                         <option value="cones">Cones</option>
                                         <option value="cubes">Cubes</option>
                                         <option value="nothing">Nothing</option>
-                                    </select>
+                                      </select>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="w-25">
                                 <th scope="row">2</th>
                                 <td>
-                                    <select name="piecePrefered" id="piecePreferedPosition2">
+                                    <select class="form-select" aria-label="Default select example" id="pitScoutingPiecePreferedPosition2">
                                         <option value="select">Select</option>
                                         <option value="cones">Cones</option>
                                         <option value="cubes">Cubes</option>
                                         <option value="nothing">Nothing</option>
-                                    </select>
+                                      </select>
                                 </td>
                             </tr>
 
-                            <tr>
+                            <tr class="w-25">
                                 <th scope="row">3</th>
                                 <td>
-                                    <select name="piecePrefered" id="piecePreferedPosition3">
+                                    <select class="form-select" aria-label="Default select example" id="pitScoutingPiecePreferedPosition3">
                                         <option value="select">Select</option>
                                         <option value="cones">Cones</option>
                                         <option value="cubes">Cubes</option>
                                         <option value="nothing">Nothing</option>
-                                    </select>
+                                      </select>
                                 </td>
                             </tr>
 
                             <tr>
                                 <th scope="row">4</th>
-                                <td>
-                                    <select name="piecePrefered" id="piecePreferedPosition4">
+                                <td class="w-25">
+                                    <select class="form-select" aria-label="Default select example" id="pitScoutingPiecePreferedPosition4">
                                         <option value="select">Select</option>
                                         <option value="cones">Cones</option>
                                         <option value="cubes">Cubes</option>
                                         <option value="nothing">Nothing</option>
-                                    </select>
+                                      </select>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <!--Add a text box that is editable to audience for everything-->
+                </ul>
+
+
+                <!--Add a text box that is editable to audience for everything-->
                 </ul>
                 <div class="mb-1">
                     <button onclick="saveMatch()" class="btn btn-primary">Save</button>
@@ -930,6 +1037,5 @@
         });
     }
 </script>
-</body>
 
 </html>
