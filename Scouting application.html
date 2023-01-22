@@ -164,12 +164,11 @@
 
 
                 <div class="d-flex justify-content-around mt-5">
-
-                    <div class="form-check" onclick="enableUsable(false,'autonRadioDockedNo','autonEngagedCheckbox')">
+                    <!--onclick="enableUsable(false,'autonRadioDockedNo','autonEngagedCheckbox')"-->
+                    <div class="form-check" onclick="helpMe(autonRadioDockedNo)">
                         <label for="flexRadioDefault1">Docked?</label>
                         <div class="form-check">
-
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedNo"
+                            <input class="form-check-input" type="radio" name="autonRadioGroupDocking" id="autonRadioDockedNo"
                                 checked>
                             <label class="form-check-label" for="autonRadioDockedNo">
                                 No
@@ -177,7 +176,7 @@
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            <input class="form-check-input" type="radio" name="autonRadioGroupDocking"
                                 id="autonRadioDockedInside">
                             <label class="form-check-label" for="autonRadioDockedInside">
                                 Inside
@@ -185,7 +184,7 @@
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            <input class="form-check-input" type="radio" name="autonRadioGroupDocking"
                                 id="autonRadioDockedMiddle">
                             <label class="form-check-label" for="autonRadioDockedMiddle">
                                 Middle
@@ -193,7 +192,7 @@
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                            <input class="form-check-input" type="radio" name="autonRadioGroupDocking"
                                 id="autonRadioDockedOutside">
                             <label class="form-check-label" for="autonRadioDockedOutside">
                                 Outside
@@ -469,31 +468,30 @@
 
 
                 <!--this ul is for grouping the checkboxes -->
-                <ul>
+                <ul onclick="helpMe(pitScoutingOtherCheck)">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingFalconBox">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingFalconBox">
                         <label class="form-check-label" for="pitScoutingFalconBox">
                             Falcon
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNeoBox">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingNeoBox">
                         <label class="form-check-label" for="pitScoutingNeoBox">
                             Neo
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingCimsBox">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingCimsBox">
                         <label class="form-check-label" for="pitScoutingCimsBox">
                             Cims
                         </label>
                     </div>
                     <div>
-                        <input class="form-check-input" type="checkbox" id="pitScoutingOtherCheck"
-                            onclick="enableUsable(true,'pitScoutingOtherCheck','pitScoutingOtherBox')">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingOtherCheck">
                         <label for="pitScoutingOtherBox">Other:</label>
                         <input type="text" id="pitScoutingOutherBox" required minlength="2" maxlength="6" size="8"
-                            class="form-control form-inline w-25" disabled></input>
+                            class="form-control form-inline w-25"></input>
                     </div>
                 </ul>
 
@@ -534,28 +532,28 @@
                     <p>What game pieces can they grab/use?</p>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupGamePieces"
                             id="pitScoutingGrabbableCone">
                         <label class="form-check-label" for="pitScoutingGrabbableCone">
                             Hybrid/Floor
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupGamePieces"
                             id="pitScoutingGrabbableCube">
                         <label class="form-check-label" for="pitScoutingGrabbableCube">
                             Middle
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupGamePieces"
                             id="pitScoutingGrabbableBoth">
                         <label class="form-check-label" for="pitScoutingGrabbableBoth">
                             High
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupGamePieces"
                             id="pitScoutingGrabbableNone">
                         <label class="form-check-label" for="pitScoutingGrabbableNone">
                             None
@@ -579,16 +577,16 @@
                 <ul>
                     <p>Do you gain mobility points?</p>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupMobilityPoints"
                             id="pitScoutingMobilityYes">
                         <label class="form-check-label" for="pitScoutingMobilityYes">
-                            Hybrid/Floor
+                            Yes
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="pitScoutingMobilityNo">
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupMobilityPoints" id="pitScoutingMobilityNo">
                         <label class="form-check-label" for="pitScoutingMobilityNo">
-                            Middle
+                            No
                         </label>
                     </div>
                 </ul>
@@ -597,7 +595,7 @@
                     <p>What's scored?</p>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupWhatScored"
                             id="pitScoutingGamePieceScoredCone">
                         <label class="form-check-label" for="pitScoutingGamePieceScoredCone">
                             Cone
@@ -605,7 +603,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupWhatScored"
                             id="pitScoutingGamePieceScoredCube">
                         <label class="form-check-label" for="pitScoutingGamePieceScoredCube">
                             Cube
@@ -613,7 +611,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupWhatScored"
                             id="pitScoutingGamePieceScoredBoth">
                         <label class="form-check-label" for="pitScoutingGamePieceScoredBoth">
                             Both
@@ -621,7 +619,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupWhatScored"
                             id="pitScoutingGamePieceScoredNone">
                         <label class="form-check-label" for="pitScoutingGamePieceScoredNone">
                             None
@@ -630,7 +628,7 @@
 
                 </ul>
 
-                <p>How many are scored in each node?</p>
+                <p>Where do they score?</p>
                 <ul>
                     <table class="table" id="locationScored">
                         <thead>
@@ -740,7 +738,7 @@
                     <p>Do you go onto the charging station?</p>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupChargingStation"
                             id="pitScoutingChargingStationStatusEngaged">
                         <label class="form-check-label" for="pitScoutingChargingStationStatusEngaged">
                             Engaged
@@ -748,7 +746,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupChargingStation"
                             id="pitScoutingChargingStationStatusDocked">
                         <label class="form-check-label" for="pitScoutingChargingStationStatusDocked">
                             Docked
@@ -756,7 +754,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupChargingStation"
                             id="pitScoutingChargingStationStatusUndecided">
                         <label class="form-check-label" for="pitScoutingChargingStationStatusUndecided">
                             Unable
@@ -768,7 +766,7 @@
                     <p>Where on the charging station?</p>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupWhereOnChargingStation"
                             id="pitScoutingChargingStatusLocationLeft">
                         <label class="form-check-label" for="pitScoutingChargingStatusLocationLeft">
                             Left
@@ -776,7 +774,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupWhereOnChargingStation"
                             id="pitScoutingChargingStatusLocationMiddle">
                         <label class="form-check-label" for="pitScoutingChargingStatusLocationMiddle">
                             Middle
@@ -784,7 +782,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupWhereOnChargingStation"
                             id="pitScoutingChargingStatusLocationRight">
                         <label class="form-check-label" for="pitScoutingChargingStatusLocationRight">
                             Right
@@ -792,7 +790,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupWhereOnChargingStation"
                             id="pitScoutingChargingStatusLocationUndecided">
                         <label class="form-check-label" for="pitScoutingChargingStatusLocationUndecided">
                             Undecided
@@ -980,36 +978,88 @@
 
 
 
-    function enableUsable(onTrueOrFalse, button, target) {
-        let buttonCollected = document.getElementById(button);
-        let targetCollected = document.getElementById(target);
-        if (onTrueOrFalse) {
-            if (buttonCollected.checked || buttonCollected.value == null) {
-                targetCollected.setAttribute("disabled", "");
-                if (targetCollected.checked || targetCollected.value != null) {
-                    targetCollected.checked = false;
-                }
-            }
-            else {
-                targetCollected.removeAttribute("disabled");
+    // function enableUsable(onTrueOrFalse, button, target) {
+    //     let buttonCollected = document.getElementById(button);
+    //     let targetCollected = document.getElementById(target);
+    //     if (onTrueOrFalse) {
+    //         if (buttonCollected.checked || buttonCollected.value == null) {
+    //             targetCollected.setAttribute("disabled", "");
+    //             if (targetCollected.checked || targetCollected.value != null) {
+    //                 targetCollected.checked = false;
+    //             }
+    //         }
+    //         else {
+    //             targetCollected.removeAttribute("disabled");
+    //         }
+    //     }
+    //     else {
+    //         if (!buttonCollected.checked || button.value != null) {
+    //             targetCollected.setAttribute("disabled", "");
+    //             if (targetCollected.checked || targetCollected.value != null) {
+    //                 targetCollected.checked = false;
+    //             }
+    //         }
+    //         else {
+    //             targetCollected.removeAttribute("disabled");
+    //         }
+    //     }
+    // }
+
+
+
+    function autonEnableEngagedClickable() {
+        let autonDockedNo = document.getElementById("autonRadioDockedNo");
+        let engagedCheckbox = document.getElementById("autonEngagedCheckbox");
+        if (autonDockedNo.checked) {
+            engagedCheckbox.setAttribute("disabled", "");
+            if (engagedCheckbox.checked) {
+                engagedCheckbox.checked = false;
             }
         }
         else {
-            if (!buttonCollected.checked || button.value != null) {
-                targetCollected.setAttribute("disabled", "");
-                if (targetCollected.checked || targetCollected.value != null) {
-                    targetCollected.checked = false;
-                }
-            }
-            else {
-                targetCollected.removeAttribute("disabled");
-            }
+            engagedCheckbox.removeAttribute("disabled");
         }
     }
-    function enableUsable(onTrueOrFalse, button, target)
-    {
-        buttonCollect = document.getElementById(button);
-        targetCollected = document.getElementById();
+
+
+    function helpMe(id) {
+        bool = getElementById(id);
+        alert("JS IS BADD");
+    }
+
+    function enableUsable(onTrue, buttonValue, target) {
+        targetCollected = document.getElementById(target);
+        if (onTrue) {
+
+        }
+        // if (onTrue) {
+        //     if (buttonCollected.getAttribute(checked)) {
+        //         targetCollected.removeAttribute("disabled");
+        //     }
+        //     else {
+        //         if (targetCollected.tagName == "radio") {
+        //             targetCollected.setAttribute("checked", "false");
+        //         }
+        //         else if (targetCollected.tagName == "input") {
+        //             targetCollected.value = null;
+        //         }
+        //         targetCollected.setAttribute("disabled", "");
+        //     }
+        // }
+        // else {
+        //     if (!buttonCollected.checked) {
+        //         targetCollected.removeAttribute("disabled");
+        //     }
+        //     else {
+        //         if (targetCollected.tagName == "button") {
+        //             targetCollected.checked = false;
+        //         }
+        //         else if (targetCollected.tagName == "input") {
+        //             targetCollected.value = null;
+        //         }
+        //         targetCollected.setAttribute("disabled", "");
+        //     }
+        // }
     }
 
     function adjustRangeDisplay(rangeinput, target) {
