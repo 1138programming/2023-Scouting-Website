@@ -10,6 +10,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.min.js"
         integrity="sha512-qKyIokLnyh6oSnWsc5h21uwMAQtljqMZZT17CIMXuCQNIfFSFF4tJdMOaJHL9fQdJUANid6OB6DRR0zdHrbWAw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        function helpMe(id) {
+            bool = getElementById(id);
+            alert("JS IS BADD");
+        }
+    </script>
 </head>
 
 <body>
@@ -164,12 +171,11 @@
 
 
                 <div class="d-flex justify-content-around mt-5">
-                    <!--onclick="enableUsable(false,'autonRadioDockedNo','autonEngagedCheckbox')"-->
-                    <div class="form-check" onclick="helpMe(autonRadioDockedNo)">
+                    <div class="form-check" onclick="autonEnableEngagedClickable()">
                         <label for="flexRadioDefault1">Docked?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="autonRadioGroupDocking" id="autonRadioDockedNo"
-                                checked>
+                            <input class="form-check-input" type="radio" name="autonRadioGroupDocking"
+                                id="autonRadioDockedNo" checked>
                             <label class="form-check-label" for="autonRadioDockedNo">
                                 No
                             </label>
@@ -238,7 +244,7 @@
 
                 <div class="d-flex justify-content-center">
                     <div class="input-group w-75">
-                        <textarea onkeydown="textAreaAdjust(this)" class="form-control overflow-hidden mb-5"
+                        <textarea onkeypress="textAreaAdjust(this)" class="form-control overflow-hidden mb-5"
                             id="autonNotesInput"></textarea>
                     </div>
                 </div>
@@ -468,7 +474,7 @@
 
 
                 <!--this ul is for grouping the checkboxes -->
-                <ul onclick="helpMe(pitScoutingOtherCheck)">
+                <ul>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="pitScoutingFalconBox">
                         <label class="form-check-label" for="pitScoutingFalconBox">
@@ -487,12 +493,13 @@
                             Cims
                         </label>
                     </div>
-                    <div>
+                    <!--Just know that this code makes it work... don't bother trying to read it.-->
+                    <!-- <div>
                         <input class="form-check-input" type="checkbox" id="pitScoutingOtherCheck">
                         <label for="pitScoutingOtherBox">Other:</label>
-                        <input type="text" id="pitScoutingOutherBox" required minlength="2" maxlength="6" size="8"
+                        <input type="text"id="pitScoutingOutherBox" onkeyup="if(this.value==''){document.getElementById('pitScoutingOtherCheck').removeAttribute('disabled')}else{document.getElementById('pitScoutingOtherCheck').checked=true; document.getElementById('pitScoutingOtherCheck').setAttribute('disabled','')}" required maxlength="6" size="8"
                             class="form-control form-inline w-25"></input>
-                    </div>
+                    </div> -->
                 </ul>
 
                 <ul>
@@ -584,7 +591,8 @@
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupMobilityPoints" id="pitScoutingMobilityNo">
+                        <input class="form-check-input" type="radio" name="pitScoutingRadioGroupMobilityPoints"
+                            id="pitScoutingMobilityNo">
                         <label class="form-check-label" for="pitScoutingMobilityNo">
                             No
                         </label>
@@ -976,37 +984,6 @@
         autonPointsTotalField.innerText = (autonHighTotal * 5) + (autonMidTotal * 3) + (autonLowTotal * 2);
     }
 
-
-
-    // function enableUsable(onTrueOrFalse, button, target) {
-    //     let buttonCollected = document.getElementById(button);
-    //     let targetCollected = document.getElementById(target);
-    //     if (onTrueOrFalse) {
-    //         if (buttonCollected.checked || buttonCollected.value == null) {
-    //             targetCollected.setAttribute("disabled", "");
-    //             if (targetCollected.checked || targetCollected.value != null) {
-    //                 targetCollected.checked = false;
-    //             }
-    //         }
-    //         else {
-    //             targetCollected.removeAttribute("disabled");
-    //         }
-    //     }
-    //     else {
-    //         if (!buttonCollected.checked || button.value != null) {
-    //             targetCollected.setAttribute("disabled", "");
-    //             if (targetCollected.checked || targetCollected.value != null) {
-    //                 targetCollected.checked = false;
-    //             }
-    //         }
-    //         else {
-    //             targetCollected.removeAttribute("disabled");
-    //         }
-    //     }
-    // }
-
-
-
     function autonEnableEngagedClickable() {
         let autonDockedNo = document.getElementById("autonRadioDockedNo");
         let engagedCheckbox = document.getElementById("autonEngagedCheckbox");
@@ -1021,47 +998,6 @@
         }
     }
 
-
-    function helpMe(id) {
-        bool = getElementById(id);
-        alert("JS IS BADD");
-    }
-
-    function enableUsable(onTrue, buttonValue, target) {
-        targetCollected = document.getElementById(target);
-        if (onTrue) {
-
-        }
-        // if (onTrue) {
-        //     if (buttonCollected.getAttribute(checked)) {
-        //         targetCollected.removeAttribute("disabled");
-        //     }
-        //     else {
-        //         if (targetCollected.tagName == "radio") {
-        //             targetCollected.setAttribute("checked", "false");
-        //         }
-        //         else if (targetCollected.tagName == "input") {
-        //             targetCollected.value = null;
-        //         }
-        //         targetCollected.setAttribute("disabled", "");
-        //     }
-        // }
-        // else {
-        //     if (!buttonCollected.checked) {
-        //         targetCollected.removeAttribute("disabled");
-        //     }
-        //     else {
-        //         if (targetCollected.tagName == "button") {
-        //             targetCollected.checked = false;
-        //         }
-        //         else if (targetCollected.tagName == "input") {
-        //             targetCollected.value = null;
-        //         }
-        //         targetCollected.setAttribute("disabled", "");
-        //     }
-        // }
-    }
-
     function adjustRangeDisplay(rangeinput, target) {
         rangeField = document.getElementById(rangeinput);
         rangeTotal = document.getElementById(target);
@@ -1071,22 +1007,6 @@
         rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
 
     }
-
-    // let lastKeysPressed = [0,0,0,0];
-    // document.getElementById("autonRadioBlueWin").addEventListener("keydown", () => {
-    //     lastKeysPressed[3] = lastKeysPressed[2];
-    //     lastKeysPressed[2] = lastKeysPressed[1];
-    //     lastKeysPressed[1] = lastKeysPressed[0];
-    //     lastKeysPressed[0] = event.key;
-    //     if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 8)
-    //     {
-    //         window.location.href = "https://youtu.be/dQw4w9WgXcQ";
-    //     }
-    //     if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 9)
-    //     {
-    //         window.location.href = "https://i.kym-cdn.com/photos/images/newsfeed/001/996/641/bc2.jpg";
-    //     }
-    // })
 
     function toggleDarkMode() {
         const autonRadioToChange = document.getElementById("autonTieRadioButton");
