@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.min.js"
         integrity="sha512-qKyIokLnyh6oSnWsc5h21uwMAQtljqMZZT17CIMXuCQNIfFSFF4tJdMOaJHL9fQdJUANid6OB6DRR0zdHrbWAw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -414,10 +415,10 @@
             <h3>Team Information</h3>
             <ul>
                 <p>Team Number:</p>
-                <input type="number" id="pitScoutingTeamNumber" required minlength="2" maxlength="6" size="8"
+                <input type="number" id="pitScoutingTeamNumber" required minlength="1" maxlength="6" size="8"
                     class="form-control form-inline w-25"></input>
                 <p>Competition ID:</p>
-                <input type="number" id="pitScoutingCompetitionID" required minlength="2" maxlength="6" size="8"
+                <input type="number" id="pitScoutingCompetitionID" required minlength="1" maxlength="6" size="8"
                     class="form-control form-inline w-25"></input>
             </ul>
 
@@ -425,11 +426,11 @@
             <div id="pit">
                 <ul>
                     <p>How many batteries do you have?</p>
-                    <input type="number" id="numberOfBatteries" required minlength="2" maxlength="6" size="8"
+                    <input type="number" id="numberOfBatteries" required minlength="1" maxlength="6" size="8"
                         class="form-control form-inline w-25"></input>
 
                     <p>How many chargers do you have?</p>
-                    <input type="number" id="numberOfChargers" required minlength="2" maxlength="6" size="8"
+                    <input type="number" id="numberOfChargers" required minlength="1" maxlength="6" size="8"
                         class="form-control form-inline w-25"></input>
 
 
@@ -871,7 +872,7 @@
                 <!--Add a text box that is editable to audience for everything-->
                 </ul>
                 <div class="mb-1">
-                    <button onclick="saveMatch()" class="btn btn-primary">Save</button>
+                    <button id = "pitScoutingSaveButton" onclick = "newPitScouting()" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>
@@ -882,6 +883,8 @@
 
     toggleDarkMode();
 
+    const apiURL = 'https://1138-scouting-api.azurewebsites.net/api/'
+
     let team = {
         number: null,
         competition: null,
@@ -891,6 +894,47 @@
 
     // This is a java script comment. We are doing inline javascript
     // Javascript has 3 levels of variables - var, let and const. Var - global variable. Wonky. let - similar to var, but preserves scope. const is a constant memory location that can be defined once.
+    function newPitScouting() {
+        // alert("Saved!");
+        const pitScouting = {
+            competitionID: document.getElementById('pitScoutingCompetitionID').value,
+            teamNumber: document.getElementById('pitScoutingTeamNumber').value,
+            // endGameDock: document.getElementById('').value,
+            // notes: document.getElementById('').value,
+            numBatteries: document.getElementById('numberOfBatteries').value,
+            numBatChargers: document.getElementById('numberOfChargers').value,
+            // drivetrainMotorNum: document.getElementById('').value,
+            // motorType: document.getElementById('').value,
+            // nodeTypeHigh: document.getElementById('').value,
+            // nodeTypeMid: document.getElementById('').value,
+            // nodeTypeHybridOrFloor: document.getElementById('').value,
+            // coopNodeTypeHigh: document.getElementById('').value,
+            // coopNodeTypeMid: document.getElementById('').value,
+            // coopNodeTypeHybridOrFloor: document.getElementById('').value,
+            // cantScoreNode: document.getElementById('').value,
+            // gamePieceStartingPosFR: document.getElementById('').value,
+            // gamePieceStartingPosMR: document.getElementById('').value,
+            // gamePieceStartingPosML: document.getElementById('').value,
+            // gamePieceStartingPosFL: document.getElementById('').value,
+            // canDockOnChargingStation: document.getElementById('').value,
+            // canEngageOnChargingStation: document.getElementById('').value,
+        };
+
+        fetch(apiURL + 'PitScoutingResults',
+            {
+                method: 'POST',
+                body: JSON.stringify(pitScouting),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(() => { location.reload(); })
+            .then(() => {alert("Saved!")})
+    }
+
+    function reloadPage() {
+        document.getElementById("pitScoutingSaveButton").onclick(() => {location.reload    })
+    }
     function ValidateMotorType() {
         var checkboxes = document.getElementsByName("motorType");
         var numberOfCheckedItems = 0;
@@ -1006,8 +1050,7 @@
             }
         }
     }
-    function enableUsable(onTrueOrFalse, button, target)
-    {
+    function enableUsable(onTrueOrFalse, button, target) {
         buttonCollect = document.getElementById(button);
         targetCollected = document.getElementById();
     }
