@@ -20,7 +20,7 @@
         <input class="d-inline form-check-input" type="checkbox" role="switch" id="darkModeSwitch" checked>
         <label class="d-inline form-check-label" for="darkModeSwitch">Dark mode (rough)</label>
     </div>
-    <h1>Match Scoring</h1>
+    <h1>Scouting Website :)</h1>
 
 
 
@@ -168,7 +168,7 @@
 
                 <div class="d-flex justify-content-around mt-5">
 
-                    <div class="form-check" onclick="enableUsable(false,'autonRadioDockedNo','autonEngagedCheckbox')">
+                    <!-- <div class="form-check" onclick="enableUsable(false,'autonRadioDockedNo','autonEngagedCheckbox')">
                         <label for="flexRadioDefault1">Docked?</label>
                         <div class="form-check">
 
@@ -203,10 +203,16 @@
                             </label>
                         </div>
                         </label>
+                    </div> -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="autonEngagedCheckbox">
+                        <label class="form-check-label" for="autonEngagedCheckbox">
+                            Docked?
+                        </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="autonEngagedCheckbox" disabled>
+                        <input class="form-check-input" type="checkbox" value="" id="autonEngagedCheckbox">
                         <label class="form-check-label" for="autonEngagedCheckbox">
                             Engaged?
                         </label>
@@ -464,7 +470,7 @@
 
                 <!--this ul is for grouping the checkboxes -->
                 <ul>
-                    
+
                     <p>Type of Drivetrain:</p>
 
                     <div class="form-check">
@@ -534,7 +540,7 @@
                         <input class="form-check-input" type="radio" name="pitScoutingGrabbable"
                             id="pitScoutingGrabbableCone">
                         <label class="form-check-label" for="pitScoutingGrabbableCone">
-                           Cones
+                            Cones
                         </label>
                     </div>
                     <div class="form-check">
@@ -633,29 +639,29 @@
                         </label>
                     </div>
                 </ul>
-            </daiv>
+                </daiv>
 
-            <div id="auton">
-                <h3>General describtion of Autonomous:</h3>
-                <ul>
-                    <p>Do you gain mobility points?</p>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="1" name="flexRadioDefault"
-                            id="pitScoutingMobilityYes">
-                        <label class="form-check-label" for="pitScoutingMobilityYes">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="2" name="flexRadioDefault"
-                            id="pitScoutingMobilityNo">
-                        <label class="form-check-label" for="pitScoutingMobilityNo">
-                            No
-                        </label>
-                    </div>
-                </ul>
+                <div id="auton">
+                    <h3>General describtion of Autonomous:</h3>
+                    <ul>
+                        <p>Do you gain mobility points?</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="1" name="flexRadioDefault"
+                                id="pitScoutingMobilityYes">
+                            <label class="form-check-label" for="pitScoutingMobilityYes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="2" name="flexRadioDefault"
+                                id="pitScoutingMobilityNo">
+                            <label class="form-check-label" for="pitScoutingMobilityNo">
+                                No
+                            </label>
+                        </div>
+                    </ul>
 
-                <!-- <ul>
+                    <!-- <ul>
                     <p>What's scored?</p>
 
                     <div class="form-check">
@@ -692,257 +698,262 @@
 
                 </ul> -->
 
-                <ul>
-                    <p>How many are scored in each node?</p>
-                    <table class="table" id="locationScored">
-                        <thead>
-                            <tr>
-                                <th scope="col">Node Scored On</th>
-                                <th scope="col">Cones</th>
-                                <th scope="col">Cubes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Co-op High Node</th>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="co-opHighNodeCones">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="co-opHighNodeCubes">
-                                    </div>
-                                </td>
+                    <ul>
+                        <p>How many are scored in each node?</p>
+                        <table class="table" id="locationScored">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Node Scored On</th>
+                                    <th scope="col">Cones</th>
+                                    <th scope="col">Cubes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Co-op High Node</th>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="co-opHighNodeCones">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="co-opHighNodeCubes">
+                                        </div>
+                                    </td>
 
-                            </tr>
+                                </tr>
 
-                            <tr>
-                                <th scope="row">Co-op Middle Node</th>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="co-opMiddleNodeCones">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="co-opMiddleNodeCubes">
-                                    </div>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <th scope="row">Co-op Middle Node</th>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="co-opMiddleNodeCones">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="co-opMiddleNodeCubes">
+                                        </div>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <th scope="row">Co-op Hybrid Node</th>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="co-opHybridNodeCones">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="co-opHybridNodeCubes">
-                                    </div>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <th scope="row">Co-op Hybrid Node</th>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="co-opHybridNodeCones">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="co-opHybridNodeCubes">
+                                        </div>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <th scope="row">High Node</th>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="highNodeCones">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="highNodeCubes">
-                                    </div>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <th scope="row">High Node</th>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="highNodeCones">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="highNodeCubes">
+                                        </div>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <th scope="row">Middle Node</th>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="middleNodeCones">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="middleNodeCones">
-                                    </div>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <th scope="row">Middle Node</th>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="middleNodeCones">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="middleNodeCones">
+                                        </div>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <th scope="row">Hybrid Node</th>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="hybridNodeCones">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="hybridNodeCubes">
-                                    </div>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <th scope="row">Hybrid Node</th>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="hybridNodeCones">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="hybridNodeCubes">
+                                        </div>
+                                    </td>
+                                </tr>
 
-                        </tbody>
-                    </table>
-                </ul>
+                            </tbody>
+                        </table>
+                    </ul>
 
-                <ul>
+                    <ul>
 
-                    <p>Do you go onto the charging station?</p>
+                        <p>Do you go onto the charging station?</p>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="1" name="autonChargingStationActivation"
-                            id="pitScoutingChargingStationStatusDocked">
-                        <label class="form-check-label" for="pitScoutingChargingStationStatusDocked">
-                            Docked
-                        </label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="1" name="autonChargingStationActivation"
+                                id="pitScoutingChargingStationStatusDocked">
+                            <label class="form-check-label" for="pitScoutingChargingStationStatusDocked">
+                                Docked
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="2" name="autonChargingStationActivation"
+                                id="pitScoutingChargingStationStatusEngaged">
+                            <label class="form-check-label" for="pitScoutingChargingStationStatusEngaged">
+                                Engaged
+                            </label>
+                        </div>
+
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="3" name="autonChargingStationActivation"
+                                id="pitScoutingChargingStationStatusUndecided">
+                            <label class="form-check-label" for="pitScoutingChargingStationStatusUndecided">
+                                Unable
+                            </label>
+
+                    </ul>
+
+                    <ul>
+                        <p>Where on the charging station?</p>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="1" name="autonChargingStationLocation"
+                                id="ChargingStationLocationleft">
+                            <label class="form-check-label" for="ChargingStationLocationleft">
+                                Left
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="2" name="autonChargingStationLocation"
+                                id="ChargingStationLocationMiddle">
+                            <label class="form-check-label" for="ChargingStationLocationMiddle">
+                                Middle
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="3" name="autonChargingStationLocation"
+                                id="ChargingStationLocationRight">
+                            <label class="form-check-label" for="ChargingStationLocationRight">
+                                Right
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="4" name="autonChargingStationLocation"
+                                id="ChargingStationLocationUndecided">
+                            <label class="form-check-label" for="ChargingStationLocationUndecided">
+                                Undecided
+                            </label>
+                        </div>
+
+                    </ul>
+
+
+                    <p>What starting line up of the pieces works best with your auton?</p>
+                    <ul>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Position #</th>
+                                    <th scope="col">Piece</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr class="w-25">
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <select class="form-select" aria-label="Default select example"
+                                            id="pitScoutingPiecePreferedPosition1">
+                                            <option value="">Select</option>
+                                            <option value="1">Cones</option>
+                                            <option value="2">Cubes</option>
+                                            <option value="3">Undecided</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr class="w-25">
+                                    <th scope="row">2</th>
+                                    <td>
+                                        <select class="form-select" aria-label="Default select example"
+                                            id="pitScoutingPiecePreferedPosition2">
+                                            <option value="">Select</option>
+                                            <option value="1">Cones</option>
+                                            <option value="2">Cubes</option>
+                                            <option value="3">Undecided</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr class="w-25">
+                                    <th scope="row">3</th>
+                                    <td>
+                                        <select class="form-select" aria-label="Default select example"
+                                            id="pitScoutingPiecePreferedPosition3">
+                                            <option value="">Select</option>
+                                            <option value="1">Cones</option>
+                                            <option value="2">Cubes</option>
+                                            <option value="3">Undecided</option>
+                                        </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td class="w-25">
+                                        <select class="form-select" aria-label="Default select example"
+                                            id="pitScoutingPiecePreferedPosition4">
+                                            <option value="">Select</option>
+                                            <option value="1">Cones</option>
+                                            <option value="2">Cubes</option>
+                                            <option value="3">Nothing</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ul>
+
+
+
+
+                    <!--Add a text box that is editable to audience for everything-->
+                    </ul>
+                    <div class="mb-1">
+                        <button id="pitScoutingSaveButton" onclick="newPitScouting()"
+                            class="btn btn-primary">Save</button>
                     </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="2" name="autonChargingStationActivation"
-                            id="pitScoutingChargingStationStatusEngaged">
-                        <label class="form-check-label" for="pitScoutingChargingStationStatusEngaged">
-                            Engaged
-                        </label>
-                    </div>
-
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="3" name="autonChargingStationActivation"
-                            id="pitScoutingChargingStationStatusUndecided">
-                        <label class="form-check-label" for="pitScoutingChargingStationStatusUndecided">
-                            Unable
-                        </label>
-
-                </ul>
-
-                <ul>
-                    <p>Where on the charging station?</p>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="1" name="autonChargingStationLocation"
-                            id="ChargingStationLocationleft">
-                        <label class="form-check-label" for="ChargingStationLocationleft">
-                            Left
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="2" name="autonChargingStationLocation"
-                            id="ChargingStationLocationMiddle">
-                        <label class="form-check-label" for="ChargingStationLocationMiddle">
-                            Middle
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="3" name="autonChargingStationLocation"
-                            id="ChargingStationLocationRight">
-                        <label class="form-check-label" for="ChargingStationLocationRight">
-                            Right
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="4" name="autonChargingStationLocation"
-                            id="ChargingStationLocationUndecided">
-                        <label class="form-check-label" for="ChargingStationLocationUndecided">
-                            Undecided
-                        </label>
-                    </div>
-
-                </ul>
-
-
-                <p>What starting line up of the pieces works best with your auton?</p>
-                <ul>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Position #</th>
-                                <th scope="col">Piece</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr class="w-25">
-                                <th scope="row">1</th>
-                                <td>
-                                    <select class="form-select" aria-label="Default select example"
-                                        id="pitScoutingPiecePreferedPosition1">
-                                        <option value="">Select</option>
-                                        <option value="1">Cones</option>
-                                        <option value="2">Cubes</option>
-                                        <option value="3">Undecided</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr class="w-25">
-                                <th scope="row">2</th>
-                                <td>
-                                    <select class="form-select" aria-label="Default select example"
-                                        id="pitScoutingPiecePreferedPosition2">
-                                        <option value="">Select</option>
-                                        <option value="1">Cones</option>
-                                        <option value="2">Cubes</option>
-                                        <option value="3">Undecided</option>
-                                    </select>
-                                </td>
-                            </tr>
-
-                            <tr class="w-25">
-                                <th scope="row">3</th>
-                                <td>
-                                    <select class="form-select" aria-label="Default select example"
-                                        id="pitScoutingPiecePreferedPosition3">
-                                        <option value="">Select</option>
-                                        <option value="1">Cones</option>
-                                        <option value="2">Cubes</option>
-                                        <option value="3">Undecided</option>
-                                    </select>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th scope="row">4</th>
-                                <td class="w-25">
-                                    <select class="form-select" aria-label="Default select example"
-                                        id="pitScoutingPiecePreferedPosition4">
-                                        <option value="">Select</option>
-                                        <option value="1">Cones</option>
-                                        <option value="2">Cubes</option>
-                                        <option value="3">Nothing</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </ul>
-
-
-
-
-                <!--Add a text box that is editable to audience for everything-->
-                </ul>
-                <div class="mb-1">
-                    <button id="pitScoutingSaveButton" onclick="newPitScouting()" class="btn btn-primary">Save</button>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 </body>
 <script type="text/javascript">
 
@@ -956,18 +967,52 @@
         teamNotes: null,
         matches: []
     }
-
     // This is a java script comment. We are doing inline javascript
     // Javascript has 3 levels of variables - var, let and const. Var - global variable. Wonky. let - similar to var, but preserves scope. const is a constant memory location that can be defined once.
+    function newGameResults() {
+
+        const GameResults {
+            // id: document.getElementById()
+            // teamNumber:document.getElementById('pitScoutingCompetitionID').value,
+            // teamId: document.getElementById('pitScoutingCompetitionID').value,
+            // matchNumber: document.getElementById('pitScoutingCompetitionID').value,
+            // matchId: document.getElementById('pitScoutingCompetitionID').value,
+            // autonomousControlPoints: 0,
+            // "autonomousHighCube": 0,
+            // "autonomousHighCone": 0,
+            // "autonomousMidCube": 0,
+            // "autonomousMidCone": 0,
+            // "autonomousLowCube": 0,
+            // "autonomousLowCone": 0,
+            // "autonDocking": true,
+            // "autonWinner": 0,
+            // "engaged": true,
+            // "mobilityBonus": true,
+            // "autonNotes": "string",
+            // "dcControlPoints": 0,
+            // "dcHighCube": 0,
+            // "dcHighCone": 0,
+            // "dcMidCube": 0,
+            // "dcMidCone": 0,
+            // "dcLowCube": 0,
+            // "dcLowCone": 0,
+            // "opr": 0,
+            // "dpr": 0,
+            // "dcDocking": true,
+            // "dcEngaged": true,
+            // "sustainabilityBonus": true,
+            // "activationBonus": true,
+            // "coopertitionBonus": true
+        }
+    }
     function newPitScouting() {
         // alert("Saved!");
         const pitScouting = {
             competitionID: document.getElementById('pitScoutingCompetitionID').value,
             teamNumber: document.getElementById('pitScoutingTeamNumber').value,
+            numBatteries: document.getElementById('numberOfBatteries').value,
+            numBatChargers: document.getElementById('numberOfChargers').value,
             // endGameDock: document.getElementById('').value,
-            // notes: document.getElementById('').value,
-            // numBatteries: document.getElementById('numberOfBatteries').value,
-            // numBatChargers: document.getElementById('numberOfChargers').value,
             // drivetrainMotorNum: document.getElementById('').value,
             // motorType: document.getElementById('').value,
             // nodeTypeHigh: document.getElementById('').value,
@@ -977,12 +1022,12 @@
             // coopNodeTypeMid: document.getElementById('').value,
             // coopNodeTypeHybridOrFloor: document.getElementById('').value,
             // cantScoreNode: document.getElementById('').value,
+            // chargingStationActivation: Number(document.querySelector('input[name="autonChargingStationActivation"]:checked').value),
+            // chargingStationPosition: Number(document.querySelector('input[name="autonChargingStationLocation"]:checked').value),
             // gamePieceStartingPosFR: document.getElementById('pitScoutingPiecePreferedPosition1').value,
             // gamePieceStartingPosMR: document.getElementById('').value,
             // gamePieceStartingPosML: document.getElementById('').value,
             // gamePieceStartingPosFL: document.getElementById('').value,
-            chargingStationActivation: Number(document.querySelector('input[name="autonChargingStationActivation"]:checked').value),
-            chargingStationPosition: Number(document.querySelector('input[name="autonChargingStationLocation"]:checked').value),
         };
 
         fetch(apiURL + 'PitScoutingResults',
