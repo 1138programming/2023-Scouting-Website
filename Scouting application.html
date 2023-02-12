@@ -98,24 +98,21 @@
                     <div>
                         <p>Cube</p>
                         <p id="autonCubeHighTotal">0</p>
-                        <button onclick="adjustDisplay(1,'autonCubeHighTotal')" type="button"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1, 'autonCubeHighTotal')" type="button"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="autonCubeHighTotalHit" onclick="adjustDisplay(1,'autonCubeHighTotal')" type="button"
+                            class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonCubeHighTotalMiss" onclick="adjustDisplay(0, 'autonCubeHighTotal')"
+                            type="button" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p>Cone</p>
                         <p id="autonConeHighTotal">0</p>
-                        <button onclick="adjustDisplay(1, 'autonConeHighTotal')" type="button"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1, 'autonConeHighTotal')" type="button"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="autonConeHighTotalHit" onclick="adjustDisplay(1, 'autonConeHighTotal')"
+                            type="button" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonConeHighTotalMiss" onclick="adjustDisplay(0, 'autonConeHighTotal')"
+                            type="button" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
-
-
-
 
 
                 <div class="d-flex justify-content-center">
@@ -125,18 +122,18 @@
                     <div style="width: 5rem;"></div>
                     <div>
                         <p id="autonCubeMidTotal">0</p>
-                        <button onclick="adjustDisplay(1,'autonCubeMidTotal')" type="button"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1,'autonCubeMidTotal')" type="button"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="autonCubeMidTotalHit" onclick="adjustDisplay(1,'autonCubeMidTotal')" type="button"
+                            class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonCubeMidTotalMiss" onclick="adjustDisplay(0,'autonCubeMidTotal')" type="button"
+                            class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p id="autonConeMidTotal">0</p>
-                        <button onclick="adjustDisplay(1,'autonConeMidTotal')" type="button"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1,'autonConeMidTotal')" type="button"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="autonConeMidTotalHit" onclick="adjustDisplay(1,'autonConeMidTotal')" type="button"
+                            class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonConeMidTotalMiss" onclick="adjustDisplay(0,'autonConeMidTotal')" type="button"
+                            class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
 
@@ -148,18 +145,25 @@
                     <div style="width: 5rem;"></div>
                     <div>
                         <p id="autonCubeLowTotal">0</p>
-                        <button onclick="adjustDisplay(1,'autonCubeLowTotal')" type="button"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1,'autonCubeLowTotal')" type="button"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="autonCubeLowTotalHit" onclick="adjustDisplay(1,'autonCubeLowTotal')" type="button"
+                            class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonCubeLowTotalMiss" onclick="adjustDisplay(0,'autonCubeLowTotal')" type="button"
+                            class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p id="autonConeLowTotal">0</p>
-                        <button onclick="adjustDisplay(1,'autonConeLowTotal')" type="button"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1,'autonConeLowTotal')" type="button"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="autonConeLowTotalHit" onclick="adjustDisplay(1,'autonConeLowTotal')" type="button"
+                            class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonConeLowTotalMiss" onclick="adjustDisplay(0,'autonConeLowTotal')" type="button"
+                            class="btn btn-danger btn-lg">Miss</button>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class="mt-5">
+                        <button onclick="ResetLastInput()" type="button" class="btn btn-primary btn-lg">Clear Last
+                            Input</button>
                     </div>
                 </div>
 
@@ -491,13 +495,6 @@
                             Cims
                         </label>
                     </div>
-                    <!-- <div>
-                        <input class="form-check-input" type="checkbox" id="pitScoutingOtherCheck"
-                            onclick="enableUsable(true,'pitScoutingOtherCheck','pitScoutingOtherBox')">
-                        <label for="pitScoutingOtherBox">Other:</label>
-                        <input type="text" id="pitScoutingOutherBox" required minlength="1" maxlength="6" size="8"
-                            class="form-control form-inline w-25" disabled></input>
-                    </div> -->
                 </ul>
 
                 <ul>
@@ -961,52 +958,79 @@
 
     const apiURL = 'https://1138-scouting-api.azurewebsites.net/api/'
 
-    let team = {
-        number: null,
-        competition: null,
-        teamNotes: null,
-        matches: []
-    }
+    let input2dArray = [2, 6]; //row 0 is auton, row 1 is driver control, columns are miss and hit for low, mid, high
+    const ScoreHigh = 5;
+    const ScoreMid = 4;
+    const ScoreLow = 3;
+    const MissHigh = 2;
+    const MissMid = 1;
+    const MissLow = 0;
+    const autonScore = 0;
+    const driverControlScore = 1;
+    let indexOfLast;
+    let currentIndex;
+
+    //Cone
+    document.getElementById('autonConeHighTotalHit').addEventListener("click", ChangeIndex(ScoreHigh, autonScore));
+    document.getElementById('autonConeMidTotalHit').addEventListener("click", ChangeIndex(ScoreMid, autonScore));
+    document.getElementById('autonConeLowTotalHit').addEventListener("click", ChangeIndex(ScoreLow, autonScore));
+    document.getElementById('autonConeHighTotalMiss').addEventListener("click", ChangeIndex(MissHigh, autonScore));
+    document.getElementById('autonConeMidTotalMiss').addEventListener("click", ChangeIndex(MissMid, autonScore));
+    document.getElementById('autonConeLowTotalMiss').addEventListener("click", ChangeIndex(MissLow, autonScore));
+    //Cube
+    document.getElementById('autonCubeHighTotalHit').addEventListener("click", ChangeIndex(ScoreHigh, autonScore));
+    document.getElementById('autonCubeMidTotalHit').addEventListener("click", ChangeIndex(ScoreMid, autonScore));
+    document.getElementById('autonCubeLowTotalHit').addEventListener("click", ChangeIndex(ScoreLow, autonScore));
+    document.getElementById('autonCubeHighTotalMiss').addEventListener("click", ChangeIndex(MissHigh, autonScore));
+    document.getElementById('autonCubeMidTotalMiss').addEventListener("click", ChangeIndex(MissMid, autonScore));
+    document.getElementById('autonCubeLowTotalMiss').addEventListener("click", ChangeIndex(MissLow, autonScore));
+
+
+
     // This is a java script comment. We are doing inline javascript
     // Javascript has 3 levels of variables - var, let and const. Var - global variable. Wonky. let - similar to var, but preserves scope. const is a constant memory location that can be defined once.
-    function newGameResults() {
+    // function newGameResults() {
 
-        const GameResults {
-            // id: document.getElementById()
-            // teamNumber:document.getElementById('pitScoutingCompetitionID').value,
-            // teamId: document.getElementById('pitScoutingCompetitionID').value,
-            // matchNumber: document.getElementById('pitScoutingCompetitionID').value,
-            // matchId: document.getElementById('pitScoutingCompetitionID').value,
-            // autonomousControlPoints: 0,
-            // "autonomousHighCube": 0,
-            // "autonomousHighCone": 0,
-            // "autonomousMidCube": 0,
-            // "autonomousMidCone": 0,
-            // "autonomousLowCube": 0,
-            // "autonomousLowCone": 0,
-            // "autonDocking": true,
-            // "autonWinner": 0,
-            // "engaged": true,
-            // "mobilityBonus": true,
-            // "autonNotes": "string",
-            // "dcControlPoints": 0,
-            // "dcHighCube": 0,
-            // "dcHighCone": 0,
-            // "dcMidCube": 0,
-            // "dcMidCone": 0,
-            // "dcLowCube": 0,
-            // "dcLowCone": 0,
-            // "opr": 0,
-            // "dpr": 0,
-            // "dcDocking": true,
-            // "dcEngaged": true,
-            // "sustainabilityBonus": true,
-            // "activationBonus": true,
-            // "coopertitionBonus": true
-        }
+    //     const GameResults {
+    //         // id: document.getElementById()
+    //         // teamNumber:document.getElementById('pitScoutingCompetitionID').value,
+    //         // teamId: document.getElementById('pitScoutingCompetitionID').value,
+    //         // matchNumber: document.getElementById('pitScoutingCompetitionID').value,
+    //         // matchId: document.getElementById('pitScoutingCompetitionID').value,
+    //         // autonomousControlPoints: 0,
+    //         // "autonomousHighCube": 0,
+    //         // "autonomousHighCone": 0,
+    //         // "autonomousMidCube": 0,
+    //         // "autonomousMidCone": 0,
+    //         // "autonomousLowCube": 0,
+    //         // "autonomousLowCone": 0,
+    //         // "autonDocking": true,
+    //         // "autonWinner": 0,
+    //         // "engaged": true,
+    //         // "mobilityBonus": true,
+    //         // "autonNotes": "string",
+    //         // "dcControlPoints": 0,
+    //         // "dcHighCube": 0,
+    //         // "dcHighCone": 0,
+    //         // "dcMidCube": 0,
+    //         // "dcMidCone": 0,
+    //         // "dcLowCube": 0,
+    //         // "dcLowCone": 0,
+    //         // "opr": 0,
+    //         // "dpr": 0,
+    //         // "dcDocking": true,
+    //         // "dcEngaged": true,
+    //         // "sustainabilityBonus": true,
+    //         // "activationBonus": true,
+    //         // "coopertitionBonus": true
+    //     }
+    // }
+    function ChangeIndex(IndexLast, IndexCurrent) {
+        indexOfLast = IndexLast;
+        currentIndex = IndexCurrent;
+        input2dArray[currentIndex, indexOfLast] += 1;
     }
     function newPitScouting() {
-        // alert("Saved!");
         const pitScouting = {
             competitionID: document.getElementById('pitScoutingCompetitionID').value,
             teamNumber: document.getElementById('pitScoutingTeamNumber').value,
@@ -1042,33 +1066,6 @@
             .then(() => { alert("Saved!") })
     }
 
-    function reloadPage() {
-        document.getElementById("pitScoutingSaveButton").onclick(() => { location.reload })
-    }
-    function ValidateMotorType() {
-        var checkboxes = document.getElementsByName("motorType");
-        var numberOfCheckedItems = 0;
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked)
-                numberOfCheckedItems++;
-        }
-        if (numberOfCheckedItems < 1) {
-            alert("They must have motors, right?");
-            return false;
-        }
-    }
-    function ValidateNodeReached() {
-        var checkboxes = document.getElementsByName("nodeReached");
-        var numberOfCheckedItems = 0;
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked)
-                numberOfCheckedItems++;
-        }
-        if (numberOfCheckedItems < 1) {
-            alert("Answer it, I know you can!");
-            return false;
-        }
-    }
     function adjustRangeDisplay(rangeinput, target) {
         rangeFeild = document.getElementById(rangeinput);
         rangeTotal = document.getElementById(target);
@@ -1078,22 +1075,13 @@
         rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
 
     }
-    function save() {
-        team.number = Number(document.getElementById("teamNumber").value);
-        const data = JSON.stringify(team);
-        window.localStorage.setItem("teamInfo", data);
-    }
-
-    function load() {
-        const data = window.localStorage.getItem("teamInfo")
-        team = JSON.parse(data);
-    }
 
     function adjustDisplay(amt, pointTarget) {
         const pointsTotalField = document.getElementById(pointTarget);
         let pointsTotalArr = String(pointsTotalField.innerText);
         let pointsTotalArr2 = pointsTotalArr.split(" ");
         const pointsTotal = Number(pointsTotalArr2[0]);
+        
         if (pointsTotal + amt < 0) {
             pointsTotalField.innerText = 0;
         }
@@ -1102,6 +1090,14 @@
         }
         driverTotalPointsCalc();
         autonTotalPointsCalc();
+        console.log(input2dArray);
+    }
+
+    function ResetLastInput() {
+        if (indexOfLast >= 0) {
+            input2dArray[currentIndex, indexOfLast] -= 1;
+            indexOfLast = -1;
+        }
     }
 
     function driverTotalPointsCalc() {
@@ -1160,10 +1156,6 @@
             }
         }
     }
-    function enableUsable(onTrueOrFalse, button, target) {
-        buttonCollect = document.getElementById(button);
-        targetCollected = document.getElementById();
-    }
 
     function adjustRangeDisplay(rangeinput, target) {
         rangeField = document.getElementById(rangeinput);
@@ -1174,22 +1166,6 @@
         rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
 
     }
-
-    // let lastKeysPressed = [0,0,0,0];
-    // document.getElementById("autonRadioBlueWin").addEventListener("keydown", () => {
-    //     lastKeysPressed[3] = lastKeysPressed[2];
-    //     lastKeysPressed[2] = lastKeysPressed[1];
-    //     lastKeysPressed[1] = lastKeysPressed[0];
-    //     lastKeysPressed[0] = event.key;
-    //     if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 8)
-    //     {
-    //         window.location.href = "https://youtu.be/dQw4w9WgXcQ";
-    //     }
-    //     if (lastKeysPressed[3] == 1 && lastKeysPressed[2] == 1 && lastKeysPressed[1] == 3 && lastKeysPressed[0] == 9)
-    //     {
-    //         window.location.href = "https://i.kym-cdn.com/photos/images/newsfeed/001/996/641/bc2.jpg";
-    //     }
-    // })
 
     function toggleDarkMode() {
         const autonRadioToChange = document.getElementById("autonTieRadioButton");
@@ -1211,15 +1187,6 @@
         element.style.minHeight = (element.scrollHeight) + "px";
     }
 
-    function saveMatch() {
-        const matchNumber = Number(document.getElementById("matchNumber").value);
-        team.matches.push({
-            match: matchNumber,
-            matchAutonPoints: 0,
-            matchDriverPoints: 0,
-            matchDefenseRating: 0
-        });
-    }
 </script>
 
 </html>
