@@ -43,7 +43,7 @@
     </div>
 
     <div class="mb-1">
-        <button onclick="saveMatch()" class="btn btn-primary">Save</button>
+        <button onclick="newMatchResults()" class="btn btn-primary">Save</button>
     </div>
 
 
@@ -209,21 +209,21 @@
                         </label>
                     </div> -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="autonEngagedCheckbox">
-                        <label class="form-check-label" for="autonEngagedCheckbox">
+                        <input class="form-check-input" type="checkbox" id="autonDockedCheckbox">
+                        <label class="form-check-label" for="autonDockedCheckbox">
                             Docked?
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="autonEngagedCheckbox">
+                        <input class="form-check-input" type="checkbox"  id="autonEngagedCheckbox">
                         <label class="form-check-label" for="autonEngagedCheckbox">
                             Engaged?
                         </label>
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="autonMobilityBonusCheckbox">
+                        <input class="form-check-input" type="checkbox"  id="autonMobilityBonusCheckbox">
                         <label class="form-check-label" for="autonMobilityBonusCheckbox">
                             Mobility Bonus?
                         </label>
@@ -233,15 +233,17 @@
                 <div class="mt-5 d-flex justify-content-center">
                     <label for="autonWinnerRadio">Who won Auton?</label>
                 </div>
-                <div class="btn-group" role="group" aria-label="autonWinnerRadio">
-                    <input type="radio" class="btn-check" name="btnradio" id="autonRadioBlueWin" autocomplete="off"
-                        checked>
+                <div id="autonWinnerBtnGroup" class="btn-group" role="group" aria-label="autonWinnerRadio">
+                    <input type="radio" value="1" class="btn-check" name="btnradio" id="autonRadioBlueWin"
+                        autocomplete="off" checked>
                     <label class="btn btn-outline-primary btn-lg" for="autonRadioBlueWin">Blue</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="autonTieRadio" autocomplete="off">
+                    <input type="radio" value="2" class="btn-check" name="btnradio" id="autonTieRadio"
+                        autocomplete="off">
                     <label id="autonTieRadioButton" class="btn btn-outline-dark btn-lg" for="autonTieRadio">Tie</label>
 
-                    <input type="radio" class="btn-check" name="btnradio" id="autonRadioRedWin" autocomplete="off">
+                    <input type="radio" value="3" class="btn-check" name="btnradio" id="autonRadioRedWin"
+                        autocomplete="off">
                     <label class="btn btn-outline-danger btn-lg" for="autonRadioRedWin">Red</label>
                 </div>
 
@@ -286,19 +288,19 @@
                     <div>
                         <p>Cube</p>
                         <p id="driverCubeHighTotal">0</p>
-                        <button onclick="adjustDisplay(1,'driverCubeHighTotal')"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1,'driverCubeHighTotal')"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="driverCubeHighTotalHit" onclick="adjustDisplay(1,'driverCubeHighTotal')"
+                            class="btn btn-primary btn-lg">Hit</button>
+                        <button id="driverCubeHighTotalMiss" onclick="adjustDisplay(0,'driverCubeHighTotal')"
+                            class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p>Cone</p>
                         <p id="driverConeHighTotal">0</p>
-                        <button onclick="adjustDisplay(1,'driverConeHighTotal')"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1,'driverConeHighTotal')"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="driverConeHighTotalHit" onclick="adjustDisplay(1,'driverConeHighTotal')"
+                            class="btn btn-primary btn-lg">Hit</button>
+                        <button id="driverConeHighTotalMiss" onclick="adjustDisplay(0,'driverConeHighTotal')"
+                            class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
 
@@ -312,18 +314,18 @@
                     <div style="width: 5rem;"></div>
                     <div>
                         <p id="driverCubeMidTotal">0</p>
-                        <button onclick="adjustDisplay(1,'driverCubeMidTotal')"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1,'driverCubeMidTotal')"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="driverCubeMidTotalHit" onclick="adjustDisplay(1,'driverCubeMidTotal')"
+                            class="btn btn-primary btn-lg">Hit</button>
+                        <button id="driverCubeMidTotalMiss" onclick="adjustDisplay(0,'driverCubeMidTotal')"
+                            class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p id="driverConeMidTotal">0</p>
-                        <button onclick="adjustDisplay(1,'driverConeMidTotal')"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1,'driverConeMidTotal')"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="driverConeMidTotalHit" onclick="adjustDisplay(1,'driverConeMidTotal')"
+                            class="btn btn-primary btn-lg">Hit</button>
+                        <button id="driverConeMidTotalMiss" onclick="adjustDisplay(0,'driverConeMidTotal')"
+                            class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
                 <!--Low-->
@@ -336,18 +338,18 @@
                     <div style="width: 5rem;"></div>
                     <div>
                         <p id="driverCubeLowTotal">0</p>
-                        <button onclick="adjustDisplay(1,'driverCubeLowTotal')"
-                            class="btn btn-primary btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1,'driverCubeLowTotal')"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="driverCubeLowTotalHit" onclick="adjustDisplay(1,'driverCubeLowTotal')"
+                            class="btn btn-primary btn-lg">Hit</button>
+                        <button id="driverCubeLowTotalMiss" onclick="adjustDisplay(0,'driverCubeLowTotal')"
+                            class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p id="driverConeLowTotal">0</p>
-                        <button onclick="adjustDisplay(1,'driverConeLowTotal')"
-                            class="btn btn-primary btn-lg btn-lg">+</button>
-                        <button onclick="adjustDisplay(-1,'driverConeLowTotal')"
-                            class="btn btn-danger btn-lg">-</button>
+                        <button id="driverConeLowTotalHit" onclick="adjustDisplay(1,'driverConeLowTotal')"
+                            class="btn btn-primary btn-lg btn-lg">Hit</button>
+                        <button id="driverConeLowTotalMiss" onclick="adjustDisplay(0,'driverConeLowTotal')"
+                            class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
 
@@ -371,14 +373,14 @@
 
                     <div class="d-flex justify-content-around">
                         <div>
-                            <input class="form-check-input" type="checkbox" value="" id="Docked?">
-                            <label class="form-check-label" for="Docked?">
+                            <input class="form-check-input" type="checkbox" id="Docked">
+                            <label class="form-check-label" for="Docked">
                                 Docked?
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="checkbox" value="" id="Engaged?">
-                            <label class="form-check-label" for="Engaged?">
+                            <input class="form-check-input" type="checkbox" id="Engaged">
+                            <label class="form-check-label" for="Engaged">
                                 Engaged?
                             </label>
                         </div>
@@ -386,20 +388,20 @@
 
                     <div class="d-flex justify-content-around mt-3">
                         <div>
-                            <input class="form-check-input" type="checkbox" value="" id="SustainabiltyBonus?">
-                            <label class="form-check-label" for="SustainabiltyBonus?">
+                            <input class="form-check-input" type="checkbox" id="SustainabiltyBonus">
+                            <label class="form-check-label" for="SustainabiltyBonus">
                                 Sustainabilty Bonus?
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="checkbox" value="" id="ActivationBonus?">
-                            <label class="form-check-label" for="ActivationBonus?">
+                            <input class="form-check-input" type="checkbox" id="ActivationBonus">
+                            <label class="form-check-label" for="ActivationBonus">
                                 Activation Bonus?
                             </label>
                         </div>
                         <div>
-                            <input class="form-check-input" type="checkbox" value="" id="CoopertitionBonus?">
-                            <label class="form-check-label" for="CoopertitionBonus?">
+                            <input class="form-check-input" type="checkbox" id="CoopertitionBonus">
+                            <label class="form-check-label" for="CoopertitionBonus">
                                 Coopertition Bonus?
                             </label>
                         </div>
@@ -602,7 +604,7 @@
                 </ul>
                 <ul>
 
-                    <p> Where do they get on the charging station? </p>
+                    <!-- <p> Where do they get on the charging station? </p>
 
                     <div class="form-check">
                         <input class="form-check-input" type="radio" value="1" name="endGameChargingStationPos"
@@ -636,29 +638,30 @@
                         </label>
                     </div>
                 </ul>
-                </daiv>
+                </daiv> -->
+            </div>
 
-                <div id="auton">
-                    <h3>General describtion of Autonomous:</h3>
-                    <ul>
-                        <p>Do you gain mobility points?</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="1" name="flexRadioDefault"
-                                id="pitScoutingMobilityYes">
-                            <label class="form-check-label" for="pitScoutingMobilityYes">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="2" name="flexRadioDefault"
-                                id="pitScoutingMobilityNo">
-                            <label class="form-check-label" for="pitScoutingMobilityNo">
-                                No
-                            </label>
-                        </div>
-                    </ul>
+            <div id="auton">
+                <h3>General describtion of Autonomous:</h3>
+                <ul>
+                    <p>Do you gain mobility points?</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="1" name="flexRadioDefault"
+                            id="pitScoutingMobilityYes">
+                        <label class="form-check-label" for="pitScoutingMobilityYes">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="2" name="flexRadioDefault"
+                            id="pitScoutingMobilityNo">
+                        <label class="form-check-label" for="pitScoutingMobilityNo">
+                            No
+                        </label>
+                    </div>
+                </ul>
 
-                    <!-- <ul>
+                <!-- <ul>
                     <p>What's scored?</p>
 
                     <div class="form-check">
@@ -695,268 +698,264 @@
 
                 </ul> -->
 
-                    <ul>
-                        <p>How many are scored in each node?</p>
-                        <table class="table" id="locationScored">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Node Scored On</th>
-                                    <th scope="col">Cones</th>
-                                    <th scope="col">Cubes</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Co-op High Node</th>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="co-opHighNodeCones">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="co-opHighNodeCubes">
-                                        </div>
-                                    </td>
+                <ul>
+                    <p>How many are scored in each node?</p>
+                    <table class="table" id="locationScored">
+                        <thead>
+                            <tr>
+                                <th scope="col">Node Scored On</th>
+                                <th scope="col">Cones</th>
+                                <th scope="col">Cubes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Co-op High Node</th>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opHighNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opHighNodeCubes">
+                                    </div>
+                                </td>
 
-                                </tr>
+                            </tr>
 
-                                <tr>
-                                    <th scope="row">Co-op Middle Node</th>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="co-opMiddleNodeCones">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="co-opMiddleNodeCubes">
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <th scope="row">Co-op Middle Node</th>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opMiddleNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opMiddleNodeCubes">
+                                    </div>
+                                </td>
+                            </tr>
 
-                                <tr>
-                                    <th scope="row">Co-op Hybrid Node</th>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="co-opHybridNodeCones">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="co-opHybridNodeCubes">
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <th scope="row">Co-op Hybrid Node</th>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opHybridNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="co-opHybridNodeCubes">
+                                    </div>
+                                </td>
+                            </tr>
 
-                                <tr>
-                                    <th scope="row">High Node</th>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="highNodeCones">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="highNodeCubes">
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <th scope="row">High Node</th>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="highNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="highNodeCubes">
+                                    </div>
+                                </td>
+                            </tr>
 
-                                <tr>
-                                    <th scope="row">Middle Node</th>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="middleNodeCones">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="middleNodeCones">
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <th scope="row">Middle Node</th>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="middleNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="middleNodeCones">
+                                    </div>
+                                </td>
+                            </tr>
 
-                                <tr>
-                                    <th scope="row">Hybrid Node</th>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="hybridNodeCones">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="hybridNodeCubes">
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <th scope="row">Hybrid Node</th>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="hybridNodeCones">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="hybridNodeCubes">
+                                    </div>
+                                </td>
+                            </tr>
 
-                            </tbody>
-                        </table>
-                    </ul>
+                        </tbody>
+                    </table>
+                </ul>
 
-                    <ul>
+                <ul>
 
-                        <p>Do you go onto the charging station?</p>
+                    <p>Do you go onto the charging station?</p>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="1" name="autonChargingStationActivation"
-                                id="pitScoutingChargingStationStatusDocked">
-                            <label class="form-check-label" for="pitScoutingChargingStationStatusDocked">
-                                Docked
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="2" name="autonChargingStationActivation"
-                                id="pitScoutingChargingStationStatusEngaged">
-                            <label class="form-check-label" for="pitScoutingChargingStationStatusEngaged">
-                                Engaged
-                            </label>
-                        </div>
-
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="3" name="autonChargingStationActivation"
-                                id="pitScoutingChargingStationStatusUndecided">
-                            <label class="form-check-label" for="pitScoutingChargingStationStatusUndecided">
-                                Unable
-                            </label>
-
-                    </ul>
-
-                    <ul>
-                        <p>Where on the charging station?</p>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="1" name="autonChargingStationLocation"
-                                id="ChargingStationLocationleft">
-                            <label class="form-check-label" for="ChargingStationLocationleft">
-                                Left
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="2" name="autonChargingStationLocation"
-                                id="ChargingStationLocationMiddle">
-                            <label class="form-check-label" for="ChargingStationLocationMiddle">
-                                Middle
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="3" name="autonChargingStationLocation"
-                                id="ChargingStationLocationRight">
-                            <label class="form-check-label" for="ChargingStationLocationRight">
-                                Right
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" value="4" name="autonChargingStationLocation"
-                                id="ChargingStationLocationUndecided">
-                            <label class="form-check-label" for="ChargingStationLocationUndecided">
-                                Undecided
-                            </label>
-                        </div>
-
-                    </ul>
-
-
-                    <p>What starting line up of the pieces works best with your auton?</p>
-                    <ul>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Position #</th>
-                                    <th scope="col">Piece</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr class="w-25">
-                                    <th scope="row">1</th>
-                                    <td>
-                                        <select class="form-select" aria-label="Default select example"
-                                            id="pitScoutingPiecePreferedPosition1">
-                                            <option value="">Select</option>
-                                            <option value="1">Cones</option>
-                                            <option value="2">Cubes</option>
-                                            <option value="3">Undecided</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr class="w-25">
-                                    <th scope="row">2</th>
-                                    <td>
-                                        <select class="form-select" aria-label="Default select example"
-                                            id="pitScoutingPiecePreferedPosition2">
-                                            <option value="">Select</option>
-                                            <option value="1">Cones</option>
-                                            <option value="2">Cubes</option>
-                                            <option value="3">Undecided</option>
-                                        </select>
-                                    </td>
-                                </tr>
-
-                                <tr class="w-25">
-                                    <th scope="row">3</th>
-                                    <td>
-                                        <select class="form-select" aria-label="Default select example"
-                                            id="pitScoutingPiecePreferedPosition3">
-                                            <option value="">Select</option>
-                                            <option value="1">Cones</option>
-                                            <option value="2">Cubes</option>
-                                            <option value="3">Undecided</option>
-                                        </select>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td class="w-25">
-                                        <select class="form-select" aria-label="Default select example"
-                                            id="pitScoutingPiecePreferedPosition4">
-                                            <option value="">Select</option>
-                                            <option value="1">Cones</option>
-                                            <option value="2">Cubes</option>
-                                            <option value="3">Nothing</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </ul>
-
-
-
-
-                    <!--Add a text box that is editable to audience for everything-->
-                    </ul>
-                    <div class="mb-1">
-                        <button id="pitScoutingSaveButton" onclick="newPitScouting()"
-                            class="btn btn-primary">Save</button>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="1" name="autonChargingStationActivation"
+                            id="pitScoutingChargingStationStatusDocked">
+                        <label class="form-check-label" for="pitScoutingChargingStationStatusDocked">
+                            Docked
+                        </label>
                     </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="2" name="autonChargingStationActivation"
+                            id="pitScoutingChargingStationStatusEngaged">
+                        <label class="form-check-label" for="pitScoutingChargingStationStatusEngaged">
+                            Engaged
+                        </label>
+                    </div>
+
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="3" name="autonChargingStationActivation"
+                            id="pitScoutingChargingStationStatusUndecided">
+                        <label class="form-check-label" for="pitScoutingChargingStationStatusUndecided">
+                            Unable
+                        </label>
+
+                </ul>
+
+                <ul>
+                    <p>Where on the charging station?</p>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="1" name="autonChargingStationLocation"
+                            id="ChargingStationLocationleft">
+                        <label class="form-check-label" for="ChargingStationLocationleft">
+                            Left
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="2" name="autonChargingStationLocation"
+                            id="ChargingStationLocationMiddle">
+                        <label class="form-check-label" for="ChargingStationLocationMiddle">
+                            Middle
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="3" name="autonChargingStationLocation"
+                            id="ChargingStationLocationRight">
+                        <label class="form-check-label" for="ChargingStationLocationRight">
+                            Right
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="4" name="autonChargingStationLocation"
+                            id="ChargingStationLocationUndecided">
+                        <label class="form-check-label" for="ChargingStationLocationUndecided">
+                            Undecided
+                        </label>
+                    </div>
+
+                </ul>
+
+
+                <p>What starting line up of the pieces works best with your auton?</p>
+                <ul>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Position #</th>
+                                <th scope="col">Piece</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr class="w-25">
+                                <th scope="row">1</th>
+                                <td>
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="pitScoutingPiecePreferedPosition1">
+                                        <option value="">Select</option>
+                                        <option value="1">Cones</option>
+                                        <option value="2">Cubes</option>
+                                        <option value="3">Undecided</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="w-25">
+                                <th scope="row">2</th>
+                                <td>
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="pitScoutingPiecePreferedPosition2">
+                                        <option value="">Select</option>
+                                        <option value="1">Cones</option>
+                                        <option value="2">Cubes</option>
+                                        <option value="3">Undecided</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr class="w-25">
+                                <th scope="row">3</th>
+                                <td>
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="pitScoutingPiecePreferedPosition3">
+                                        <option value="">Select</option>
+                                        <option value="1">Cones</option>
+                                        <option value="2">Cubes</option>
+                                        <option value="3">Undecided</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">4</th>
+                                <td class="w-25">
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="pitScoutingPiecePreferedPosition4">
+                                        <option value="">Select</option>
+                                        <option value="1">Cones</option>
+                                        <option value="2">Cubes</option>
+                                        <option value="3">Nothing</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ul>
+
+
+
+
+                <!--Add a text box that is editable to audience for everything-->
+                </ul>
+                <div class="mb-1">
+                    <button id="pitScoutingSaveButton" onclick="newPitScouting()" class="btn btn-primary">Save</button>
                 </div>
             </div>
-
         </div>
+
+    </div>
 </body>
 <script type="text/javascript">
 
     toggleDarkMode();
 
     const apiURL = 'https://1138-scouting-api.azurewebsites.net/api/'
+    // const localURL = 'https://localhost:7044/api/'
 
     let input2dArray = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -978,7 +977,7 @@
     const driverControlScore = 1;
     let LastColumn = 0;
     let LastRow = 0;
-
+    //auton
     //Cone
     document.getElementById('autonConeHighTotalHit').addEventListener("click", () => ChangeIndex(ScoreHighCone, autonScore));
     document.getElementById('autonConeMidTotalHit').addEventListener("click", () => ChangeIndex(ScoreMidCone, autonScore));
@@ -993,47 +992,97 @@
     document.getElementById('autonCubeHighTotalMiss').addEventListener("click", () => ChangeIndex(MissHighCube, autonScore));
     document.getElementById('autonCubeMidTotalMiss').addEventListener("click", () => ChangeIndex(MissMidCube, autonScore));
     document.getElementById('autonCubeLowTotalMiss').addEventListener("click", () => ChangeIndex(MissLowCube, autonScore));
-
+    //Driver Contol
+    //Cone
+    document.getElementById('driverConeHighTotalHit').addEventListener("click", () => ChangeIndex(ScoreHighCone, driverControlScore));
+    document.getElementById('driverConeMidTotalHit').addEventListener("click", () => ChangeIndex(ScoreMidCone, driverControlScore));
+    document.getElementById('driverConeLowTotalHit').addEventListener("click", () => ChangeIndex(ScoreLowCone, driverControlScore));
+    document.getElementById('driverConeHighTotalMiss').addEventListener("click", () => ChangeIndex(MissHighCone, driverControlScore));
+    document.getElementById('driverConeMidTotalMiss').addEventListener("click", () => ChangeIndex(MissMidCone, driverControlScore));
+    document.getElementById('driverConeLowTotalMiss').addEventListener("click", () => ChangeIndex(MissLowCone, driverControlScore));
+    //Cube
+    document.getElementById('driverCubeHighTotalHit').addEventListener("click", () => ChangeIndex(ScoreHighCube, driverControlScore));
+    document.getElementById('autonCubeMidTotalHit').addEventListener("click", () => ChangeIndex(ScoreMidCube, driverControlScore));
+    document.getElementById('autonCubeLowTotalHit').addEventListener("click", () => ChangeIndex(ScoreLowCube, driverControlScore));
+    document.getElementById('driverCubeHighTotalMiss').addEventListener("click", () => ChangeIndex(MissHighCube, driverControlScore));
+    document.getElementById('autonCubeMidTotalMiss').addEventListener("click", () => ChangeIndex(MissMidCube, driverControlScore));
+    document.getElementById('autonCubeLowTotalMiss').addEventListener("click", () => ChangeIndex(MissLowCube, driverControlScore));
 
 
     // This is a java script comment. We are doing inline javascript
     // Javascript has 3 levels of variables - var, let and const. Var - global variable. Wonky. let - similar to var, but preserves scope. const is a constant memory location that can be defined once.
-    // function newGameResults() {
+    function newMatchResults() {
 
-    //     const GameResults {
-    //         // id: document.getElementById()
-    //         // teamNumber:document.getElementById('pitScoutingCompetitionID').value,
-    //         // teamId: document.getElementById('pitScoutingCompetitionID').value,
-    //         // matchNumber: document.getElementById('pitScoutingCompetitionID').value,
-    //         // matchId: document.getElementById('pitScoutingCompetitionID').value,
-    //         // autonomousControlPoints: 0,
-    //         // "autonomousHighCube": 0,
-    //         // "autonomousHighCone": 0,
-    //         // "autonomousMidCube": 0,
-    //         // "autonomousMidCone": 0,
-    //         // "autonomousLowCube": 0,
-    //         // "autonomousLowCone": 0,
-    //         // "autonDocking": true,
-    //         // "autonWinner": 0,
-    //         // "engaged": true,
-    //         // "mobilityBonus": true,
-    //         // "autonNotes": "string",
-    //         // "dcControlPoints": 0,
-    //         // "dcHighCube": 0,
-    //         // "dcHighCone": 0,
-    //         // "dcMidCube": 0,
-    //         // "dcMidCone": 0,
-    //         // "dcLowCube": 0,
-    //         // "dcLowCone": 0,
-    //         // "opr": 0,
-    //         // "dpr": 0,
-    //         // "dcDocking": true,
-    //         // "dcEngaged": true,
-    //         // "sustainabilityBonus": true,
-    //         // "activationBonus": true,
-    //         // "coopertitionBonus": true
-    //     }
-    // }
+        const MatchResults = {
+            //Auton
+            teamNumber: Number(document.getElementById('teamNumber').value),
+            matchNumber: Number(document.getElementById('matchNumber').value),
+            autonomousControlPoints: Number(document.getElementById('autonPointsTotal').value),
+            autonomousHighCubeHit: input2dArray[autonScore][ScoreHighCube],
+            autonomousHighConeHit: input2dArray[autonScore][ScoreLowCone],
+            autonomousMidCubeHit: input2dArray[autonScore][ScoreHighCube],
+            autonomousMidConeHit: input2dArray[autonScore][ScoreLowCone],
+            autonomousLowCubeHit: input2dArray[autonScore][ScoreHighCube],
+            autonomousLowConeHit: input2dArray[autonScore][ScoreLowCone],
+            autonomousHighCubeMiss: input2dArray[autonScore][MissHighCube],
+            autonomousLowCubeMiss: input2dArray[autonScore][MissLowCube],
+            autonomousHighConeMiss: input2dArray[autonScore][MissHighCone],
+            autonomousMidCubeMiss: input2dArray[autonScore][MissMidCube],
+            autonomousMidConeMiss: input2dArray[autonScore][MissMidCone],
+            autonomousLowConeMiss: input2dArray[autonScore][MissLowCone],
+            autonomousHighCubeAccuracy: input2dArray[autonScore][ScoreHighCube] / (input2dArray[autonScore][ScoreHighCube] + input2dArray[autonScore][MissHighCube]),
+            autonomousHighConeAccuracy: input2dArray[autonScore][ScoreHighCone] / (input2dArray[autonScore][ScoreHighCone] + input2dArray[autonScore][MissHighCone]),
+            autonomousMidCubeAccuracy: input2dArray[autonScore][ScoreMidCube] / (input2dArray[autonScore][ScoreMidCube] + input2dArray[autonScore][MissMidCube]),
+            autonomousMidConeAccuracy: input2dArray[autonScore][ScoreMidCone] / (input2dArray[autonScore][ScoreMidCone] + input2dArray[autonScore][MissMidCone]),
+            autonomousLowCubeAccuracy: input2dArray[autonScore][ScoreLowCube] / (input2dArray[autonScore][ScoreLowCube] + input2dArray[autonScore][MissLowCube]),
+            autonomousLowConeAccuracy: input2dArray[autonScore][ScoreLowCone] / (input2dArray[autonScore][ScoreLowCone] + input2dArray[autonScore][MissLowCone]),
+            autonDocking: document.getElementById('autonDockedCheckbox').checked,
+            autonWinner: document.getElementById('autonWinnerBtnGroup').checked,
+            engaged: document.getElementById('autonEngagedCheckbox').checked,
+            mobilityBonus: document.getElementById('autonMobilityBonusCheckbox').checked,
+            autonNotes: document.getElementById('autonNotesInput').value,
+            //Driver Control
+            dcControlPoints: input2dArray[driverControlScore][ScoreHighCube],
+            dcHighCubeHit: input2dArray[driverControlScore][ScoreHighCube],
+            dcHighConeHit: input2dArray[driverControlScore][ScoreHighCube],
+            dcMidCubeHit: input2dArray[driverControlScore][ScoreHighCube],
+            dcMidConeHit: input2dArray[driverControlScore][ScoreHighCube],
+            dcLowCubeHit: input2dArray[driverControlScore][ScoreHighCube],
+            dcLowConeHit: input2dArray[driverControlScore][ScoreHighCube],
+            dcHighCubeMiss: input2dArray[driverControlScore][ScoreHighCube],
+            dcHighConeMiss: input2dArray[driverControlScore][ScoreHighCube],
+            dcMidCubeMiss: input2dArray[driverControlScore][ScoreHighCube],
+            dcMidConeMiss: input2dArray[driverControlScore][ScoreHighCube],
+            dcLowCubeMiss: input2dArray[driverControlScore][ScoreHighCube],
+            dcLowConeMiss: input2dArray[driverControlScore][ScoreHighCube],
+            dcHighCubeAccuracy: input2dArray[driverControlScore][ScoreLowCube] / (input2dArray[driverControlScore][ScoreLowCube] + input2dArray[driverControlScore][MissLowCube]),
+            dcHighConeAccuracy: input2dArray[driverControlScore][ScoreLowCone] / (input2dArray[driverControlScore][ScoreLowCone] + input2dArray[driverControlScore][MissLowCone]),
+            dcMidCubeAccuracy: input2dArray[driverControlScore][ScoreLowCube] / (input2dArray[driverControlScore][ScoreLowCube] + input2dArray[driverControlScore][MissLowCube]),
+            dcMidConeAccuracy: input2dArray[driverControlScore][ScoreLowCone] / (input2dArray[driverControlScore][ScoreLowCone] + input2dArray[driverControlScore][MissLowCone]),
+            dcLowCubeAccuracy: input2dArray[driverControlScore][ScoreLowCube] / (input2dArray[driverControlScore][ScoreLowCube] + input2dArray[driverControlScore][MissLowCube]),
+            dcLowConeAccuracy: input2dArray[driverControlScore][ScoreLowCone] / (input2dArray[driverControlScore][ScoreLowCone] + input2dArray[driverControlScore][MissLowCone]),
+            opr: Number(document.getElementById('driverOffenseTotal').value),
+            dpr: Number(document.getElementById('driverDefenseTotal').value),
+            dcDocking: document.getElementById('Docked').checked,
+            dcEngaged: document.getElementById('Engaged').checked,
+            sustainabilityBonus: document.getElementById('SustainabiltyBonus').checked,
+            activationBonus: document.getElementById('ActivationBonus').checked,
+            coopertitionBonus: document.getElementById('CoopertitionBonus').checked
+        }
+
+        console.log(input2dArray[autonScore][MissLowCube]);
+        
+        fetch(apiURL + 'MatchResults',
+            {
+                method: 'POST',
+                body: JSON.stringify(MatchResults),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+        .then(() => { location.reload(); })
+    }
+
     function ChangeIndex(column, row) {
         LastColumn = column;
         LastRow = row;
