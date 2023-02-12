@@ -958,32 +958,41 @@
 
     const apiURL = 'https://1138-scouting-api.azurewebsites.net/api/'
 
-    let input2dArray = [2, 6]; //row 0 is auton, row 1 is driver control, columns are miss and hit for low, mid, high
-    const ScoreHigh = 5;
-    const ScoreMid = 4;
-    const ScoreLow = 3;
-    const MissHigh = 2;
-    const MissMid = 1;
-    const MissLow = 0;
+    let input2dArray = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ]; //row 0 is auton, row 1 is driver control, columns are miss and hit for low, mid, high
+    const ScoreHighCone = 11;
+    const ScoreHighCube = 10;
+    const ScoreMidCone = 9;
+    const ScoreMidCube = 8;
+    const ScoreLowCone = 7;
+    const ScoreLowCube = 6;
+    const MissHighCone = 5;
+    const MissHighCube = 4;
+    const MissMidCone = 3;
+    const MissMidCube = 2;
+    const MissLowCone = 1;
+    const MissLowCube = 0;
     const autonScore = 0;
     const driverControlScore = 1;
-    let indexOfLast;
-    let currentIndex;
+    let LastColumn = 0;
+    let LastRow = 0;
 
     //Cone
-    document.getElementById('autonConeHighTotalHit').addEventListener("click", ChangeIndex(ScoreHigh, autonScore));
-    document.getElementById('autonConeMidTotalHit').addEventListener("click", ChangeIndex(ScoreMid, autonScore));
-    document.getElementById('autonConeLowTotalHit').addEventListener("click", ChangeIndex(ScoreLow, autonScore));
-    document.getElementById('autonConeHighTotalMiss').addEventListener("click", ChangeIndex(MissHigh, autonScore));
-    document.getElementById('autonConeMidTotalMiss').addEventListener("click", ChangeIndex(MissMid, autonScore));
-    document.getElementById('autonConeLowTotalMiss').addEventListener("click", ChangeIndex(MissLow, autonScore));
+    document.getElementById('autonConeHighTotalHit').addEventListener("click", () => ChangeIndex(ScoreHighCone, autonScore));
+    document.getElementById('autonConeMidTotalHit').addEventListener("click", () => ChangeIndex(ScoreMidCone, autonScore));
+    document.getElementById('autonConeLowTotalHit').addEventListener("click", () => ChangeIndex(ScoreLowCone, autonScore));
+    document.getElementById('autonConeHighTotalMiss').addEventListener("click", () => ChangeIndex(MissHighCone, autonScore));
+    document.getElementById('autonConeMidTotalMiss').addEventListener("click", () => ChangeIndex(MissMidCone, autonScore));
+    document.getElementById('autonConeLowTotalMiss').addEventListener("click", () => ChangeIndex(MissLowCone, autonScore));
     //Cube
-    document.getElementById('autonCubeHighTotalHit').addEventListener("click", ChangeIndex(ScoreHigh, autonScore));
-    document.getElementById('autonCubeMidTotalHit').addEventListener("click", ChangeIndex(ScoreMid, autonScore));
-    document.getElementById('autonCubeLowTotalHit').addEventListener("click", ChangeIndex(ScoreLow, autonScore));
-    document.getElementById('autonCubeHighTotalMiss').addEventListener("click", ChangeIndex(MissHigh, autonScore));
-    document.getElementById('autonCubeMidTotalMiss').addEventListener("click", ChangeIndex(MissMid, autonScore));
-    document.getElementById('autonCubeLowTotalMiss').addEventListener("click", ChangeIndex(MissLow, autonScore));
+    document.getElementById('autonCubeHighTotalHit').addEventListener("click", () => ChangeIndex(ScoreHighCube, autonScore));
+    document.getElementById('autonCubeMidTotalHit').addEventListener("click", () => ChangeIndex(ScoreMidCube, autonScore));
+    document.getElementById('autonCubeLowTotalHit').addEventListener("click", () => ChangeIndex(ScoreLowCube, autonScore));
+    document.getElementById('autonCubeHighTotalMiss').addEventListener("click", () => ChangeIndex(MissHighCube, autonScore));
+    document.getElementById('autonCubeMidTotalMiss').addEventListener("click", () => ChangeIndex(MissMidCube, autonScore));
+    document.getElementById('autonCubeLowTotalMiss').addEventListener("click", () => ChangeIndex(MissLowCube, autonScore));
 
 
 
@@ -1025,10 +1034,10 @@
     //         // "coopertitionBonus": true
     //     }
     // }
-    function ChangeIndex(IndexLast, IndexCurrent) {
-        indexOfLast = IndexLast;
-        currentIndex = IndexCurrent;
-        input2dArray[currentIndex, indexOfLast] += 1;
+    function ChangeIndex(column, row) {
+        LastColumn = column;
+        LastRow = row;
+        input2dArray[row][column] += 1;
     }
     function newPitScouting() {
         const pitScouting = {
@@ -1081,7 +1090,7 @@
         let pointsTotalArr = String(pointsTotalField.innerText);
         let pointsTotalArr2 = pointsTotalArr.split(" ");
         const pointsTotal = Number(pointsTotalArr2[0]);
-        
+
         if (pointsTotal + amt < 0) {
             pointsTotalField.innerText = 0;
         }
@@ -1090,13 +1099,14 @@
         }
         driverTotalPointsCalc();
         autonTotalPointsCalc();
-        console.log(input2dArray);
+        console.table(input2dArray);
     }
 
     function ResetLastInput() {
-        if (indexOfLast >= 0) {
-            input2dArray[currentIndex, indexOfLast] -= 1;
-            indexOfLast = -1;
+        if (LastColumn > -1) {
+            input2dArray[LastRow][LastColumn] -= 2;
+            LastColumn = -1;
+            console.table(input2dArray);
         }
     }
 
