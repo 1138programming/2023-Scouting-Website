@@ -479,19 +479,19 @@
                     <p>Type of Drivetrain:</p>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingFalconBox">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingFalconBox">
                         <label class="form-check-label" for="pitScoutingFalconBox">
                             Falcon
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNeoBox">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingNeoBox">
                         <label class="form-check-label" for="pitScoutingNeoBox">
                             Neo
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingCimsBox">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingCimsBox">
                         <label class="form-check-label" for="pitScoutingCimsBox">
                             Cims
                         </label>
@@ -506,25 +506,25 @@
                 <ul>
                     <p>What nodes can they reach/do?</p>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNodeHybrid">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingNodeHybrid">
                         <label class="form-check-label" for="pitScoutingNodeHybrid">
                             Hybrid/Floor
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNodeMiddle">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingNodeMiddle">
                         <label class="form-check-label" for="pitScoutingNodeMiddle">
                             Middle
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNodeHigh">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingNodeHigh">
                         <label class="form-check-label" for="pitScoutingNodeHigh">
                             High
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="pitScoutingNodeNone">
+                        <input class="form-check-input" type="checkbox" id="pitScoutingNodeNone">
                         <label class="form-check-label" for="pitScoutingNodeNone">
                             None
                         </label>
@@ -535,28 +535,28 @@
                     <p>What game pieces can they grab/use?</p>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pitScoutingGrabbable"
+                        <input class="form-check-input" type="radio" value = "1" name="pitScoutingGrabbable"
                             id="pitScoutingGrabbableCone">
                         <label class="form-check-label" for="pitScoutingGrabbableCone">
                             Cones
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pitScoutingGrabbable"
+                        <input class="form-check-input" type="radio" value = "2" name="pitScoutingGrabbable"
                             id="pitScoutingGrabbableCube">
                         <label class="form-check-label" for="pitScoutingGrabbableCube">
                             Cubes
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pitScoutingGrabbable"
+                        <input class="form-check-input" type="radio" value="3" name="pitScoutingGrabbable"
                             id="pitScoutingGrabbableBoth">
                         <label class="form-check-label" for="pitScoutingGrabbableBoth">
                             Both
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="pitScoutingGrabbable"
+                        <input class="form-check-input" type="radio" value="4" name="pitScoutingGrabbable"
                             id="pitScoutingGrabbableNone">
                         <label class="form-check-label" for="pitScoutingGrabbableNone">
                             None
@@ -572,7 +572,7 @@
 
                 <ul>
                     <p>Average Cycle Time:</p>
-                    <input type="number" id="pitScoutingAverageCycletime" required minlength="1" maxlength="6" size="8"
+                    <input type="number" id="pitScoutingAverageCycletime" required minlength="1" maxlength="50" size="8"
                         class="form-control form-inline w-25"></input>
                 </ul>
                 <h3> Endgame </h3>
@@ -645,14 +645,14 @@
                 <ul>
                     <p>Do you gain mobility points?</p>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="1" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" value="1" name="MobilityBonusRadio"
                             id="pitScoutingMobilityYes">
                         <label class="form-check-label" for="pitScoutingMobilityYes">
                             Yes
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" value="2" name="flexRadioDefault"
+                        <input class="form-check-input" type="radio" value="2" name="MobilityBonusRadio"
                             id="pitScoutingMobilityNo">
                         <label class="form-check-label" for="pitScoutingMobilityNo">
                             No
@@ -712,13 +712,13 @@
                                 <th scope="row">Co-op High Node</th>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
+                                        <input class="form-check-input" type="checkbox" 
                                             id="co-opHighNodeCones">
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
+                                        <input class="form-check-input" type="checkbox" 
                                             id="co-opHighNodeCubes">
                                     </div>
                                 </td>
@@ -729,13 +729,13 @@
                                 <th scope="row">Co-op Middle Node</th>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
+                                        <input class="form-check-input" type="checkbox" 
                                             id="co-opMiddleNodeCones">
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
+                                        <input class="form-check-input" type="checkbox" 
                                             id="co-opMiddleNodeCubes">
                                     </div>
                                 </td>
@@ -745,13 +745,13 @@
                                 <th scope="row">Co-op Hybrid Node</th>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
+                                        <input class="form-check-input" type="checkbox" 
                                             id="co-opHybridNodeCones">
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
+                                        <input class="form-check-input" type="checkbox" 
                                             id="co-opHybridNodeCubes">
                                     </div>
                                 </td>
@@ -761,12 +761,12 @@
                                 <th scope="row">High Node</th>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="highNodeCones">
+                                        <input class="form-check-input" type="checkbox" id="highNodeCones">
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="highNodeCubes">
+                                        <input class="form-check-input" type="checkbox" id="highNodeCubes">
                                     </div>
                                 </td>
                             </tr>
@@ -775,12 +775,12 @@
                                 <th scope="row">Middle Node</th>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="middleNodeCones">
+                                        <input class="form-check-input" type="checkbox" id="middleNodeCones">
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="middleNodeCones">
+                                        <input class="form-check-input" type="checkbox" id="middleNodeCones">
                                     </div>
                                 </td>
                             </tr>
@@ -789,12 +789,12 @@
                                 <th scope="row">Hybrid Node</th>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="hybridNodeCones">
+                                        <input class="form-check-input" type="checkbox" id="hybridNodeCones">
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="hybridNodeCubes">
+                                        <input class="form-check-input" type="checkbox" id="hybridNodeCubes">
                                     </div>
                                 </td>
                             </tr>
@@ -887,7 +887,7 @@
                                 <td>
                                     <select class="form-select" aria-label="Default select example"
                                         id="pitScoutingPiecePreferedPosition1">
-                                        <option value="">Select</option>
+                                        <option value="0">Select</option>
                                         <option value="1">Cones</option>
                                         <option value="2">Cubes</option>
                                         <option value="3">Undecided</option>
@@ -899,7 +899,7 @@
                                 <td>
                                     <select class="form-select" aria-label="Default select example"
                                         id="pitScoutingPiecePreferedPosition2">
-                                        <option value="">Select</option>
+                                        <option value="0">Select</option>
                                         <option value="1">Cones</option>
                                         <option value="2">Cubes</option>
                                         <option value="3">Undecided</option>
@@ -912,7 +912,7 @@
                                 <td>
                                     <select class="form-select" aria-label="Default select example"
                                         id="pitScoutingPiecePreferedPosition3">
-                                        <option value="">Select</option>
+                                        <option value="0">Select</option>
                                         <option value="1">Cones</option>
                                         <option value="2">Cubes</option>
                                         <option value="3">Undecided</option>
@@ -925,7 +925,7 @@
                                 <td class="w-25">
                                     <select class="form-select" aria-label="Default select example"
                                         id="pitScoutingPiecePreferedPosition4">
-                                        <option value="">Select</option>
+                                        <option value="0">Select</option>
                                         <option value="1">Cones</option>
                                         <option value="2">Cubes</option>
                                         <option value="3">Nothing</option>
@@ -1098,22 +1098,37 @@
             teamNumber: document.getElementById('pitScoutingTeamNumber').value,
             numBatteries: document.getElementById('numberOfBatteries').value,
             numBatChargers: document.getElementById('numberOfChargers').value,
-            // endGameDock: document.getElementById('').value,
-            // drivetrainMotorNum: document.getElementById('').value,
-            // motorType: document.getElementById('').value,
-            // nodeTypeHigh: document.getElementById('').value,
-            // nodeTypeMid: document.getElementById('').value,
-            // nodeTypeHybridOrFloor: document.getElementById('').value,
-            // coopNodeTypeHigh: document.getElementById('').value,
-            // coopNodeTypeMid: document.getElementById('').value,
-            // coopNodeTypeHybridOrFloor: document.getElementById('').value,
-            // cantScoreNode: document.getElementById('').value,
-            // chargingStationActivation: Number(document.querySelector('input[name="autonChargingStationActivation"]:checked')?.value ?? 0),
-            // chargingStationPosition: Number(document.querySelector('input[name="autonChargingStationLocation"]:checked').value),
-            // gamePieceStartingPosFR: document.getElementById('pitScoutingPiecePreferedPosition1').value,
-            // gamePieceStartingPosMR: document.getElementById('').value,
-            // gamePieceStartingPosML: document.getElementById('').value,
-            // gamePieceStartingPosFL: document.getElementById('').value,
+            Falcon: document.getElementById('pitScoutingFalconBox').checked,
+            Neo: document.getElementById('pitScoutingNeoBox').checked,
+            Cim: document.getElementById('pitScoutingCimsBox').checked,
+            drivetrainMotorNum: Number(document.getElementById('pitScotutingMotorsDrivetrain').value),
+            nodeTypeHybridOrFloor: document.getElementById('pitScoutingNodeHybrid').checked,
+            nodeTypeMid: document.getElementById('pitScoutingNodeMiddle').checked,
+            nodeTypeHigh: document.getElementById('pitScoutingNodeHigh').checked,
+            nodeTypeNone: document.getElementById('pitScoutingNodeNone').checked,
+            driverControlGamePiecesUsed: Number($("input[type=radio][name=pitScoutingGrabbable]:checked").val()),
+            HowLongToPlaceTopNode: document.getElementById('pitScoutingHighestPossibleNode').value,
+            CycleTime: Number(document.getElementById('pitScoutingAverageCycletime').value),
+            endGameDockingActivation: Number($("input[type=radio][name=endGameChargingStationStatus]:checked").val()),
+            mobilityPoints: Number($("input[type=radio][name=MobilityBonusRadio]:checked").val()),
+            coopNodeTypeHighCone: document.getElementById('co-opHighNodeCones').checked,
+            coopNodeTypeHighCube: document.getElementById('co-opHighNodeCubes').checked,
+            coopNodeTypeMidCone: document.getElementById('co-opMiddleNodeCones').checked,
+            coopNodeTypeMidCube: document.getElementById('co-opMiddleNodeCubes').checked,
+            coopNodeTypeHybridCone: document.getElementById('co-opHybridNodeCones').checked,
+            coopNodeTypeHybridCube: document.getElementById('co-opHybridNodeCubes').checked,
+            nodeTypeHighCone: document.getElementById('highNodeCones').checked,
+            nodeTypeHighCube: document.getElementById('highNodeCubes').checked,
+            nodeTypeMidCone: document.getElementById('middleNodeCones').checked,
+            nodeTypeMidCube: document.getElementById('middleNodeCones').checked,
+            nodeTypeHybridCone: document.getElementById('hybridNodeCones').checked,
+            nodeTypeHybridCube: document.getElementById('hybridNodeCubes').checked,
+            chargingStationActivation: Number($("input[type=radio][name=autonChargingStationActivation]:checked").val()),
+            chargingStationPosition: Number(document.querySelector('input[name="autonChargingStationLocation"]:checked')?.value ?? 0),
+            gamePieceStartingPosFR: Number($('#pitScoutingPiecePreferedPosition1 option:checked').val()),
+            gamePieceStartingPosMR: Number($('#pitScoutingPiecePreferedPosition2 option:checked').val()),
+            gamePieceStartingPosML: Number($('#pitScoutingPiecePreferedPosition3 option:checked').val()),
+            gamePieceStartingPosFL: Number($('#pitScoutingPiecePreferedPosition4 option:checked').val())
         };
 
         fetch(apiURL + 'PitScoutingResults',
@@ -1124,8 +1139,9 @@
                     'Content-Type': 'application/json'
                 }
             })
-            .then(() => { location.reload(); })
+            // .then(() => { location.reload(); })
             .then(() => { alert("Saved!") })
+            // .then(() => { console.log($('#pitScoutingPiecePreferedPosition1 option:checked').val()) })
     }
     function ChangeIndexAndDisplay(column, row, pointTarget) {
         const pointsTotalField = document.getElementById(pointTarget);
