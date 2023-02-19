@@ -63,12 +63,12 @@
                 type="button">Pit Scouting</button>
         <li class="nav-item">
             <button class="nav-link" id="pills-team-tab" data-bs-toggle="pill" data-bs-target="#pills-team"
-                type="button">Team Information</button>
+                type="button">Instructions</button>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <button class="nav-link" id="pills-match-tab" data-bs-toggle="pill" data-bs-target="#pills-match"
                 type="button">Match Results</button>
-        </li>
+        </li> -->
     </ul>
 
     <!--add content for each of the defined tabs-->
@@ -1139,9 +1139,7 @@
                     'Content-Type': 'application/json'
                 }
             })
-            // .then(() => { location.reload(); })
-            .then(() => { alert("Saved!") })
-            // .then(() => { console.log($('#pitScoutingPiecePreferedPosition1 option:checked').val()) })
+            .then(() => { location.reload(); })
     }
     function ChangeIndexAndDisplay(column, row, pointTarget) {
         const pointsTotalField = document.getElementById(pointTarget);
@@ -1175,40 +1173,16 @@
         }
     }
 
+    //Adjusts OPR and DPR Sliders
     function adjustRangeDisplay(rangeinput, target) {
         rangeField = document.getElementById(rangeinput);
         rangeTotal = document.getElementById(target);
         rangeTotalArr = String(rangeTotal.innerText);
         rangeTotalArr2 = rangeTotalArr.split(" ");
-        rangeTotalArr2[1] = rangeFeild.value
+        rangeTotalArr2[1] = rangeField.value
         rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
 
     }
-
-    function setDisplayNum(pointTarget) {
-        let displayNum = input2dArray[row][column];
-        displayNum++;
-        const pointsTotalField = document.getElementById(pointTarget);
-        pointsTotalField.innerText = displayNum;
-        driverTotalPointsCalc();
-        autonTotalPointsCalc();
-    }
-
-    // function adjustDisplay(amt, pointTarget) {
-    //     const pointsTotalField = document.getElementById(pointTarget);
-    //     let pointsTotalArr = String(pointsTotalField.innerText);
-    //     let pointsTotalArr2 = pointsTotalArr.split(" ");
-    //     const pointsTotal = Number(pointsTotalArr2[0]);
-
-    //     if (pointsTotal + amt < 0) {
-    //         pointsTotalField.innerText = 0;
-    //     }
-    //     else {
-    //         pointsTotalField.innerText = pointsTotal + amt;
-    //     }
-    //     driverTotalPointsCalc();
-    //     autonTotalPointsCalc();
-    // }
 
     function driverTotalPointsCalc() {
         let driverPointsTotalField = document.getElementById("driverPointsTotal");
@@ -1255,15 +1229,6 @@
         }
     }
 
-    function adjustRangeDisplay(rangeinput, target) {
-        rangeField = document.getElementById(rangeinput);
-        rangeTotal = document.getElementById(target);
-        rangeTotalArr = String(rangeTotal.innerText);
-        rangeTotalArr2 = rangeTotalArr.split(" ");
-        rangeTotalArr2[1] = rangeField.value
-        rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
-
-    }
 
     function toggleDarkMode() {
         const autonRadioToChange = document.getElementById("autonTieRadioButton");
