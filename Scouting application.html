@@ -14,7 +14,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
->>>>>>> Stashed changes
 </head>
 
 <body>
@@ -436,6 +435,7 @@
                 <p>Team Number:</p>
                 <input type="number" id="pitScoutingTeamNumber" required minlength="1" maxlength="6" size="8"
                     class="form-control form-inline w-25"></input>
+                    <button class=""
                 <p>Competition ID:</p>
                 <input type="number" id="pitScoutingCompetitionID" required minlength="1" maxlength="6" size="8"
                     class="form-control form-inline w-25"></input>
@@ -951,15 +951,21 @@
                     <label for="teamNumberInfo">Team Number:</label>
                     <input type="number" id="teamNumberInfo" required minlength="1" maxlength="6" size="8"
                         class="form-control form-inline"></input>
+                        <button class = "btn btn-primary mt-2 btn-lg" id="savebtn">Save</button>
+                        <h5>Match Averages</h5>
+                        <div>
+                            <span onclick="setIDValue('teamInfoTotalInstancesSaved', 50)">Total Saved: </span><span id="teamInfoTotalInstancesSaved">0</span>
+                        </div>
+                        <h5>Data graph</h5>
                 </div>
             </div>
-                <p>Info Graphs</p>
-                <!-- 
-                    What Miles Wants as a graph: 
-                    - Match accuracy
-                    - Total Match Points 
-                    - Auton accuracy
-                    - Total Match Points 
+                <!--
+                    <p>Info Graphs</p> 
+                        What Miles Wants as a graph: 
+                        - Match accuracy
+                        - Total Match Points 
+                        - Auton accuracy
+                        - Total Match Points 
                  -->
             </div>
         </div>
@@ -1209,6 +1215,11 @@
         rangeTotalArr2[1] = rangeField.value
         rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
 
+    }
+
+    function setIDValue(numberID, thingToChangeItTo) {
+        let beginningVal = document.getElementById(numberID);
+        beginningVal.innerText = thingToChangeItTo;
     }
 
     function driverTotalPointsCalc() {
