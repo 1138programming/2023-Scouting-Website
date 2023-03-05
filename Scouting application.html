@@ -21,11 +21,11 @@
         <input class="d-inline form-check-input" type="checkbox" role="switch" id="darkModeSwitch" checked>
         <label class="d-inline form-check-label" for="darkModeSwitch">Dark mode (rough)</label>
     </div>
-    <h1>Scouting Website :)</h1>
+    <h1>Scouting Website ._.</h1>
 
 
 
-    <!--start with an input area to enter the team number and the match number-->
+    <!--Team Number and Match Number-->
     <div class="d-flex align-items-center w-25">
 
         <div class="col-auto">
@@ -62,10 +62,6 @@
         <li class="nav-item">
             <button class="nav-link" id="pills-pit-tab" data-bs-toggle="pill" data-bs-target="#pills-pit-scout"
                 type="button">Pit Scouting</button>
-            <!-- <li class="nav-item">
-            <button class="nav-link" id="pills-team-tab" data-bs-toggle="pill" data-bs-target="#pills-team"
-                type="button">Instructions</button>
-        </li> -->
         <li class="nav-item">
             <button class="nav-link" id="pills-team-tab" data-bs-toggle="pill" data-bs-target="#pills-Team-Info"
                 type="button">Team Info</button>
@@ -76,12 +72,12 @@
         </li>
     </ul>
 
-    <!--add content for each of the defined tabs-->
+    <!--Tabs-->
 
 
     <div class="tab-content">
 
-        <!--Autonomous -->
+        <!--Autonomous Tab-->
         <div class="tab-pane fade show active" id="pills-autonomous">
             <h3>Autonomous Scoring</h3>
             <div class="text-center">
@@ -93,7 +89,9 @@
                     </div>
                 </div>
 
+                <!-- Cube and Cone Scoring for auton -->
 
+                <!-- High -->
                 <div class="d-flex justify-content-center">
                     <div style="width: 2rem;" class="mt-5">
                         <div class="mt-5"></div>
@@ -118,7 +116,7 @@
                     </div>
                 </div>
 
-
+                <!-- Mid -->
                 <div class="d-flex justify-content-center">
                     <div style="width: 2rem;" class="mt-5">
                         <p>Medium</p>
@@ -141,7 +139,7 @@
                     </div>
                 </div>
 
-
+                <!-- Low -->
                 <div class="d-flex justify-content-center">
                     <div style="width: 2rem;" class="mt-5">
                         <p>Low</p>
@@ -163,7 +161,7 @@
                             class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
-
+                <!-- Reset Last Input -->
                 <div class="d-flex justify-content-center">
                     <div class="mt-5">
                         <button onclick="ResetLastInput()" type="button" class="btn btn-primary btn-lg">Clear Last
@@ -173,45 +171,8 @@
 
 
 
-
+                <!-- Docked, Engaged, and Mobility Bonus -->
                 <div class="d-flex justify-content-around mt-5">
-
-                    <!-- <div class="form-check" onclick="enableUsable(false,'autonRadioDockedNo','autonEngagedCheckbox')">
-                        <label for="flexRadioDefault1">Docked?</label>
-                        <div class="form-check">
-
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="autonRadioDockedNo"
-                                checked>
-                            <label class="form-check-label" for="autonRadioDockedNo">
-                                No
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="autonRadioDockedInside">
-                            <label class="form-check-label" for="autonRadioDockedInside">
-                                Inside
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="autonRadioDockedMiddle">
-                            <label class="form-check-label" for="autonRadioDockedMiddle">
-                                Middle
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                id="autonRadioDockedOutside">
-                            <label class="form-check-label" for="autonRadioDockedOutside">
-                                Outside
-                            </label>
-                        </div>
-                        </label>
-                    </div> -->
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="autonDockedCheckbox">
                         <label class="form-check-label" for="autonDockedCheckbox">
@@ -234,13 +195,14 @@
                     </div>
                 </div>
 
+                <!-- Auton Winner -->
                 <div class="mt-5 d-flex justify-content-center">
                     <label for="autonWinnerRadio">Who won Auton?</label>
                 </div>
                 <div id="autonWinnerBtnGroup" class="btn-group" role="group" aria-label="autonWinnerRadio">
                     <input type="radio" value="1" class="btn-check" name="AutonWinner" id="autonRadioBlueWin"
                         autocomplete="off" checked>
-                    <label class="btn btn-outline-primary btn-lg" for="autonRadioBlueWin">Blue</label>
+                    <label class="btn btn-outline-primary btn-lg" for="autonRadioBlueWin">Win</label>
 
                     <input type="radio" value="2" class="btn-check" name="AutonWinner" id="autonTieRadio"
                         autocomplete="off">
@@ -248,10 +210,10 @@
 
                     <input type="radio" value="3" class="btn-check" name="AutonWinner" id="autonRadioRedWin"
                         autocomplete="off">
-                    <label class="btn btn-outline-danger btn-lg" for="autonRadioRedWin">Red</label>
+                    <label class="btn btn-outline-danger btn-lg" for="autonRadioRedWin">Loss</label>
                 </div>
 
-
+                <!-- Notes -->
                 <div class="d-flex justify-content-center mt-5">
                     <label for="autonNotesInput" class="form-label">Any notes?</label>
                 </div>
@@ -280,9 +242,9 @@
 
                 </div>
 
+                <!-- Cube and Cone scoring for Driver Control -->
+
                 <!--High-->
-
-
                 <div class="d-flex justify-content-center">
                     <div style="width: 2rem;" class="mt-5">
                         <div class="mt-5"></div>
@@ -309,7 +271,6 @@
                 </div>
 
                 <!--Mid-->
-
                 <div class="d-flex justify-content-center">
 
                     <div style="width: 2rem;" class="mt-5">
@@ -332,9 +293,8 @@
                             class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
+
                 <!--Low-->
-
-
                 <div class="d-flex justify-content-center">
                     <div style="width: 2rem;" class="mt-5">
                         <p>Low</p>
@@ -357,7 +317,7 @@
                     </div>
                 </div>
 
-                <!--Other stuff-->
+                <!-- OPR -->
                 <div>
                     <div class="d-flex justify-content-center mt-3">
                         <div style="width: 40rem;">
@@ -367,6 +327,7 @@
                         </div>
                     </div>
 
+                    <!-- DPR -->
                     <div class="d-flex justify-content-center mb-3">
                         <div style="width: 40rem;">
                             <label for="driverDefense" id="driverDefenseTotal">Defense 0</label>
@@ -375,6 +336,7 @@
                         </div>
                     </div>
 
+                    <!-- Endgame -->
                     <div class="d-flex justify-content-around">
                         <div>
                             <input class="form-check-input" type="checkbox" id="Docked">
@@ -390,6 +352,7 @@
                         </div>
                     </div>
 
+                    <!-- Other Bonus -->
                     <div class="d-flex justify-content-around mt-3">
                         <div>
                             <input class="form-check-input" type="checkbox" id="SustainabiltyBonus">
@@ -411,7 +374,7 @@
                         </div>
                     </div>
 
-
+                    <!-- Notes -->
                     <div class="d-flex justify-content-center mt-5">
                         <label for="driverNotesInput" class="form-label">Any notes?</label>
                     </div>
@@ -435,7 +398,6 @@
                 <p>Team Number:</p>
                 <input type="number" id="pitScoutingTeamNumber" required minlength="1" maxlength="6" size="8"
                     class="form-control form-inline w-25"></input>
-                    <button class=""
                 <p>Competition ID:</p>
                 <input type="number" id="pitScoutingCompetitionID" required minlength="1" maxlength="6" size="8"
                     class="form-control form-inline w-25"></input>
@@ -451,39 +413,14 @@
                     <p>How many chargers do you have?</p>
                     <input type="number" id="numberOfChargers" required minlength="1" maxlength="6" size="8"
                         class="form-control form-inline w-25"></input>
-
-
-                    <!-- <div class="w-50">
-                <label for="neatness">Level of Neatness:</label>
-                <input oninput="adjustRangeDisplay('neatness','neatnessLevel')" type="range" class="form-range"
-                    min="0" max="10" step="1" id="neatness" value="0">
-                <label for="neatness" id="neatnessLevel">Level 0</label>
-            </div> -->
-
                 </ul>
             </div>
 
             <div id="botAndGameplay">
                 <h3>Bot and Gameplay Details</h3>
-
-                <!-- <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="text" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown link
-                    </a>
-                  
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </div> -->
-
-
                 <!--this ul is for grouping the checkboxes -->
                 <ul>
-
                     <p>Type of Drivetrain:</p>
-
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="pitScoutingFalconBox">
                         <label class="form-check-label" for="pitScoutingFalconBox">
@@ -608,42 +545,6 @@
                     </div>
                 </ul>
                 <ul>
-
-                    <!-- <p> Where do they get on the charging station? </p>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="1" name="endGameChargingStationPos"
-                            id="endGameChargingStationLeft">
-                        <label class="form-check-label" for="endGameChargingStationLeft">
-                            Left
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="2" name="endGameChargingStationPos"
-                            id="endGameChargingStationMiddle">
-                        <label class="form-check-label" for="endGameChargingStationMiddle">
-                            Middle
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="3" name="endGameChargingStationPos"
-                            id="endGameChargingStationRight">
-                        <label class="form-check-label" for="endGameChargingStationRight">
-                            Right
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="4" name="endGameChargingStationPos"
-                            id="endGameChargingStationUndecided">
-                        <label class="form-check-label" for="endGameChargingStationUndecided">
-                            Undecided
-                        </label>
-                    </div>
-                </ul>
-                </daiv> -->
             </div>
 
             <div id="auton">
@@ -665,44 +566,6 @@
                         </label>
                     </div>
                 </ul>
-
-                <!-- <ul>
-                    <p>What's scored?</p>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="1" name="whatIsScoredDuringAuton"
-                            id="pitScoutingGamePieceScoredCone">
-                        <label class="form-check-label" for="pitScoutingGamePieceScoredCone">
-                            Cone
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="2" name="whatIsScoredDuringAuton"
-                            id="pitScoutingGamePieceScoredCube">
-                        <label class="form-check-label" for="pitScoutingGamePieceScoredCube">
-                            Cube
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="3" name="whatIsScoredDuringAuton"
-                            id="pitScoutingGamePieceScoredBoth">
-                        <label class="form-check-label" for="pitScoutingGamePieceScoredBoth">
-                            Both
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="4" name="whatIsScoredDuringAuton"
-                            id="pitScoutingGamePieceScoredNone">
-                        <label class="form-check-label" for="pitScoutingGamePieceScoredNone">
-                            None
-                        </label>
-                    </div>
-
-                </ul> -->
-
                 <ul>
                     <p>How many are scored in each node?</p>
                     <table class="table" id="locationScored">
@@ -951,15 +814,33 @@
                     <label for="teamNumberInfo">Team Number:</label>
                     <input type="number" id="teamNumberInfo" required minlength="1" maxlength="6" size="8"
                         class="form-control form-inline"></input>
-                        <button class = "btn btn-primary mt-2 btn-lg" id="savebtn">Save</button>
-                        <h5>Match Averages</h5>
-                        <div>
-                            <span onclick="setIDValue('teamInfoTotalInstancesSaved', 50)">Total Saved: </span><span id="teamInfoTotalInstancesSaved">0</span>
-                        </div>
-                        <h5>Data graph</h5>
+                    <button id="savebtn" onclick="getTeamInfo()" class="btn btn-primary mt-2 btn-lg">Load</button>
+                    <h5>Data Graph</h5>
+                    <div>
+                        <canvas id="lineChart" height="600" width="600"></canvas>
+                    </div>
+                    <div>
+                        <canvas id="lineChartAverage" height="600" width="600"></canvas>
+                    </div>
+                    <h5>Match Averages</h5>
+                    <div>
+                        <span>Average Auton Points: </span><span id="AverageAutonPoints">0</span>
+                    </div>
+                    <div>
+                        <span>Average Auton Accuracy: </span><span id="AverageDCPoints">0</span>
+                    </div>
+                    <div>
+                        <span>Average Driver Control Points: </span><span id="AverageDCPoints">0</span>
+                    </div>
+                    <div>
+                        <span>Average Driver Accuracy: </span><span id="AverageAutonPoints">0</span>
+                    </div>
+                    <div>
+                        <span>Auton Win Rate: </span><span id="AutonWR">0</span>
+                    </div>
                 </div>
             </div>
-                <!--
+            <!--
                     <p>Info Graphs</p> 
                         What Miles Wants as a graph: 
                         - Match accuracy
@@ -967,28 +848,31 @@
                         - Auton accuracy
                         - Total Match Points 
                  -->
+        </div>
+    </div>
+    <div class="tab-pane fade" id="pills-Team-Comparison">
+        <div class="d-flex align-items-center w-25">
+            <div class="col-auto">
+                <label for="teamNumber1">Team Number 1:</label>
+                <input type="number" id="teamNumber1" required minlength="1" maxlength="6" size="8"
+                    class="form-control form-inline"></input>
+                <label for="teamNumber2">Team Number 2:</label>
+                <input type="number" id="teamNumber2" required minlength="1" maxlength="6" size="8"
+                    class="form-control form-inline"></input>
             </div>
         </div>
-        <div class="tab-pane fade" id="pills-Team-Comparison">
-            <div class="d-flex align-items-center w-25">
-                <div class="col-auto">
-                    <label for="teamNumber1">Team Number 1:</label>
-                    <input type="number" id="teamNumber1" required minlength="1" maxlength="6" size="8"
-                        class="form-control form-inline"></input>
-                    <label for="teamNumber2">Team Number 2:</label>
-                    <input type="number" id="teamNumber2" required minlength="1" maxlength="6" size="8"
-                        class="form-control form-inline"></input>
-                </div>
-            </div>
-        </div>
+    </div>
 </body>
+
+<script src="path/to/chartjs/dist/chart.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
+    // import Utils from 'chart.js/auto';
 
     toggleDarkMode();
 
     const apiURL = 'https://1138-scouting-api.azurewebsites.net/api/'
-    // const localURL = 'https://localhost:7044/api/'
 
     let input2dArray = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -1011,13 +895,79 @@
     let LastColumn = 0;
     let LastRow = 0;
     let autonWinner;
-    const blueWinAuton = 1;
-    const autonTie = 2;
-    const redWinAuton = 3;
+    const WinAuton = 1;
+    const TieAuton = 2;
+    const LossAuton = 3;
     let displayNum = null;
     let lastDisplayTotal;
     let lastDisplayNum;
+    const ctx = document.getElementById('lineChart');
+    const averageChart = document.getElementById('lineChartAverage')
 
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Match 1', 'Match 2', 'Match 3', 'Match 4', 'Match 5', 'Match 6', 'Match 7'],
+            datasets: [{
+                label: 'Total Driver Contol Points',
+                data: [5, 7, 2, 5, 4, 5, 2],
+                // borderColor: Utils.CHART_COLORS.red,
+                // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+            },
+            {
+                label: 'Total Auton Contol Points',
+                data: [12, 19, 3, 5, 2, 3, 4],
+                //     borderColor: Utils.CHART_COLORS.blue,
+                //     backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+            }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    new Chart(averageChart, {
+        type: 'line',
+        data: {
+            labels: ['Match 1', 'Match 2', 'Match 3', 'Match 4', 'Match 5', 'Match 6', 'Match 7'],
+            datasets: [{
+                label: 'Average Driver Contol Points',
+                data: [12, 19, 3, 5, 2, 3, 4],
+                // borderColor: Utils.CHART_COLORS.red,
+                // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+            },
+            {
+                label: 'Average Auton Contol Points',
+                data: [5, 7, 2, 5, 4, 5, 2],
+                // borderColor: Utils.CHART_COLORS.blue,
+                // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+            }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    function getAverage(array) {
+        var total = 0;
+        var count = 0;
+
+        jQuery.each(array, function (index, value) {
+            total += value;
+            count++;
+        });
+
+        return total / count;
+    }
     //Auton
     //Cone: 
     document.getElementById('autonConeHighTotalHit').addEventListener("click", () => ChangeIndexAndDisplay(ScoreHighCone, autonScore, 'autonConeHighTotal'));
@@ -1049,8 +999,7 @@
     document.getElementById('driverCubeMidTotalMiss').addEventListener("click", () => ChangeIndex(MissMidCube, driverControlScore));
     document.getElementById('driverCubeLowTotalMiss').addEventListener("click", () => ChangeIndex(MissLowCube, driverControlScore));
 
-    // This is a java script comment. We are doing inline javascript
-    // Javascript has 3 levels of variables - var, let and const. Var - global variable. Wonky. let - similar to var, but preserves scope. const is a constant memory location that can be defined once.
+    //Used to push all information from the Auton and DC tabs to the database
     function newMatchResults() {
 
         const MatchResults = {
@@ -1124,7 +1073,10 @@
             })
             .then(() => { location.reload(); })
     }
+    function getTeamInfo() {
 
+    }
+    //Used to push all information from the pitscouting tab to the database
     function newPitScouting() {
         const pitScouting = {
             competitionID: document.getElementById('pitScoutingCompetitionID').value,
@@ -1174,6 +1126,8 @@
             })
             .then(() => { location.reload(); })
     }
+
+    //Used to add one to the row and colomn specified in the funciton aswell as change the number visable on the webpage
     function ChangeIndexAndDisplay(column, row, pointTarget) {
         const pointsTotalField = document.getElementById(pointTarget);
         const lastPointTarget = document.getElementById(pointTarget);
@@ -1187,12 +1141,14 @@
         LastRow = row;
         LastColumn = column;
     }
+    //Used to add one to the row and colomn specified in the funciton
     function ChangeIndex(column, row) {
         input2dArray[row][column]++;
         console.table(input2dArray);
         LastRow = row;
         LastColumn = column;
     }
+    //Used to subtract one from the last place that was changed in the array
     function ResetLastInput() {
         if (LastColumn > -1 && input2dArray[LastRow][LastColumn] > 0) {
             input2dArray[LastRow][LastColumn]--;
@@ -1216,12 +1172,12 @@
         rangeTotal.innerText = String(rangeTotalArr2[0]) + ' ' + String(rangeTotalArr2[1]);
 
     }
-
+    //used to change the values in team info
     function setIDValue(numberID, thingToChangeItTo) {
         let beginningVal = document.getElementById(numberID);
         beginningVal.innerText = thingToChangeItTo;
     }
-
+    //Used to calculate the total driver control points and is used to display them on the website
     function driverTotalPointsCalc() {
         let driverPointsTotalField = document.getElementById("driverPointsTotal");
         let driverHighTotal = input2dArray[driverControlScore][ScoreHighCone] + input2dArray[driverControlScore][ScoreHighCube];
@@ -1229,7 +1185,7 @@
         let driverLowTotal = input2dArray[driverControlScore][ScoreLowCone] + input2dArray[driverControlScore][ScoreLowCube];
         driverPointsTotalField.innerText = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
     }
-
+    //Used to calculate the total auton control points and is used to display them on the website
     function autonTotalPointsCalc() {
         let autonPointsTotalField = document.getElementById("autonPointsTotal");
         let autonHighTotal = input2dArray[autonScore][ScoreHighCone] + input2dArray[autonScore][ScoreHighCube];
@@ -1237,37 +1193,7 @@
         let autonLowTotal = input2dArray[autonScore][ScoreLowCone] + input2dArray[autonScore][ScoreLowCube];
         autonPointsTotalField.innerText = (autonHighTotal * 5) + (autonMidTotal * 3) + (autonLowTotal * 2);
     }
-
-
-
-    function enableUsable(onTrueOrFalse, button, target) {
-        let buttonCollected = document.getElementById(button);
-        let targetCollected = document.getElementById(target);
-        if (onTrueOrFalse) {
-            if (buttonCollected.checked || buttonCollected.value == null) {
-                targetCollected.setAttribute("disabled", "");
-                if (targetCollected.checked || targetCollected.value != null) {
-                    targetCollected.checked = false;
-                }
-            }
-            else {
-                targetCollected.removeAttribute("disabled");
-            }
-        }
-        else {
-            if (!buttonCollected.checked || button.value != null) {
-                targetCollected.setAttribute("disabled", "");
-                if (targetCollected.checked || targetCollected.value != null) {
-                    targetCollected.checked = false;
-                }
-            }
-            else {
-                targetCollected.removeAttribute("disabled");
-            }
-        }
-    }
-
-
+    //Used to toggle dark mode (most important funciton, website will not work without it). It is on by default(as it should be).
     function toggleDarkMode() {
         const autonRadioToChange = document.getElementById("autonTieRadioButton");
         const darkModeSwitch = document.getElementById("darkModeSwitch");
@@ -1282,7 +1208,7 @@
             autonRadioToChange.setAttribute("class", "btn btn-outline-dark btn-lg");
         }
     }
-
+    //Used so the text boxes adjust sizes as more text is written. 
     function textAreaAdjust(element) {
         element.style.minHeight = "1px";
         element.style.minHeight = (element.scrollHeight) + "px";
