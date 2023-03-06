@@ -811,16 +811,13 @@
             <h3>Team Info</h3>
             <div class="d-flex align-items-center w-25">
                 <div class="col-auto">
-                    <label for="teamNumberInfo">Team Number:</label>
+                    <h6>Team Number:</h6>
                     <input type="number" id="teamNumberInfo" required minlength="1" maxlength="6" size="8"
-                        class="form-control form-inline"></input>
-                    <button id="savebtn" onclick="getTeamInfo()" class="btn btn-primary mt-2 btn-lg">Load</button>
+                    class="form-control form-inline w-25"></input>
+                    <button id="Loadbtn" onclick="LoadbtnPressed()" class="btn btn-primary mt-2 btn-lg">Load</button>
                     <h5>Data Graph</h5>
                     <div>
-                        <canvas id="lineChart" height="600" width="600"></canvas>
-                    </div>
-                    <div>
-                        <canvas id="lineChartAverage" height="600" width="600"></canvas>
+                        <canvas id="myChart" height="600" width="600"></canvas>
                     </div>
                     <h5>Match Averages</h5>
                     <div>
@@ -872,7 +869,9 @@
 
     toggleDarkMode();
 
-    const apiURL = 'https://1138-scouting-api.azurewebsites.net/api/'
+    const apiURL = 'https://1138-scouting-api.azurewebsites.net/api/';
+    const matchResultsEndpoint = "https://1138-scouting-api.azurewebsites.net/api/MatchResults";
+
 
     let input2dArray = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -901,73 +900,78 @@
     let displayNum = null;
     let lastDisplayTotal;
     let lastDisplayNum;
-    const ctx = document.getElementById('lineChart');
-    const averageChart = document.getElementById('lineChartAverage')
+    let dcControlPointsTotal = 0;
 
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Match 1', 'Match 2', 'Match 3', 'Match 4', 'Match 5', 'Match 6', 'Match 7'],
-            datasets: [{
-                label: 'Total Driver Contol Points',
-                data: [5, 7, 2, 5, 4, 5, 2],
-                // borderColor: Utils.CHART_COLORS.red,
-                // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-            },
-            {
-                label: 'Total Auton Contol Points',
-                data: [12, 19, 3, 5, 2, 3, 4],
-                //     borderColor: Utils.CHART_COLORS.blue,
-                //     backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-            }
-            ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    new Chart(averageChart, {
-        type: 'line',
-        data: {
-            labels: ['Match 1', 'Match 2', 'Match 3', 'Match 4', 'Match 5', 'Match 6', 'Match 7'],
-            datasets: [{
-                label: 'Average Driver Contol Points',
-                data: [12, 19, 3, 5, 2, 3, 4],
-                // borderColor: Utils.CHART_COLORS.red,
-                // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-            },
-            {
-                label: 'Average Auton Contol Points',
-                data: [5, 7, 2, 5, 4, 5, 2],
-                // borderColor: Utils.CHART_COLORS.blue,
-                // backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-            }
-            ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
+    document.addEventListener("DOMContentLoaded", () => {
+        const Loadbtn = document.getElementById("Loadbtn");
+        Loadbtn.addEventListener("click", LoadbtnPressed)
     });
 
-    function getAverage(array) {
-        var total = 0;
-        var count = 0;
+    let myChart = null;
 
-        jQuery.each(array, function (index, value) {
-            total += value;
-            count++;
-        });
+    //Triggered when the user presses the "Run Demo" button
+    function LoadbtnPressed() {
+        fetch(matchResultsEndpoint)
+            .then(response => response.json()) //Deserialize to JS variable
+            .then(data => {
+                //Data represents all the records retrieved
+                console.debug(data);
 
-        return total / count;
+                //Find the chart
+                const ctx = document.getElementById('myChart');
+
+                //Destroy the chart if it already exists (this might take a second)
+                if (myChart != null) {
+                    myChart.destroy();
+                }
+
+                const targetTeam = document.getElementById("teamNumberInfo").value;
+                //Hold thes results
+                const arrData = [];
+                //Process the records from the server
+
+                for (const recordFromServer of data) {
+                    //Filter
+                    if (recordFromServer.teamNumber != targetTeam)
+                    {
+                        continue; //Next record pls
+                    }
+                    
+                    //Select
+                    const localRecord = {
+                        matchNumber: recordFromServer.matchNumber,
+                        dcControlPoints: recordFromServer.dcControlPoints
+                    }
+
+                    //Save
+                    arrData.push(localRecord);
+                }
+
+                //Print what we just calculated
+                console.table(arrData);
+
+                //Draw the chart
+                myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: arrData.map(x => x.matchNumber),
+                        datasets: [{
+                            label: 'DC Control Points',
+                            data: arrData.map(x => x.dcControlPoints),
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: false
+                            }
+                        }
+                    }
+                });
+            });
     }
+
     //Auton
     //Cone: 
     document.getElementById('autonConeHighTotalHit').addEventListener("click", () => ChangeIndexAndDisplay(ScoreHighCone, autonScore, 'autonConeHighTotal'));
@@ -1032,7 +1036,7 @@
             mobilityBonus: document.getElementById('autonMobilityBonusCheckbox').checked,
             autonNotes: document.getElementById('autonNotesInput').value,
             //Driver Control
-            dcControlPoints: Number(document.getElementById('driverPointsTotal').value),
+            dcControlPoints: dcControlPointsTotal,
             dcHighCubeHit: input2dArray[driverControlScore][ScoreHighCube],
             dcHighConeHit: input2dArray[driverControlScore][ScoreHighCone],
             dcMidCubeHit: input2dArray[driverControlScore][ScoreMidCube],
@@ -1184,6 +1188,7 @@
         let driverMidTotal = input2dArray[driverControlScore][ScoreMidCone] + input2dArray[driverControlScore][ScoreMidCube];
         let driverLowTotal = input2dArray[driverControlScore][ScoreLowCone] + input2dArray[driverControlScore][ScoreLowCube];
         driverPointsTotalField.innerText = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
+        dcControlPointsTotal = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
     }
     //Used to calculate the total auton control points and is used to display them on the website
     function autonTotalPointsCalc() {
