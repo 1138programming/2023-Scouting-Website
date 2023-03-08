@@ -813,7 +813,7 @@
                 <div class="col-auto">
                     <h6>Team Number:</h6>
                     <input type="number" id="teamNumberInfo" required minlength="1" maxlength="6" size="8"
-                    class="form-control form-inline w-25"></input>
+                        class="form-control form-inline w-25"></input>
                     <button id="Loadbtn" onclick="LoadbtnPressed()" class="btn btn-primary mt-2 btn-lg">Load</button>
                     <h5>Data Graph</h5>
                     <div>
@@ -824,13 +824,13 @@
                         <span>Average Auton Points: </span><span id="AverageAutonPoints">0</span>
                     </div>
                     <div>
-                        <span>Average Auton Accuracy: </span><span id="AverageDCPoints">0</span>
+                        <span>Average Auton Accuracy: </span><span id="AverageAutonAccuracy">0</span>
                     </div>
                     <div>
                         <span>Average Driver Control Points: </span><span id="AverageDCPoints">0</span>
                     </div>
                     <div>
-                        <span>Average Driver Accuracy: </span><span id="AverageAutonPoints">0</span>
+                        <span>Average Driver Accuracy: </span><span id="AverageDCAccuracy">0</span>
                     </div>
                     <div>
                         <span>Auton Win Rate: </span><span id="AutonWR">0</span>
@@ -901,6 +901,15 @@
     let lastDisplayTotal;
     let lastDisplayNum;
     let dcControlPointsTotal = 0;
+    let dcControlPointsAverage = 0;
+    let dcControlPointsAccuracy = 0;
+    let dcControlPointsAccuracyTotal = 0;
+    let AutonControlPointsTotal = 0;
+    let AutonControlPointsAverage = 0;
+    let AutonControlPointsAccuracy = 0;
+    let AutonControlPointsAccuracyTotal = 0;
+    let runCounter = 0;
+    let counterpt2 = 0;
 
     document.addEventListener("DOMContentLoaded", () => {
         const Loadbtn = document.getElementById("Loadbtn");
@@ -932,24 +941,68 @@
 
                 for (const recordFromServer of data) {
                     //Filter
-                    if (recordFromServer.teamNumber != targetTeam)
-                    {
+                    if (recordFromServer.teamNumber != targetTeam) {
                         continue; //Next record pls
                     }
-                    
+
                     //Select
                     const localRecord = {
                         matchNumber: recordFromServer.matchNumber,
-                        dcControlPoints: recordFromServer.dcControlPoints
+                        dcControlPoints: recordFromServer.dcControlPoints,
+                        autonomousControlPoints: recordFromServer.autonomousControlPoints
                     }
-
+                    if (recordFromServer.dcHighConeAccuracy > 0) {
+                        dcControlPointsAccuracyTotal += recordFromServer.dcHighConeAccuracy;
+                        counterpt2 += 1;
+                    }
+                    if (recordFromServer.dcHighCubeAccuracy > 0) {
+                        dcControlPointsAccuracyTotal += recordFromServer.dcHighCubeAccuracy;
+                        counterpt2 += 1;
+                    }
+                    if (recordFromServer.dcMidConeAccuracy > 0) {
+                        dcControlPointsAccuracyTotal += recordFromServer.dcMidConeAccuracy;
+                        counterpt2 += 1;
+                    }
+                    if (recordFromServer.dcMidCubeAccuracy > 0) {
+                        dcControlPointsAccuracyTotal += recordFromServer.dcMidCubeAccuracy;
+                        counterpt2 += 1;
+                    }
+                    if (recordFromServer.dcLowConeAccuracy > 0) {
+                        dcControlPointsAccuracyTotal += recordFromServer.dcLowConeAccuracy;
+                        counterpt2 += 1;
+                    }
+                    if (recordFromServer.dcLowCubeAccuracy > 0) {
+                        dcControlPointsAccuracyTotal += recordFromServer.dcLowCubeAccuracy;
+                        counterpt2 += 1;
+                    }
+                    dcControlPointsTotal += recordFromServer.dcControlPoints;
+                    AutonControlPointsTotal += recordFromServer.autonomousControlPoints / 2;
+                    runCounter += 1;
                     //Save
                     arrData.push(localRecord);
                 }
-
+                console.log(counterpt2);
+                console.log(dcControlPointsAccuracyTotal);
+                // dcControlPointsAccuracyTotal = dcControlPointsAccuracyTotal / 2;
+                dcControlPointsAccuracyTotal = dcControlPointsAccuracyTotal / counterpt2;
+                //Auton Average Points
+                AutonControlPointsAverage = document.getElementById("AverageAutonPoints");
+                AutonControlPointsAverage.innerText = AutonControlPointsTotal / runCounter;
+                //Auton Points Accuracy 
+                // AutonControlPointsAccuracy = document.getElementById("AverageAutonAccuracy");
+                // AutonControlPointsAverage.innerText = AutonControlPointsAccuracyTotal / counterpt2;
+                //DC Points Average
+                dcControlPointsAverage = document.getElementById("AverageDCPoints");
+                dcControlPointsAverage.innerText = dcControlPointsTotal / runCounter;
+                //DC Points Accuracy
+                dcControlPointsAccuracy = document.getElementById("AverageDCAccuracy");
+                dcControlPointsAccuracy.innerText = dcControlPointsAccuracyTotal;
+                //Auton WR
+                // AutonControlPointsAverage = document.getElementById("AutonWR");
+                // AutonControlPointsAverage.innerText = AutonControlPointsTotal / runCounter;
                 //Print what we just calculated
                 console.table(arrData);
-
+                console.log(dcControlPointsAccuracyTotal)
                 //Draw the chart
                 myChart = new Chart(ctx, {
                     type: 'line',
@@ -958,6 +1011,11 @@
                         datasets: [{
                             label: 'DC Control Points',
                             data: arrData.map(x => x.dcControlPoints),
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Auton Control Points',
+                            data: arrData.map(x => x.autonomousControlPoints),
                             borderWidth: 1
                         }]
                     },
@@ -990,8 +1048,8 @@
     //Driver Contol
     //Cone: 
     document.getElementById('driverConeHighTotalHit').addEventListener("click", () => ChangeIndexAndDisplay(ScoreHighCone, driverControlScore, 'driverConeHighTotal'));
-    document.getElementById('driverConeMidTotalHit').addEventListener("click", () => ChangeIndexAndDisplay(ScoreMidCone, driverControlScore, 'driverCubeMidTotal'));
-    document.getElementById('driverConeLowTotalHit').addEventListener("click", () => ChangeIndexAndDisplay(ScoreLowCone, driverControlScore, 'driverCubeLowTotal'));
+    document.getElementById('driverConeMidTotalHit').addEventListener("click", () => ChangeIndexAndDisplay(ScoreMidCone, driverControlScore, 'driverConeMidTotal'));
+    document.getElementById('driverConeLowTotalHit').addEventListener("click", () => ChangeIndexAndDisplay(ScoreLowCone, driverControlScore, 'driverConeLowTotal'));
     document.getElementById('driverConeHighTotalMiss').addEventListener("click", () => ChangeIndex(MissHighCone, driverControlScore));
     document.getElementById('driverConeMidTotalMiss').addEventListener("click", () => ChangeIndex(MissMidCone, driverControlScore));
     document.getElementById('driverConeLowTotalMiss').addEventListener("click", () => ChangeIndex(MissLowCone, driverControlScore));
@@ -1010,7 +1068,7 @@
             //Auton
             teamNumber: Number(document.getElementById('teamNumber').value),
             matchNumber: Number(document.getElementById('matchNumber').value),
-            autonomousControlPoints: Number(document.getElementById('autonPointsTotal').value),
+            autonomousControlPoints: AutonControlPointsTotal,
             autonomousHighCubeHit: input2dArray[autonScore][ScoreHighCube],
             autonomousHighConeHit: input2dArray[autonScore][ScoreLowCone],
             autonomousMidCubeHit: input2dArray[autonScore][ScoreHighCube],
@@ -1029,9 +1087,9 @@
             autonomousMidConeAccuracy: input2dArray[autonScore][ScoreMidCone] / (input2dArray[autonScore][ScoreMidCone] + input2dArray[autonScore][MissMidCone]),
             autonomousLowCubeAccuracy: input2dArray[autonScore][ScoreLowCube] / (input2dArray[autonScore][ScoreLowCube] + input2dArray[autonScore][MissLowCube]),
             autonomousLowConeAccuracy: input2dArray[autonScore][ScoreLowCone] / (input2dArray[autonScore][ScoreLowCone] + input2dArray[autonScore][MissLowCone]),
+            // autonomousAccuracy: 
             autonDocking: document.getElementById('autonDockedCheckbox').checked,
             AutonWinner: Number(document.querySelector('input[name="AutonWinner"]:checked')?.value ?? 0),
-            //I will ask basi for input on why the button groups are not working
             engaged: document.getElementById('autonEngagedCheckbox').checked,
             mobilityBonus: document.getElementById('autonMobilityBonusCheckbox').checked,
             autonNotes: document.getElementById('autonNotesInput').value,
@@ -1055,6 +1113,9 @@
             dcMidConeAccuracy: input2dArray[driverControlScore][ScoreMidCone] / (input2dArray[driverControlScore][ScoreMidCone] + input2dArray[driverControlScore][MissMidCone]),
             dcLowCubeAccuracy: input2dArray[driverControlScore][ScoreLowCube] / (input2dArray[driverControlScore][ScoreLowCube] + input2dArray[driverControlScore][MissLowCube]),
             dcLowConeAccuracy: input2dArray[driverControlScore][ScoreLowCone] / (input2dArray[driverControlScore][ScoreLowCone] + input2dArray[driverControlScore][MissLowCone]),
+            dcAccuracy: input2dArray[driverControlScore][ScoreHighCube] + input2dArray[driverControlScore][ScoreHighCone] + input2dArray[driverControlScore][ScoreMidCube] + input2dArray[driverControlScore][ScoreMidCone] + input2dArray[driverControlScore][ScoreLowCube] + input2dArray[driverControlScore][ScoreLowCone] /
+            (input2dArray[driverControlScore][ScoreHighCube] + input2dArray[driverControlScore][MissHighCube] + input2dArray[driverControlScore][ScoreHighCone] + input2dArray[driverControlScore][MissHighCone] + input2dArray[driverControlScore][ScoreMidCube] + input2dArray[driverControlScore][MissMidCube] + input2dArray[driverControlScore][ScoreMidCube] + input2dArray[driverControlScore][MissMidCube] 
+            + input2dArray[driverControlScore][ScoreMidCone] + input2dArray[driverControlScore][MissMidCone] + input2dArray[driverControlScore][ScoreLowCube] + input2dArray[driverControlScore][MissLowCube] +input2dArray[driverControlScore][ScoreLowCone] + input2dArray[driverControlScore][MissLowCone]),
             opr: Number(document.getElementById('driverOffenseTotal').value),
             dpr: Number(document.getElementById('driverDefenseTotal').value),
             dcDocking: document.getElementById('Docked').checked,
@@ -1066,6 +1127,9 @@
         }
 
         console.log(input2dArray[autonScore][MissLowCube]);
+        console.log(input2dArray[driverControlScore][ScoreHighCube] + input2dArray[driverControlScore][ScoreHighCone] + input2dArray[driverControlScore][ScoreMidCube] + input2dArray[driverControlScore][ScoreMidCone] + input2dArray[driverControlScore][ScoreLowCube] + input2dArray[driverControlScore][ScoreLowCone] /
+            (input2dArray[driverControlScore][ScoreHighCube] + input2dArray[driverControlScore][MissHighCube] + input2dArray[driverControlScore][ScoreHighCone] + input2dArray[driverControlScore][MissHighCone] + input2dArray[driverControlScore][ScoreMidCube] + input2dArray[driverControlScore][MissMidCube] + input2dArray[driverControlScore][ScoreMidCube] + input2dArray[driverControlScore][MissMidCube] 
+            + input2dArray[driverControlScore][ScoreMidCone] + input2dArray[driverControlScore][MissMidCone] + input2dArray[driverControlScore][ScoreLowCube] + input2dArray[driverControlScore][MissLowCube] +input2dArray[driverControlScore][ScoreLowCone] + input2dArray[driverControlScore][MissLowCone])); 
 
         fetch(apiURL + 'MatchResults',
             {
@@ -1197,6 +1261,7 @@
         let autonMidTotal = input2dArray[autonScore][ScoreMidCone] + input2dArray[autonScore][ScoreMidCube];
         let autonLowTotal = input2dArray[autonScore][ScoreLowCone] + input2dArray[autonScore][ScoreLowCube];
         autonPointsTotalField.innerText = (autonHighTotal * 5) + (autonMidTotal * 3) + (autonLowTotal * 2);
+        AutonControlPointsTotal = (autonHighTotal * 5) + (autonMidTotal * 3) + (autonLowTotal * 2);
     }
     //Used to toggle dark mode (most important funciton, website will not work without it). It is on by default(as it should be).
     function toggleDarkMode() {
