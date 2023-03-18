@@ -1110,26 +1110,21 @@
                         }
                         if (autonWinRate = 1) {
                             AutonWinTotal += 1;
-                            counterpt4 +=1
+                            counterpt4 += 1
                         }
-                        else
-                        {
+                        else {
                             counterpt4 += 1;
                         }
-                        if (recordFromServer.autonDocking == true)
-                        {
+                        if (recordFromServer.autonDocking == true) {
                             DockedTotal += 1;
                         }
-                        if (recordFromServer.engaged == true)
-                        {
+                        if (recordFromServer.engaged == true) {
                             EngagedTotal += 1;
                         }
-                        if (recordFromServer.dcDocking == true)
-                        {
+                        if (recordFromServer.dcDocking == true) {
                             DCDockedTotal += 1;
                         }
-                        if (recordFromServer.dcEngaged == true)
-                        {
+                        if (recordFromServer.dcEngaged == true) {
                             DCEngagedTotal += 1;
                         }
 
@@ -1355,13 +1350,12 @@
                         }
                         if (autonWinRate = 1) {
                             AutonWinTotal += 1;
-                            counterpt4 +=1
+                            counterpt4 += 1
                         }
-                        else
-                        {
+                        else {
                             counterpt4 += 1;
                         }
-                
+
 
                         dcControlPointsAccuracyTotal = dcControlPointsAccuracyTotal / counterpt2;
                         AutonControlPointsAccuracyTotal = AutonControlPointsAccuracyTotal / counterpt3;
@@ -1442,10 +1436,9 @@
                         }
                         if (autonWinRate = 1) {
                             AutonWinTotal2 += 1;
-                            counterpt8 +=1
+                            counterpt8 += 1
                         }
-                        else
-                        {
+                        else {
                             counterpt8 += 1;
                         }
 
@@ -1522,33 +1515,40 @@
                             }
                         }
                     });
-                        myChart2 = new Chart(ctx2, {
-                            type: 'line',
-                            data: {
-                                labels: UniqueMatchNumbers.map(x => x.matchNumber),
-                                datasets: [{
-                                    label: 'Auton Contol Points 1',
-                                    data: arrData1.map(x => x.autonomousControlPoints),
-                                    borderWidth: 1
-                                },
-                                {
-                                    label: 'Auton Control Points 2',
-                                    data: arrData2.map(x => x.autonomousControlPoints),
-                                    borderWidth: 1
-                                }]
+                    myChart2 = new Chart(ctx2, {
+                        type: 'line',
+                        data: {
+                            labels: UniqueMatchNumbers.map(x => x.matchNumber),
+                            datasets: [{
+                                label: 'Auton Contol Points 1',
+                                data: arrData1.map(x => x.autonomousControlPoints),
+                                borderWidth: 1
                             },
-                            options: {
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
+                            {
+                                label: 'Auton Control Points 2',
+                                data: arrData2.map(x => x.autonomousControlPoints),
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
                                 }
                             }
-                        });
+                        }
+                    });
                 });
         }
     }
-
+    function LoadPitScouting() {
+        fetch(pitScouting)
+            .then(response => response.json()) //Deserialize to JS variable
+            .then(data => {
+                //Data represents all the records retrieved
+                console.debug(data);
+            })
+    }
     //Auton
     //Cone: 
     document.getElementById('autonConeHighTotalHit').addEventListener("click", () => ChangeIndexAndDisplay(ScoreHighCone, autonScore, 'autonConeHighTotal'));
