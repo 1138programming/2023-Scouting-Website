@@ -836,10 +836,10 @@
                         <span>Average Auton Accuracy: </span><span id="AverageAutonAccuracy">0</span>
                     </div>
                     <div>
-                        <span>Auton Docked Rate: </span><span id="AverageDCAccuracy">0</span>
+                        <span>Auton Docked Rate: </span><span id="AverageDockedRate">0</span>
                     </div>
                     <div>
-                        <span>Auton Engaged Rate: </span><span id="AverageDCAccuracy">0</span>
+                        <span>Auton Engaged Rate: </span><span id="AverageEngageedRate">0</span>
                     </div>
                     <div>
                         <span>Auton Win Rate: </span><span id="AutonWR">0</span>
@@ -851,16 +851,16 @@
                         <span>Average Driver Accuracy: </span><span id="AverageDCAccuracy">0</span>
                     </div>
                     <div>
-                        <span>OPR: </span><span id="AverageDCAccuracy">0</span>
+                        <span>OPR: </span><span id="OPR">0</span>
                     </div>
                     <div>
-                        <span>DPR: </span><span id="AverageDCAccuracy">0</span>
+                        <span>DPR: </span><span id="DPR">0</span>
                     </div>
                     <div>
-                        <span>Driver Control Docked Rate: </span><span id="AverageDCAccuracy">0</span>
+                        <span>Driver Control Docked Rate: </span><span id="DCDockedRate">0</span>
                     </div>
                     <div>
-                        <span>Driver Control Engaged Rate: </span><span id="AverageDCAccuracy">0</span>
+                        <span>Driver Control Engaged Rate: </span><span id="DCEngagedRate">0</span>
                     </div>
                     <div>
                         <span>Notes: </span><span id="NotesDisplay">0</span>
@@ -891,36 +891,36 @@
                     <h6> ____________________________________ </h6>
                     <h6> Team 1 </h6>
                     <div>
-                        <span>Average Auton Points: </span><span id="AverageAutonPoints">0</span>
+                        <span>Average Auton Points: </span><span id="TCAverageAutonPoints">0</span>
                     </div>
                     <div>
-                        <span>Average Auton Accuracy: </span><span id="AverageAutonAccuracy">0</span>
+                        <span>Average Auton Accuracy: </span><span id="TCAverageAutonAccuracy">0</span>
                     </div>
                     <div>
-                        <span>Average Driver Control Points: </span><span id="AverageDCPoints">0</span>
+                        <span>Average Driver Control Points: </span><span id="TCAverageDCPoints">0</span>
                     </div>
                     <div>
-                        <span>Average Driver Accuracy: </span><span id="AverageDCAccuracy">0</span>
+                        <span>Average Driver Accuracy: </span><span id="TCAverageDCAccuracy">0</span>
                     </div>
                     <div>
-                        <span>Auton Win Rate: </span><span id="AutonWR">0</span>
+                        <span>Auton Win Rate: </span><span id="TCAutonWR">0</span>
                     </div>
                     <h6> ____________________________________ </h6>
                     <h6> Team 2 </h6>
                     <div>
-                        <span>Average Auton Points: </span><span id="AverageAutonPoints">0</span>
+                        <span>Average Auton Points: </span><span id="TCAverageAutonPoints2">0</span>
                     </div>
                     <div>
-                        <span>Average Auton Accuracy: </span><span id="AverageAutonAccuracy">0</span>
+                        <span>Average Auton Accuracy: </span><span id="TCAverageAutonAccuracy2">0</span>
                     </div>
                     <div>
-                        <span>Average Driver Control Points: </span><span id="AverageDCPoints">0</span>
+                        <span>Average Driver Control Points: </span><span id="TCAverageDCPoints2">0</span>
                     </div>
                     <div>
-                        <span>Average Driver Accuracy: </span><span id="AverageDCAccuracy">0</span>
+                        <span>Average Driver Accuracy: </span><span id="TCAverageDCAccuracy2">0</span>
                     </div>
                     <div>
-                        <span>Auton Win Rate: </span><span id="AutonWR">0</span>
+                        <span>Auton Win Rate: </span><span id="TCAutonWR2">0</span>
                     </div>
                 </div>
             </div>
@@ -1007,6 +1007,18 @@
         let AutonWR = 0;
         let notesDisplay = "";
         let notesDisplayval = 0;
+        let DPR = 0;
+        let OPR = 0;
+        let DPRTotal = 0;
+        let OPRTotal = 0;
+        let DockedTotal = 0;
+        let EngagedTotal = 0;
+        let DockedRate = 0;
+        let EngagedRate = 0;
+        let DCDockedTotal = 0;
+        let DCEngagedTotal = 0;
+        let DCDockedRate = 0;
+        let DCEngagedRate = 0;
         let runCounter = 0;
         let counterpt2 = 0;
         let counterpt3 = 0;
@@ -1046,7 +1058,7 @@
                             dcAccuracy: recordFromServer.dcAccuracy
 
                         }
-
+                        let autonWinRate = recordFromServer.AutonWinner;
                         if (recordFromServer.dcHighConeAccuracy > 0) {
                             dcControlPointsAccuracyTotal += recordFromServer.dcHighConeAccuracy;
                             counterpt2 += 1;
@@ -1096,17 +1108,40 @@
                             AutonControlPointsAccuracyTotal += recordFromServer.autonomousLowCubeAccuracy;
                             counterpt3 += 1;
                         }
-                        if (recordFromServer.AutonWinner == 1) {
+                        if (autonWinRate = 1) {
                             AutonWinTotal += 1;
+                            counterpt4 +=1
+                        }
+                        else
+                        {
                             counterpt4 += 1;
                         }
-                        if (recordFromServer.AutonWinner == 2) {
-                            counterpt4 += 1;
+                        if (recordFromServer.autonDocking == true)
+                        {
+                            DockedTotal += 1;
                         }
-                        if (recordFromServer.AutonWinner == 3) {
-                            counterpt4 += 1;
+                        if (recordFromServer.engaged == true)
+                        {
+                            EngagedTotal += 1;
                         }
+                        if (recordFromServer.dcDocking == true)
+                        {
+                            DCDockedTotal += 1;
+                        }
+                        if (recordFromServer.dcEngaged == true)
+                        {
+                            DCEngagedTotal += 1;
+                        }
+
                         runCounter += 1;
+                        DockedTotal = DockedTotal / runCounter;
+                        EngagedTotal = EngagedTotal / runCounter;
+                        DCDockedTotal = DCDockedTotal / runCounter;
+                        DCEngagedTotal = DCEngagedTotal / runCounter;
+                        DPRTotal += recordFromServer.dpr;
+                        OPRTotal += recordFromServer.opr;
+                        DPRTotal = DPRTotal / runCounter;
+                        OPRTotal = OPRTotal / runCounter;
                         notesDisplay = notesDisplay + "\n" + "Match Number " + recordFromServer.matchNumber + "\n" + "Driver Control Notes: " + recordFromServer.dcNotes + "\n" + "   Auton Notes: " + recordFromServer.autonNotes + "\n";
                         dcControlPointsAccuracyTotal = dcControlPointsAccuracyTotal / counterpt2;
                         AutonControlPointsAccuracyTotal = AutonControlPointsAccuracyTotal / counterpt3;
@@ -1115,16 +1150,22 @@
                         AutonWinTotal = AutonWinTotal / counterpt4;
                         //Save
                         arrData.push(localRecord);
+                        console.log(autonWinRate);
                     }
-                    console.log(counterpt2);
+                    // console.log(counterpt2);
                     console.log(AutonWinTotal);
-                    dcControlPointsAccuracyTotal = dcControlPointsAccuracyTotal / counterpt2;
                     //Auton Average Points
                     AutonControlPointsAverage = document.getElementById("AverageAutonPoints");
                     AutonControlPointsAverage.innerText = AutonControlPointsTotal / runCounter;
                     //Auton Points Accuracy 
                     AutonControlPointsAccuracy = document.getElementById("AverageAutonAccuracy");
                     AutonControlPointsAccuracy.innerText = AutonControlPointsAccuracyTotal;
+                    //Auton Docked
+                    DockedRate = document.getElementById("AverageDockedRate");
+                    DockedRate.innerText = DockedTotal;
+                    //Auton Engaged
+                    EngagedRate = document.getElementById("AverageEngageedRate");
+                    EngagedRate.innerText = EngagedTotal;
                     //DC Points Average
                     dcControlPointsAverage = document.getElementById("AverageDCPoints");
                     dcControlPointsAverage.innerText = dcControlPointsTotal / runCounter;
@@ -1134,12 +1175,24 @@
                     //Auton WR
                     AutonWR = document.getElementById("AutonWR");
                     AutonWR.innerText = AutonWinTotal;
+                    //Dc Docked
+                    DCDockedRate = document.getElementById("DCDockedRate");
+                    DCDockedRate.innerText = DCDockedTotal;
+                    //Dc Engaged
+                    DCEngagedRate = document.getElementById("DCEngagedRate");
+                    DCEngagedRate.innerText = DCEngagedTotal;
+                    //DPR
+                    DPR = document.getElementById("OPR");
+                    DPR.innerText = DPRTotal;
+                    //OPR
+                    OPR = document.getElementById("DPR");
+                    OPR.innerText = OPRTotal;
                     //Notes
                     notesDisplayval = document.getElementById("NotesDisplay");
                     notesDisplayval.innerText = notesDisplay;
                     //Print what we just calculated
-                    console.table(arrData);
-                    console.log(dcControlPointsAccuracyTotal)
+                    // console.table(arrData);
+                    // console.log(dcControlPointsAccuracyTotal)
                     //Draw the chart
                     myChart = new Chart(ctx, {
                         type: 'line',
@@ -1167,6 +1220,11 @@
                 });
         }
     }
+
+
+
+
+
     function LoadbtnForTeamComparisonPressed() {
         let teamNumInfo1 = document.getElementById("teamNumber1").value
         let teamNumInfo2 = document.getElementById("teamNumber2").value
@@ -1178,12 +1236,26 @@
         let AutonControlPointsAverage = 0;
         let AutonControlPointsAccuracy = 0;
         let AutonControlPointsAccuracyTotal = 0;
+        let dcControlPointsTotal2 = 0;
+        let dcControlPointsAverage2 = 0;
+        let dcControlPointsAccuracy2 = 0;
+        let dcControlPointsAccuracyTotal2 = 0;
+        let AutonControlPointsTotal2 = 0;
+        let AutonControlPointsAverage2 = 0;
+        let AutonControlPointsAccuracy2 = 0;
+        let AutonControlPointsAccuracyTotal2 = 0;
         let AutonWinTotal = 0;
         let AutonWR = 0;
+        let AutonWinTotal2 = 0;
+        let AutonWR2 = 0;
         let runCounter = 0;
         let counterpt2 = 0;
         let counterpt3 = 0;
         let counterpt4 = 0;
+        let counterpt5 = 0;
+        let counterpt6 = 0;
+        let counterpt7 = 0;
+        let counterpt8 = 0;
         if (teamComparisonDoubleClickPrevention != teamNumInfo1) {
             teamComparisonDoubleClickPrevention = teamNumInfo1;
             fetch(matchResultsEndpoint)
@@ -1207,7 +1279,10 @@
                     const targetTeam1 = document.getElementById("teamNumber1").value;
                     const targetTeam2 = document.getElementById("teamNumber2").value;
                     //Hold thes results
-                    const arrData = [];
+                    const matchNumbers = [];
+                    const arrData1 = [];
+                    const arrData2 = [];
+
                     //Process the records from the server
 
                     for (const recordFromServer of data) {
@@ -1217,6 +1292,9 @@
                         }
 
                         //Select
+                        const matchNumber = {
+                            matchNumber: recordFromServer.matchNumber
+                        }
                         const localRecord = {
                             matchNumber: recordFromServer.matchNumber,
                             dcControlPoints: recordFromServer.dcControlPoints,
@@ -1224,6 +1302,7 @@
                             dcAccuracy: recordFromServer.dcAccuracy
 
                         }
+                        let autonWinRate = recordFromServer.AutonWinner;
 
                         if (recordFromServer.dcHighConeAccuracy > 0) {
                             dcControlPointsAccuracyTotal += recordFromServer.dcHighConeAccuracy;
@@ -1274,16 +1353,15 @@
                             AutonControlPointsAccuracyTotal += recordFromServer.autonomousLowCubeAccuracy;
                             counterpt3 += 1;
                         }
-                        if (recordFromServer.AutonWinner == 1) {
+                        if (autonWinRate = 1) {
                             AutonWinTotal += 1;
+                            counterpt4 +=1
+                        }
+                        else
+                        {
                             counterpt4 += 1;
                         }
-                        if (recordFromServer.AutonWinner == 2) {
-                            counterpt4 += 1;
-                        }
-                        if (recordFromServer.AutonWinner == 3) {
-                            counterpt4 += 1;
-                        }
+                
 
                         dcControlPointsAccuracyTotal = dcControlPointsAccuracyTotal / counterpt2;
                         AutonControlPointsAccuracyTotal = AutonControlPointsAccuracyTotal / counterpt3;
@@ -1292,7 +1370,8 @@
                         AutonWinTotal = AutonWinTotal / counterpt4;
                         runCounter += 1;
                         //Save
-                        arrData.push(localRecord);
+                        arrData1.push(localRecord);
+                        matchNumbers.push(matchNumber);
                     }
                     for (const recordFromServer2 of data) {
                         //Filter
@@ -1301,6 +1380,9 @@
                         }
 
                         //Select
+                        const matchNumber = {
+                            matchNumber: recordFromServer2.matchNumber,
+                        }
                         const localRecord2 = {
                             matchNumber: recordFromServer2.matchNumber,
                             dcControlPoints: recordFromServer2.dcControlPoints,
@@ -1308,145 +1390,161 @@
                             dcAccuracy: recordFromServer2.dcAccuracy
 
                         }
-
+                        let autonWinRate = recordFromServer2.AutonWinner;
                         if (recordFromServer2.dcHighConeAccuracy > 0) {
-                            dcControlPointsAccuracyTotal += recordFromServer2.dcHighConeAccuracy;
-                            counterpt2 += 1;
+                            dcControlPointsAccuracyTotal2 += recordFromServer2.dcHighConeAccuracy;
+                            counterpt6 += 1;
                         }
                         if (recordFromServer2.dcHighCubeAccuracy > 0) {
-                            dcControlPointsAccuracyTotal += recordFromServer2.dcHighCubeAccuracy;
-                            counterpt2 += 1;
+                            dcControlPointsAccuracyTotal2 += recordFromServer2.dcHighCubeAccuracy;
+                            counterpt6 += 1;
                         }
                         if (recordFromServer2.dcMidConeAccuracy > 0) {
-                            dcControlPointsAccuracyTotal += recordFromServer2.dcMidConeAccuracy;
-                            counterpt2 += 1;
+                            dcControlPointsAccuracyTotal2 += recordFromServer2.dcMidConeAccuracy;
+                            counterpt6 += 1;
                         }
                         if (recordFromServer2.dcMidCubeAccuracy > 0) {
-                            dcControlPointsAccuracyTotal += recordFromServer2.dcMidCubeAccuracy;
-                            counterpt2 += 1;
+                            dcControlPointsAccuracyTotal2 += recordFromServer2.dcMidCubeAccuracy;
+                            counterpt6 += 1;
                         }
                         if (recordFromServer2.dcLowConeAccuracy > 0) {
-                            dcControlPointsAccuracyTotal += recordFromServer2.dcLowConeAccuracy;
-                            counterpt2 += 1;
+                            dcControlPointsAccuracyTotal2 += recordFromServer2.dcLowConeAccuracy;
+                            counterpt6 += 1;
                         }
                         if (recordFromServer2.dcLowCubeAccuracy > 0) {
-                            dcControlPointsAccuracyTotal += recordFromServer2.dcLowCubeAccuracy;
-                            counterpt2 += 1;
+                            dcControlPointsAccuracyTotal2 += recordFromServer2.dcLowCubeAccuracy;
+                            counterpt6 += 1;
                         }
 
                         if (recordFromServer2.autonomousHighConeAccuracy > 0) {
-                            AutonControlPointsAccuracyTotal += recordFromServer2.autonomousHighConeAccuracy;
-                            counterpt3 += 1;
+                            AutonControlPointsAccuracyTotal2 += recordFromServer2.autonomousHighConeAccuracy;
+                            counterpt7 += 1;
                         }
                         if (recordFromServer2.autonomousHighCubeAccuracy > 0) {
-                            AutonControlPointsAccuracyTotal += recordFromServer2.autonomousHighCubeAccuracy;
-                            counterpt3 += 1;
+                            AutonControlPointsAccuracyTotal2 += recordFromServer2.autonomousHighCubeAccuracy;
+                            counterpt7 += 1;
                         }
                         if (recordFromServer2.autonomousMidConeAccuracy > 0) {
-                            AutonControlPointsAccuracyTotal += recordFromServer2.autonomousMidConeAccuracy;
-                            counterpt3 += 1;
+                            AutonControlPointsAccuracyTotal2 += recordFromServer2.autonomousMidConeAccuracy;
+                            counterpt7 += 1;
                         }
                         if (recordFromServer2.autonomousMidCubeAccuracy > 0) {
-                            AutonControlPointsAccuracyTotal += recordFromServer2.autonomousMidCubeAccuracy;
-                            counterpt3 += 1;
+                            AutonControlPointsAccuracyTotal2 += recordFromServer2.autonomousMidCubeAccuracy;
+                            counterpt7 += 1;
                         }
                         if (recordFromServer2.autonomousLowConeAccuracy > 0) {
-                            AutonControlPointsAccuracyTotal += recordFromServer2.autonomousLowConeAccuracy;
-                            counterpt3 += 1;
+                            AutonControlPointsAccuracyTotal2 += recordFromServer2.autonomousLowConeAccuracy;
+                            counterpt7 += 1;
                         }
                         if (recordFromServer2.autonomousLowCubeAccuracy > 0) {
-                            AutonControlPointsAccuracyTotal += recordFromServer2.autonomousLowCubeAccuracy;
-                            counterpt3 += 1;
+                            AutonControlPointsAccuracyTotal2 += recordFromServer2.autonomousLowCubeAccuracy;
+                            counterpt7 += 1;
                         }
-                        if (recordFromServer2.AutonWinner == 1) {
-                            AutonWinTotal += 1;
-                            counterpt4 += 1;
+                        if (autonWinRate = 1) {
+                            AutonWinTotal2 += 1;
+                            counterpt8 +=1
                         }
-                        if (recordFromServer2.AutonWinner == 2) {
-                            counterpt4 += 1;
-                        }
-                        if (recordFromServer2.AutonWinner == 3) {
-                            counterpt4 += 1;
+                        else
+                        {
+                            counterpt8 += 1;
                         }
 
-                        dcControlPointsAccuracyTotal = dcControlPointsAccuracyTotal / counterpt2;
-                        AutonControlPointsAccuracyTotal = AutonControlPointsAccuracyTotal / counterpt3;
-                        dcControlPointsTotal += recordFromServer2.dcControlPoints;
-                        AutonControlPointsTotal += recordFromServer2.autonomousControlPoints;
-                        AutonWinTotal = AutonWinTotal / counterpt4;
-                        runCounter += 1;
+                        dcControlPointsAccuracyTotal2 = dcControlPointsAccuracyTotal2 / counterpt6;
+                        AutonControlPointsAccuracyTotal2 = AutonControlPointsAccuracyTotal2 / counterpt7;
+                        dcControlPointsTotal2 += recordFromServer2.dcControlPoints;
+                        AutonControlPointsTotal2 += recordFromServer2.autonomousControlPoints;
+                        AutonWinTotal2 = AutonWinTotal2 / counterpt8;
+                        counterpt5 += 1;
                         //Save
-                        arrData.push(localRecord2);
+                        arrData2.push(localRecord2);
+                        matchNumbers.push(matchNumber);
                     }
+                    const UniqueMatchNumbers = [...new Map(matchNumbers.map((m) => [m.matchNumber, m])).values()];
+                    // console.log(UniqueMatchNumbers);
+                    // console.log(unique);
                     // console.log(counterpt2);
                     // console.log(AutonWinTotal);
-                    // dcControlPointsAccuracyTotal = dcControlPointsAccuracyTotal / counterpt2;
-                    // //Auton Average Points
-                    // AutonControlPointsAverage = document.getElementById("AverageAutonPoints");
-                    // AutonControlPointsAverage.innerText = AutonControlPointsTotal / runCounter;
-                    // //Auton Points Accuracy 
-                    // AutonControlPointsAccuracy = document.getElementById("AverageAutonAccuracy");
-                    // AutonControlPointsAccuracy.innerText = AutonControlPointsAccuracyTotal;
-                    // //DC Points Average
-                    // dcControlPointsAverage = document.getElementById("AverageDCPoints");
-                    // dcControlPointsAverage.innerText = dcControlPointsTotal / runCounter;
-                    // //DC Points Accuracy
-                    // dcControlPointsAccuracy = document.getElementById("AverageDCAccuracy");
-                    // dcControlPointsAccuracy.innerText = dcControlPointsAccuracyTotal;
-                    // //Auton WR
-                    // AutonWR = document.getElementById("AutonWR");
-                    // AutonWR.innerText = AutonWinTotal;
-                    // //Print what we just calculated
+                    //Auton Average Points
+                    AutonControlPointsAverage = document.getElementById("TCAverageAutonPoints");
+                    AutonControlPointsAverage.innerText = AutonControlPointsTotal / runCounter;
+                    //Auton Points Accuracy 
+                    AutonControlPointsAccuracy = document.getElementById("TCAverageAutonAccuracy");
+                    AutonControlPointsAccuracy.innerText = AutonControlPointsAccuracyTotal;
+                    //DC Points Average
+                    dcControlPointsAverage = document.getElementById("TCAverageDCPoints");
+                    dcControlPointsAverage.innerText = dcControlPointsTotal / runCounter;
+                    //DC Points Accuracy
+                    dcControlPointsAccuracy = document.getElementById("TCAverageDCAccuracy");
+                    dcControlPointsAccuracy.innerText = dcControlPointsAccuracyTotal;
+                    //Auton WR
+                    AutonWR = document.getElementById("TCAutonWR");
+                    AutonWR.innerText = AutonWinTotal;
+                    //Auton Average Points 2
+                    AutonControlPointsAverage2 = document.getElementById("TCAverageAutonPoints2");
+                    AutonControlPointsAverage2.innerText = AutonControlPointsTotal2 / counterpt5;
+                    //Auton Points Accuracy 2
+                    AutonControlPointsAccuracy2 = document.getElementById("TCAverageAutonAccuracy2");
+                    AutonControlPointsAccuracy2.innerText = AutonControlPointsAccuracyTotal2;
+                    //DC Points Average 2
+                    dcControlPointsAverage2 = document.getElementById("TCAverageDCPoints2");
+                    dcControlPointsAverage2.innerText = dcControlPointsTotal2 / counterpt5;
+                    //DC Points Accuracy 2
+                    dcControlPointsAccuracy2 = document.getElementById("TCAverageDCAccuracy2");
+                    dcControlPointsAccuracy2.innerText = dcControlPointsAccuracyTotal2;
+                    //Auton WR 2
+                    AutonWR2 = document.getElementById("TCAutonWR2");
+                    AutonWR2.innerText = AutonWinTotal2;
+                    //Print what we just calculated
                     // console.table(arrData);
                     // console.log(dcControlPointsAccuracyTotal)
                     //Draw the chart
                     myChart1 = new Chart(ctx1, {
                         type: 'line',
                         data: {
-                            labels: arrData.map(x => x.matchNumber),
+                            labels: UniqueMatchNumbers.map(x => x.matchNumber),
                             datasets: [{
                                 label: 'DC Control Points Team 1',
-                                data: arrData.map(x => x.dcControlPoints),
+                                data: arrData1.map(x => x.dcControlPoints),
                                 borderWidth: 1
                             },
                             {
                                 label: 'DC Control Points Team 2',
-                                data: arrData.map(x => x.dcControlPoints2),
+                                data: arrData2.map(x => x.dcControlPoints),
                                 borderWidth: 1
                             }
-                        ]
+                            ]
                         },
                         options: {
                             scales: {
                                 y: {
-                                    beginAtZero: false
+                                    beginAtZero: true
                                 }
                             }
                         }
                     });
-                //     myChart2 = new Chart(ctx2, {
-                //         type: 'line',
-                //         data: {
-                //             labels: arrData.map(x => x.matchNumber),
-                //             datasets: [{
-                //                 label: 'Auton Contol Points 1',
-                //                 data: arrData.map(x => x.autonomousControlPoints),
-                //                 borderWidth: 1
-                //             },
-                //             {
-                //                 label: 'Auton Control Points 2',
-                //                 data: arrData.map(x => x.autonomousControlPoints2),
-                //                 borderWidth: 1
-                //             }]
-                //         },
-                //         options: {
-                //             scales: {
-                //                 y: {
-                //                     beginAtZero: false
-                //                 }
-                //             }
-                //         }
-                //     });
+                        myChart2 = new Chart(ctx2, {
+                            type: 'line',
+                            data: {
+                                labels: UniqueMatchNumbers.map(x => x.matchNumber),
+                                datasets: [{
+                                    label: 'Auton Contol Points 1',
+                                    data: arrData1.map(x => x.autonomousControlPoints),
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: 'Auton Control Points 2',
+                                    data: arrData2.map(x => x.autonomousControlPoints),
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
                 });
         }
     }
@@ -1548,8 +1646,8 @@
                         input2dArray[driverControlScore][ScoreMidCone] + input2dArray[driverControlScore][MissMidCone] +
                         input2dArray[driverControlScore][ScoreLowCube] + input2dArray[driverControlScore][MissLowCube] +
                         input2dArray[driverControlScore][ScoreLowCone] + input2dArray[driverControlScore][MissLowCone])),
-            opr: Number(document.getElementById('driverOffenseTotal').value),
-            dpr: Number(document.getElementById('driverDefenseTotal').value),
+            opr: Number(document.getElementById('driverOffense').value),
+            dpr: Number(document.getElementById('driverDefense').value),
             dcDocking: document.getElementById('Docked').checked,
             dcEngaged: document.getElementById('Engaged').checked,
             sustainabilityBonus: document.getElementById('SustainabiltyBonus').checked,
@@ -1557,7 +1655,7 @@
             coopertitionBonus: document.getElementById('CoopertitionBonus').checked,
             dcNotes: document.getElementById('driverNotesInput').value
         }
-
+        // console.log(dpr)
         console.log(input2dArray[autonScore][MissLowCube]);
         console.log(Number(input2dArray[driverControlScore][ScoreHighCube] +
             input2dArray[driverControlScore][ScoreHighCone] +
