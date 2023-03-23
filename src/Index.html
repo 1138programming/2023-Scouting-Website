@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html id="background">
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div onclick="toggleDarkMode()" class="d-inline form-check form-switch d-flex justify-content-end">
         <input class="d-inline form-check-input" type="checkbox" role="switch" id="darkModeSwitch" checked>
@@ -80,13 +82,16 @@
             <h3>Autonomous Scoring</h3>
             <div class="text-center">
 
-
-                <div class="d-flex justify-content-center">
-                    <div class="w-50">
-                        <span id="autonPointsTotal">0</span><span> Autonomous Control Points</span>
+                <div class="text-center">
+                    <div class="justify-content-center">
+                        <div class="w-95">
+                            <span id="autonPointsTotal">0</span><span> Autonomous Control Points</span>
+                        </div>
+                        <div class="w-95">
+                            <span id="autonMissTotal">0</span><span> Autonomous Misses</span>
+                        </div>
                     </div>
                 </div>
-
                 <!-- Cube and Cone Scoring for auton -->
 
                 <!-- High -->
@@ -100,17 +105,14 @@
                         <p>Cube</p>
                         <p id="autonCubeHighTotal">0</p>
                         <button id="autonCubeHighTotalHit" type="button" class="btn btn-primary btn-lg">Hit</button>
-                        <button id="autonCubeHighTotalMiss" onclick="adjustDisplay(0, 'autonCubeHighTotal')"
-                            type="button" class="btn btn-danger btn-lg">Miss</button>
+                        <button id="autonCubeHighTotalMiss" type="button" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p>Cone</p>
                         <p id="autonConeHighTotal">0</p>
-                        <button id="autonConeHighTotalHit" onclick="adjustDisplay(1, 'autonConeHighTotal')"
-                            type="button" class="btn btn-primary btn-lg">Hit</button>
-                        <button id="autonConeHighTotalMiss" onclick="adjustDisplay(0, 'autonConeHighTotal')"
-                            type="button" class="btn btn-danger btn-lg">Miss</button>
+                        <button id="autonConeHighTotalHit" type="button" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonConeHighTotalMiss" type="button" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
 
@@ -122,18 +124,14 @@
                     <div style="width: 5rem;"></div>
                     <div>
                         <p id="autonCubeMidTotal">0</p>
-                        <button id="autonCubeMidTotalHit" onclick="adjustDisplay(1,'autonCubeMidTotal')" type="button"
-                            class="btn btn-primary btn-lg">Hit</button>
-                        <button id="autonCubeMidTotalMiss" onclick="adjustDisplay(0,'autonCubeMidTotal')" type="button"
-                            class="btn btn-danger btn-lg">Miss</button>
+                        <button id="autonCubeMidTotalHit" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonCubeMidTotalMiss" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p id="autonConeMidTotal">0</p>
-                        <button id="autonConeMidTotalHit" onclick="adjustDisplay(1,'autonConeMidTotal')" type="button"
-                            class="btn btn-primary btn-lg">Hit</button>
-                        <button id="autonConeMidTotalMiss" onclick="adjustDisplay(0,'autonConeMidTotal')" type="button"
-                            class="btn btn-danger btn-lg">Miss</button>
+                        <button id="autonConeMidTotalHit" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonConeMidTotalMiss" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
 
@@ -145,27 +143,23 @@
                     <div style="width: 5rem;"></div>
                     <div>
                         <p id="autonCubeLowTotal">0</p>
-                        <button id="autonCubeLowTotalHit" onclick="adjustDisplay(1,'autonCubeLowTotal')" type="button"
-                            class="btn btn-primary btn-lg">Hit</button>
-                        <button id="autonCubeLowTotalMiss" onclick="adjustDisplay(0,'autonCubeLowTotal')" type="button"
-                            class="btn btn-danger btn-lg">Miss</button>
+                        <button id="autonCubeLowTotalHit" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonCubeLowTotalMiss" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p id="autonConeLowTotal">0</p>
-                        <button id="autonConeLowTotalHit" onclick="adjustDisplay(1,'autonConeLowTotal')" type="button"
-                            class="btn btn-primary btn-lg">Hit</button>
-                        <button id="autonConeLowTotalMiss" onclick="adjustDisplay(0,'autonConeLowTotal')" type="button"
-                            class="btn btn-danger btn-lg">Miss</button>
+                        <button id="autonConeLowTotalHit" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="autonConeLowTotalMiss" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
                 <!-- Reset Last Input -->
                 <div class="d-flex justify-content-center">
                     <div class="mt-5">
-                        <button onclick="ResetLastInput()" type="button" class="btn btn-primary btn-lg">Clear Last
+                       <button onclick="ResetLastInput()" type="button" class="btn btn-primary btn-lg">Clear Last
                             Input</button>
                     </div>
-                </div>
+                </div> 
 
 
 
@@ -239,6 +233,10 @@
                         <div style="width: 22rem;"> </div>
                         <span id="driverPointsTotal">0</span> Driver Control Points
                     </div>
+                    <div class="w-95">
+                        <div style="width: 22rem;"> </div>
+                        <span id="driverMissTotal">0</span> Driver Control Misses
+                    </div>
                 </div>
                 <div>
 
@@ -256,19 +254,15 @@
                     <div>
                         <p>Cube</p>
                         <p id="driverCubeHighTotal">0</p>
-                        <button id="driverCubeHighTotalHit" onclick="adjustDisplay(1,'driverCubeHighTotal')"
-                            class="btn btn-primary btn-lg">Hit</button>
-                        <button id="driverCubeHighTotalMiss" onclick="adjustDisplay(0,'driverCubeHighTotal')"
-                            class="btn btn-danger btn-lg">Miss</button>
+                        <button id="driverCubeHighTotalHit" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="driverCubeHighTotalMiss" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p>Cone</p>
                         <p id="driverConeHighTotal">0</p>
-                        <button id="driverConeHighTotalHit" onclick="adjustDisplay(1,'driverConeHighTotal')"
-                            class="btn btn-primary btn-lg">Hit</button>
-                        <button id="driverConeHighTotalMiss" onclick="adjustDisplay(0,'driverConeHighTotal')"
-                            class="btn btn-danger btn-lg">Miss</button>
+                        <button id="driverConeHighTotalHit" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="driverConeHighTotalMiss" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
 
@@ -281,18 +275,14 @@
                     <div style="width: 5rem;"></div>
                     <div>
                         <p id="driverCubeMidTotal">0</p>
-                        <button id="driverCubeMidTotalHit" onclick="adjustDisplay(1,'driverCubeMidTotal')"
-                            class="btn btn-primary btn-lg">Hit</button>
-                        <button id="driverCubeMidTotalMiss" onclick="adjustDisplay(0,'driverCubeMidTotal')"
-                            class="btn btn-danger btn-lg">Miss</button>
+                        <button id="driverCubeMidTotalHit" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="driverCubeMidTotalMiss" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p id="driverConeMidTotal">0</p>
-                        <button id="driverConeMidTotalHit" onclick="adjustDisplay(1,'driverConeMidTotal')"
-                            class="btn btn-primary btn-lg">Hit</button>
-                        <button id="driverConeMidTotalMiss" onclick="adjustDisplay(0,'driverConeMidTotal')"
-                            class="btn btn-danger btn-lg">Miss</button>
+                        <button id="driverConeMidTotalHit" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="driverConeMidTotalMiss" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
 
@@ -304,21 +294,23 @@
                     <div style="width: 5rem;"></div>
                     <div>
                         <p id="driverCubeLowTotal">0</p>
-                        <button id="driverCubeLowTotalHit" onclick="adjustDisplay(1,'driverCubeLowTotal')"
-                            class="btn btn-primary btn-lg">Hit</button>
-                        <button id="driverCubeLowTotalMiss" onclick="adjustDisplay(0,'driverCubeLowTotal')"
-                            class="btn btn-danger btn-lg">Miss</button>
+                        <button id="driverCubeLowTotalHit" class="btn btn-primary btn-lg">Hit</button>
+                        <button id="driverCubeLowTotalMiss" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                     <div style="width: 6rem;"></div>
                     <div>
                         <p id="driverConeLowTotal">0</p>
-                        <button id="driverConeLowTotalHit" onclick="adjustDisplay(1,'driverConeLowTotal')"
-                            class="btn btn-primary btn-lg btn-lg">Hit</button>
-                        <button id="driverConeLowTotalMiss" onclick="adjustDisplay(0,'driverConeLowTotal')"
-                            class="btn btn-danger btn-lg">Miss</button>
+                        <button id="driverConeLowTotalHit" class="btn btn-primary btn-lg btn-lg">Hit</button>
+                        <button id="driverConeLowTotalMiss" class="btn btn-danger btn-lg">Miss</button>
                     </div>
                 </div>
-
+                   <!-- Reset Last Input -->
+                   <div class="d-flex justify-content-center">
+                    <div class="mt-5">
+                       <button onclick="ResetLastInput()" type="button" class="btn btn-primary btn-lg">Clear Last
+                            Input</button>
+                    </div>
+                </div> 
                 <!-- OPR -->
                 <div>
                     <div class="d-flex justify-content-center mt-3">
@@ -1059,6 +1051,7 @@
                         const targetTeam = document.getElementById("teamNumberInfo").value;
                         //Hold thes results
                         const arrData = [];
+                        const MatchNumbersArray = [];
                         //Process the records from the server
 
                         for (const recordFromServer of data) {
@@ -1073,7 +1066,9 @@
                                 dcControlPoints: recordFromServer.dcControlPoints,
                                 autonomousControlPoints: recordFromServer.autonomousControlPoints,
                                 dcAccuracy: recordFromServer.dcAccuracy
-
+                            }
+                            const matchNumber = {
+                                matchNumber: recordFromServer.matchNumber
                             }
                             let autonWinRate = recordFromServer.AutonWinner;
                             if (recordFromServer.dcHighConeAccuracy > 0) {
@@ -1144,7 +1139,7 @@
                             if (recordFromServer.dcEngaged == true) {
                                 DCEngagedTotal += 1;
                             }
-                            
+
                             runCounter += 1;
                             DPRTotal += recordFromServer.dpr;
                             OPRTotal += recordFromServer.opr;
@@ -1152,9 +1147,11 @@
                             notesDisplay = notesDisplay + "\n" + "Match Number " + recordFromServer.matchNumber + "\n" + "Driver Control Notes: " + recordFromServer.dcNotes + "\n" + "   Auton Notes: " + recordFromServer.autonNotes + "\n";
                             AutonControlPointsTotal += recordFromServer.autonomousControlPoints;
                             //Save
+                            MatchNumbersArray.push(matchNumber);
                             arrData.push(localRecord);
                             console.log(autonWinRate);
                         }
+                        const UniqueMatchNumbers = [...new Map(MatchNumbersArray.map((m) => [m.matchNumber, m])).values()];
                         DockedTotal = DockedTotal / runCounter;
                         EngagedTotal = EngagedTotal / runCounter;
                         DCDockedTotal = DCDockedTotal / runCounter;
@@ -1209,7 +1206,7 @@
                         myChart = new Chart(ctx, {
                             type: 'line',
                             data: {
-                                labels: arrData.map(x => x.matchNumber),
+                                labels: UniqueMatchNumbers.map(x => x.matchNumber),
                                 datasets: [{
                                     label: 'DC Control Points',
                                     data: arrData.map(x => x.dcControlPoints),
@@ -1554,7 +1551,7 @@
                     });
             }
         }
-        
+
         function LoadPitScouting() {
             let BatteryNum = 0;
             let BatteryChargerNum = 0;
@@ -1644,7 +1641,7 @@
                         BatteryNum = recordFromServer.numBatteries;
                         BatteryChargerNum = recordFromServer.numBatChargers;
                         CycleTimePTS = recordFromServer.cycleTime;
-                    
+
                         console.log(recordFromServer)
                     }
                     console.log(CycleTimePTS)
@@ -1879,6 +1876,8 @@
         function ChangeIndex(column, row) {
             input2dArray[row][column]++;
             console.table(input2dArray);
+            driverTotalPointsCalc();
+            autonTotalPointsCalc();
             LastRow = row;
             LastColumn = column;
         }
@@ -1886,13 +1885,13 @@
         //Used to subtract one from the last place that was changed in the array
         function ResetLastInput() {
             if (LastColumn > -1 && input2dArray[LastRow][LastColumn] > 0) {
-                input2dArray[LastRow][LastColumn]--;
-                const lastPointTarget = document.getElementById(lastDisplayNum);
-                lastDisplayNum = Number(input2dArray[LastRow][LastColumn]);
-                lastPointTarget.innerText = lastDisplayNum;
-                driverTotalPointsCalc();
-                autonTotalPointsCalc();
-                console.table(input2dArray);
+            input2dArray[LastRow][LastColumn]--;
+            const lastPointTarget = document.getElementById(lastDisplayNum);
+            lastDisplayNum = Number(input2dArray[LastRow][LastColumn]);
+            lastPointTarget.innerText = lastDisplayNum;
+            driverTotalPointsCalc();
+            autonTotalPointsCalc();
+            console.table(input2dArray);
                 LastColumn = -1;
             }
         }
@@ -1922,6 +1921,11 @@
             let driverLowTotal = input2dArray[driverControlScore][ScoreLowCone] + input2dArray[driverControlScore][ScoreLowCube];
             driverPointsTotalField.innerText = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
             dcControlPoints = (driverHighTotal * 5) + (driverMidTotal * 3) + (driverLowTotal * 2);
+            let driverMissTotalField = document.getElementById("driverMissTotal");
+            let driverHighTotalMiss = input2dArray[driverControlScore][MissHighCone] + input2dArray[driverControlScore][MissHighCube];
+            let driverMidTotalMiss = input2dArray[driverControlScore][MissMidCone] + input2dArray[driverControlScore][MissMidCube];
+            let driverLowTotalMiss = input2dArray[driverControlScore][MissLowCone] + input2dArray[driverControlScore][MissLowCube];
+            driverMissTotalField.innerText = (driverHighTotalMiss) + (driverMidTotalMiss) + (driverLowTotalMiss);
         }
 
         //Used to calculate the total auton control points and is used to display them on the website
@@ -1930,8 +1934,13 @@
             let autonHighTotal = input2dArray[autonScore][ScoreHighCone] + input2dArray[autonScore][ScoreHighCube];
             let autonMidTotal = input2dArray[autonScore][ScoreMidCone] + input2dArray[autonScore][ScoreMidCube];
             let autonLowTotal = input2dArray[autonScore][ScoreLowCone] + input2dArray[autonScore][ScoreLowCube];
-            autonPointsTotalField.innerText = (autonHighTotal * 5) + (autonMidTotal * 3) + (autonLowTotal * 2);
             AutonControlPoints = (autonHighTotal * 5) + (autonMidTotal * 3) + (autonLowTotal * 2);
+            autonPointsTotalField.innerText = (autonHighTotal * 5) + (autonMidTotal * 3) + (autonLowTotal * 2);
+            let autonMissTotalField = document.getElementById("autonMissTotal");
+            let autonHighMiss = input2dArray[autonScore][MissHighCone] + input2dArray[autonScore][MissHighCube];
+            let autonMidMiss = input2dArray[autonScore][MissMidCone] + input2dArray[autonScore][MissMidCube];
+            let autonLowMiss = input2dArray[autonScore][MissLowCone] + input2dArray[autonScore][MissLowCube];
+            autonMissTotalField.innerText = (autonHighMiss) + (autonMidMiss) + (autonLowMiss);
         }
 
         //Used to toggle dark mode (most important funciton, website will not work without it). It is on by default(as it should be).
@@ -1958,4 +1967,5 @@
 
     </script>
 </body>
+
 </html>
