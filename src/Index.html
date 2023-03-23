@@ -963,9 +963,9 @@
                     <div>
                         <span>What Game Objects They Use: </span><span id="GameObjectUse">0</span>
                     </div>
-                    <!-- <div>
+                    <div>
                         <span>Cycle Time: </span><span id="CycleTimePTS">0</span>
-                    </div> -->
+                    </div>
                     <div>
                         <span>Charging Station: </span><span id="ChargingStation">0</span>
                     </div>
@@ -1594,6 +1594,7 @@
             let driveTrainTypeLet = 0;
             let ChargingStation = 0;
             let Mobility = 0;
+            let CycleTimePTS = 0;
             let BatteryNumID = 0;
             let BatteryChargerNumID = 0;
             let GameObjectUseID = 0;
@@ -1726,8 +1727,8 @@
                     GameObjectUseID = document.getElementById("GameObjectUse");
                     GameObjectUseID.innerText = GameObjectUse;
                     // //Cycle Time
-                    // CycleTimeID = document.getElementById("ChargingStation");
-                    // CycleTimeID.innerText = CycleTimePTS;
+                    CycleTimeID = document.getElementById("CycleTimePTS");
+                    CycleTimeID.innerText = CycleTimePTS;
                     //Mobility
                     ChargingStationID = document.getElementById("ChargingStation");
                     ChargingStationID.innerText = ChargingStation;
