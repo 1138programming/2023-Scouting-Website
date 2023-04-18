@@ -16,7 +16,6 @@
         section {
             width: 17.5%;
         }
-      
     </style>
 </head>
 <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
@@ -846,16 +845,15 @@
                 <div class="col-auto">
                     <h6>Team Number:</h6>
                     <input type="number" id="teamNumberInfo" required minlength="1" maxlength="6" size="8"
-                    class="form-control form-inline w-25"></input>
-                    <button id="Loadbtn" onclick="LoadbtnPressed()"
-                    class="btn btn-primary mt-2 btn-lg">Load</button>
+                        class="form-control form-inline w-25"></input>
+                    <button id="Loadbtn" onclick="LoadbtnPressed()" class="btn btn-primary mt-2 btn-lg">Load</button>
                     <section>
-                    <h5>Data Graph</h5>
+                        <h5>Data Graph</h5>
                         <div>
                             <canvas id="myChart" height="600" width="1200"></canvas>
                         </div>
                         <h5>Match Averages</h5>
-                        
+
                         <div>
                             <span>Average Auton Points: </span><span id="AverageAutonPoints">0</span>
                         </div>
@@ -902,61 +900,59 @@
                 <div class="col-auto">
                     <label for="teamNumber1">Team Number 1:</label>
                     <input type="number" id="teamNumber1" required minlength="1" maxlength="6" size="8"
-                    class="form-control form-inline"></input>
+                        class="form-control form-inline"></input>
                     <label for="teamNumber2">Team Number 2:</label>
                     <input type="number" id="teamNumber2" required minlength="1" maxlength="6" size="8"
-                    class="form-control form-inline"></input>
+                        class="form-control form-inline"></input>
                     <button id="Loadbtn" onclick="LoadbtnForTeamComparisonPressed()"
-                    class="btn btn-primary mt-2 btn-lg">Load</button>
+                        class="btn btn-primary mt-2 btn-lg">Load</button>
                     <h5>Data Graph</h5>
-                    <section>
-                        <div>
-                            <canvas id="myChart1" height="600" width="600"></canvas>
-                        </div>
-                        <div>
-                            <canvas id="myChart2" height="600" width="600"></canvas>
-                        </div>
-                        <h5>Match Averages</h5>
-                        <h6> ____________________________________ </h6>
-                        <h6> Team 1 </h6>
-                        <div>
-                            <span>Average Auton Points: </span><span id="TCAverageAutonPoints">0</span>
-                        </div>
-                        <div>
-                            <span>Average Auton Accuracy: </span><span id="TCAverageAutonAccuracy">0</span>
-                        </div>
-                        <div>
-                            <span>Average Driver Control Points: </span><span id="TCAverageDCPoints">0</span>
-                        </div>
-                        <div>
-                            <span>Average Driver Accuracy: </span><span id="TCAverageDCAccuracy">0</span>
-                        </div>
-                        <div>
-                            <span>Auton Win Rate: </span><span id="TCAutonWR">0</span>
-                        </div>
-                        <h6> ____________________________________ </h6>
-                        <h6> Team 2 </h6>
-                        <div>
-                            <span>Average Auton Points: </span><span id="TCAverageAutonPoints2">0</span>
-                        </div>
-                        <div>
-                            <span>Average Auton Accuracy: </span><span id="TCAverageAutonAccuracy2">0</span>
-                        </div>
-                        <div>
-                            <span>Average Driver Control Points: </span><span id="TCAverageDCPoints2">0</span>
-                        </div>
-                        <div>
-                            <span>Average Driver Accuracy: </span><span id="TCAverageDCAccuracy2">0</span>
-                        </div>
-                        <div>
-                            <span>Auton Win Rate: </span><span id="TCAutonWR2">0</span>
-                        </div>
-                    </section>
+                    <div>
+                        <canvas id="myChart1" height="600" width="600"></canvas>
+                    </div>
+                    <div>
+                        <canvas id="myChart2" height="600" width="600"></canvas>
+                    </div>
+                    <h5>Match Averages</h5>
+                    <h6> ____________________________________ </h6>
+                    <h6> Team 1 </h6>
+                    <div>
+                        <span>Average Auton Points: </span><span id="TCAverageAutonPoints">0</span>
+                    </div>
+                    <div>
+                        <span>Average Auton Accuracy: </span><span id="TCAverageAutonAccuracy">0</span>
+                    </div>
+                    <div>
+                        <span>Average Driver Control Points: </span><span id="TCAverageDCPoints">0</span>
+                    </div>
+                    <div>
+                        <span>Average Driver Accuracy: </span><span id="TCAverageDCAccuracy">0</span>
+                    </div>
+                    <div>
+                        <span>Auton Win Rate: </span><span id="TCAutonWR">0</span>
+                    </div>
+                    <h6> ____________________________________ </h6>
+                    <h6> Team 2 </h6>
+                    <div>
+                        <span>Average Auton Points: </span><span id="TCAverageAutonPoints2">0</span>
+                    </div>
+                    <div>
+                        <span>Average Auton Accuracy: </span><span id="TCAverageAutonAccuracy2">0</span>
+                    </div>
+                    <div>
+                        <span>Average Driver Control Points: </span><span id="TCAverageDCPoints2">0</span>
+                    </div>
+                    <div>
+                        <span>Average Driver Accuracy: </span><span id="TCAverageDCAccuracy2">0</span>
+                    </div>
+                    <div>
+                        <span>Auton Win Rate: </span><span id="TCAutonWR2">0</span>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="pills-Team-PitScouting-View">
-                <h5>Pit Scouting Results:</h5>
+        </div>
+        <div class="tab-pane fade" id="pills-Team-PitScouting-View">
+            <h5>Pit Scouting Results:</h5>
             <div class="d-flex align-items-center w-25">
                 <div class="col-auto">
                     <label for="PitscoutingTeamNumber">Team Number:</label>
