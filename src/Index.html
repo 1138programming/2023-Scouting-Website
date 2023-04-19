@@ -398,9 +398,9 @@
                 <p>Team Number:</p>
                 <input type="number" id="pitScoutingTeamNumber" required minlength="1" maxlength="6" size="8"
                     class="form-control form-inline w-25"></input>
-                <p>Competition ID:</p>
+                <!-- <p>Competition ID:</p>
                 <input type="number" id="pitScoutingCompetitionID" required minlength="1" maxlength="6" size="8"
-                    class="form-control form-inline w-25"></input>
+                    class="form-control form-inline w-25"></input> -->
             </ul>
 
             <h3>Pit Details</h3>
@@ -580,7 +580,7 @@
             </div>
 
             <div id="auton">
-                <h3>General describtion of Autonomous:</h3>
+                <h3>General description of Autonomous:</h3>
                 <ul>
                     <p>Do you gain mobility points?</p>
                     <div class="form-check">
@@ -599,7 +599,7 @@
                     </div>
                 </ul>
                 <ul>
-                    <p>How many are scored in each node?</p>
+                    <p>Where Can they Score?</p>
                     <table class="table" id="locationScored">
                         <thead>
                             <tr>
@@ -609,7 +609,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <!-- <tr>
                                 <th scope="row">Co-op High Node</th>
                                 <td>
                                     <div class="form-check">
@@ -650,7 +650,7 @@
                                         <input class="form-check-input" type="checkbox" id="co-opHybridNodeCubes">
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> -->
 
                             <tr>
                                 <th scope="row">High Node</th>
@@ -1873,11 +1873,12 @@
                 })
                 .then(() => { location.reload(); })
         }
-
+        const compidnum = 2;
         //Used to push all information from the pitscouting tab to the database
         function newPitScouting() {
             const pitScouting = {
-                competitionID: document.getElementById('pitScoutingCompetitionID').value,
+                // competitionID: document.getElementById('pitScoutingCompetitionID').value,
+                competitionID: compidnum,
                 teamNumber: document.getElementById('pitScoutingTeamNumber').value,
                 numBatteries: Number(document.getElementById('numberOfBatteries').value),
                 numBatChargers: Number(document.getElementById('numberOfChargers').value),
@@ -1895,12 +1896,12 @@
                 CycleTime: Number(document.getElementById('pitScoutingAverageCycletime').value),
                 endGameDockingActivation: Number($("input[type=radio][name=endGameChargingStationStatus]:checked").val()),
                 mobilityPoints: Number($("input[type=radio][name=MobilityBonusRadio]:checked").val()),
-                coopNodeTypeHighCone: document.getElementById('co-opHighNodeCones').checked,
-                coopNodeTypeHighCube: document.getElementById('co-opHighNodeCubes').checked,
-                coopNodeTypeMidCone: document.getElementById('co-opMiddleNodeCones').checked,
-                coopNodeTypeMidCube: document.getElementById('co-opMiddleNodeCubes').checked,
-                coopNodeTypeHybridCone: document.getElementById('co-opHybridNodeCones').checked,
-                coopNodeTypeHybridCube: document.getElementById('co-opHybridNodeCubes').checked,
+                // coopNodeTypeHighCone: document.getElementById('co-opHighNodeCones').checked,
+                // coopNodeTypeHighCube: document.getElementById('co-opHighNodeCubes').checked,
+                // coopNodeTypeMidCone: document.getElementById('co-opMiddleNodeCones').checked,
+                // coopNodeTypeMidCube: document.getElementById('co-opMiddleNodeCubes').checked,
+                // coopNodeTypeHybridCone: document.getElementById('co-opHybridNodeCones').checked,
+                // coopNodeTypeHybridCube: document.getElementById('co-opHybridNodeCubes').checked,
                 nodeTypeHighCone: document.getElementById('highNodeCones').checked,
                 nodeTypeHighCube: document.getElementById('highNodeCubes').checked,
                 nodeTypeMidCone: document.getElementById('middleNodeCones').checked,
@@ -1923,7 +1924,7 @@
                         'Content-Type': 'application/json'
                     }
                 })
-                .then(() => { location.reload(); })
+                // .then(() => { location.reload(); })
         }
 
         //Used to add one to the row and colomn specified in the funciton aswell as change the number visable on the webpage
