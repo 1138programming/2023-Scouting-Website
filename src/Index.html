@@ -395,9 +395,9 @@
                 <p>Team Number:</p>
                 <input type="number" id="pitScoutingTeamNumber" required minlength="1" maxlength="6" size="8"
                     class="form-control form-inline w-25"></input>
-                <p>Competition ID:</p>
+                <!-- <p>Competition ID:</p>
                 <input type="number" id="pitScoutingCompetitionID" required minlength="1" maxlength="6" size="8"
-                    class="form-control form-inline w-25"></input>
+                    class="form-control form-inline w-25"></input> -->
             </ul>
 
             <h3>Pit Details</h3>
@@ -577,7 +577,7 @@
             </div>
 
             <div id="auton">
-                <h3>General describtion of Autonomous:</h3>
+                <h3>General description of Autonomous:</h3>
                 <ul>
                     <p>Do you gain mobility points?</p>
                     <div class="form-check">
@@ -596,7 +596,7 @@
                     </div>
                 </ul>
                 <ul>
-                    <p>How many are scored in each node?</p>
+                    <p>Where Can they Score?</p>
                     <table class="table" id="locationScored">
                         <thead>
                             <tr>
@@ -606,7 +606,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <!-- <tr>
                                 <th scope="row">Co-op High Node</th>
                                 <td>
                                     <div class="form-check">
@@ -647,7 +647,7 @@
                                         <input class="form-check-input" type="checkbox" id="co-opHybridNodeCubes">
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> -->
 
                             <tr>
                                 <th scope="row">High Node</th>
@@ -844,11 +844,12 @@
                     <input type="number" id="teamNumberInfo" required minlength="1" maxlength="6" size="8"
                         class="form-control form-inline w-25"></input>
                     <button id="Loadbtn" onclick="LoadbtnPressed()" class="btn btn-primary mt-2 btn-lg">Load</button>
-                    <section>
+                    <!-- <section> -->
                         <h5>Data Graph</h5>
                         <div>
-                            <canvas id="myChart" height="600" width="1200"></canvas>
+                            <canvas id="myChart" height="600" width="600"></canvas>
                         </div>
+                    <!-- </section> -->
                         <h5>Match Averages</h5>
 
                         <div>
@@ -887,7 +888,6 @@
                         <div>
                             <span>Notes: </span><span id="NotesDisplay">0</span>
                         </div>
-                    </section>
                 </div>
             </div>
         </div>
@@ -1870,11 +1870,12 @@
                 })
                 .then(() => { location.reload(); })
         }
-
+        const compidnum = 2;
         //Used to push all information from the pitscouting tab to the database
         function newPitScouting() {
             const pitScouting = {
-                competitionID: document.getElementById('pitScoutingCompetitionID').value,
+                // competitionID: document.getElementById('pitScoutingCompetitionID').value,
+                competitionID: compidnum,
                 teamNumber: document.getElementById('pitScoutingTeamNumber').value,
                 numBatteries: Number(document.getElementById('numberOfBatteries').value),
                 numBatChargers: Number(document.getElementById('numberOfChargers').value),
@@ -1892,12 +1893,12 @@
                 CycleTime: Number(document.getElementById('pitScoutingAverageCycletime').value),
                 endGameDockingActivation: Number($("input[type=radio][name=endGameChargingStationStatus]:checked").val()),
                 mobilityPoints: Number($("input[type=radio][name=MobilityBonusRadio]:checked").val()),
-                coopNodeTypeHighCone: document.getElementById('co-opHighNodeCones').checked,
-                coopNodeTypeHighCube: document.getElementById('co-opHighNodeCubes').checked,
-                coopNodeTypeMidCone: document.getElementById('co-opMiddleNodeCones').checked,
-                coopNodeTypeMidCube: document.getElementById('co-opMiddleNodeCubes').checked,
-                coopNodeTypeHybridCone: document.getElementById('co-opHybridNodeCones').checked,
-                coopNodeTypeHybridCube: document.getElementById('co-opHybridNodeCubes').checked,
+                // coopNodeTypeHighCone: document.getElementById('co-opHighNodeCones').checked,
+                // coopNodeTypeHighCube: document.getElementById('co-opHighNodeCubes').checked,
+                // coopNodeTypeMidCone: document.getElementById('co-opMiddleNodeCones').checked,
+                // coopNodeTypeMidCube: document.getElementById('co-opMiddleNodeCubes').checked,
+                // coopNodeTypeHybridCone: document.getElementById('co-opHybridNodeCones').checked,
+                // coopNodeTypeHybridCube: document.getElementById('co-opHybridNodeCubes').checked,
                 nodeTypeHighCone: document.getElementById('highNodeCones').checked,
                 nodeTypeHighCube: document.getElementById('highNodeCubes').checked,
                 nodeTypeMidCone: document.getElementById('middleNodeCones').checked,
